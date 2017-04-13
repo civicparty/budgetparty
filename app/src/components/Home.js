@@ -23,11 +23,7 @@ export default class Home extends Component {
 
   render () {
     return (
-<<<<<<< HEAD
-      <div>
-=======
       <div className="home">
->>>>>>> aed6f9fa387b43a05c150aa67b7140f066c347f7
         <div className="text-center">
           <img src={logo} alt="Budget Party" className="logo"/>
         </div>
@@ -46,11 +42,7 @@ export default class Home extends Component {
           </div>
 
         </div>
-<<<<<<< HEAD
-        <Link to="/intro" className="auth-form__skip">Skip Login</Link>
-=======
         <Link to="/intro/1" className="auth-form__skip">Skip Login</Link>
->>>>>>> aed6f9fa387b43a05c150aa67b7140f066c347f7
       </div>
     )
   }

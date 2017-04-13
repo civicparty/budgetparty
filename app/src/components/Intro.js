@@ -1,8 +1,4 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
-import Navigation from './Navigation'
-import Route from 'react-router-dom'
-=======
 import { Route, Link } from 'react-router-dom'
 import moneyImg from '../images/money.svg'
 
@@ -32,18 +28,11 @@ const IntroPage = (props) => {
     </div>
   )
 }
->>>>>>> aed6f9fa387b43a05c150aa67b7140f066c347f7
 
 export default class Intro extends Component {
   render () {
     return (
-<<<<<<< HEAD
-      <div>
-        <Navigation isAuthed={this.props.authed} handleLogout={this.props.handleLogout}/>
-      </div>
-=======
       <Route path='/intro/:id' render={({match}) => <IntroPage {...match} text={introText[match.params.id - 1]} />} />
->>>>>>> aed6f9fa387b43a05c150aa67b7140f066c347f7
     )
   }
 }

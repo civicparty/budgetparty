@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import firebase from 'firebase'
-<<<<<<< HEAD
-import { firebaseAuth, googleAuthProvider } from '../config/constants'
-=======
 import { googleAuthProvider } from '../config/constants'
->>>>>>> aed6f9fa387b43a05c150aa67b7140f066c347f7
 import googleLogo from '../images/auth_service_google.svg'
 
 
