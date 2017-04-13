@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
 import { auth, login, resetPassword } from '../helpers/auth'
+=======
+import { auth, login } from '../helpers/auth'
+>>>>>>> aed6f9fa387b43a05c150aa67b7140f066c347f7
 
 function setErrorMsg(error) {
   return {

@@ -1,0 +1,32 @@
+@import "colors";
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px;
+  background: $white;
+}
+
+.intro__skip {
+  text-align: right;
+  padding: 20px 0;
+}
+
+.intro__img {
+  margin: 35px 0 50px;
+}
+
+.intro__text {
+  font-size: 22px;
+  text-align: center;
+  line-height: 32px;
+  margin-bottom: 40px;
+}
+
+.intro__start-button {
+  @include primary-button;
+}
+
+.intro__next-button {
+  @include secondary-button;
+}

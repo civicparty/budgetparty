@@ -1,11 +1,37 @@
+<<<<<<< HEAD
 @import "./sass/colors";
 @import "./sass/Home.scss";
 @import "./sass/buttons.scss";
+=======
+$nav_height: 65px;
+
+@import "./sass/colors";
+@import "./sass/buttons";
+@import "./sass/flexbox";
+@import "./sass/Home";
+@import "./sass/Intro";
+@import "./sass/Navigation";
+@import "./sass/TotalFundsAvailable";
+@import "./sass/ServiceFundsAvailable";
+@import "./sass/Dashboard";
+@import "./sass/PartyLevel";
+@import "./sass/PartyLevelHeader";
+@import "./sass/Service";
+
+html, body, #root,
+.container, .row,
+.intro {
+  height: 100%;
+}
+>>>>>>> aed6f9fa387b43a05c150aa67b7140f066c347f7
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+<<<<<<< HEAD
   background: $skyblue;
+=======
+>>>>>>> aed6f9fa387b43a05c150aa67b7140f066c347f7
   color: $text-color;
 }
