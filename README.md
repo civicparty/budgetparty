@@ -88,6 +88,11 @@ For more information, check out [CONTRIBUTING.md](/CONTRIBUTING.md)
 
 Here is a link to our [design assets and documentation](./design). Here are [open issues labeled "Design"](https://github.com/open-austin/hack-the-budget/issues?q=is%3Aissue+is%3Aopen+label%3Adesign) where you can discuss, provide feedback or volunteer to help.
 
+#### Noun Project Credit
+https://thenounproject.com/search/?q=bus+stop&i=462240
+https://thenounproject.com/search/?q=train+station+clock&i=20723
+https://thenounproject.com/term/train-tickets/977515/
+
 ### Development
 
 The Budget Party app is primarily written in javascript and leans heavily into the libraries [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/). The static assets are hosted via [Github pages](https://pages.github.com/). Data submitted to the server lives in a [Firebase](https://www.firebase.com/), a Google cloud service.

@@ -5,44 +5,35 @@ const partyLevels = [
      image: "titled_logo.svg",
      completeSections: 5,
      totalSections: 5,
-     desc: "The departments housed under community services provide services including providing environmental health services, animal services, and family health services, and managing the City’s libraries, parks, and affordable housing efforts."
+     desc: ""
    },
    {
      index: 1,
-     title: "Development",
-     image: "development.svg",
-     completeSections: 4,
+     title: "Transit Mode",
+     image: "infrastructure.svg",
+     completeSections: 0,
      totalSections: 4,
-     desc: "The departments housed under community services provide services including providing environmental health services, animal services, and family health services, and managing the City’s libraries, parks, and affordable housing efforts.",
-     serviceBudget: 956000000,
-     lastYearBudget: 920000000,
-     percentChange: 3.76,
+     desc: "There a many types of transit options CapMetro can invest in. Your choice will determine the type of public transit & how many vehicles are purchased.",
    },
    {
      index: 2,
-     title: "Infrastructure & Mobility",
-     image: "infrastructure.svg",
+     title: "Infrastructure & Guideway",
+     image: "bus_stop.svg",
      completeSections: 3,
      totalSections: 8,
-     desc: "The departments housed under community services provide services including providing environmental health services, animal services, and family health services, and managing the City’s libraries, parks, and affordable housing efforts."
+     desc: "Investing in new transit doesn't stop at buying the vehicles. Planners must also budget for infrastructure items like stops, rail track, or other guideway costs."
    },
    {
      index: 3,
-     title: "Public Safety",
-     image: "public_safety.svg",
-     desc: "The departments housed under community services provide services including providing environmental health services, animal services, and family health services, and managing the City’s libraries, parks, and affordable housing efforts."
-   },
-   {
-     index: 4,
-     title: "Community Services",
-     image: "community_services.svg",
-     desc: "The departments housed under community services provide services including providing environmental health services, animal services, and family health services, and managing the City’s libraries, parks, and affordable housing efforts."
+     title: "Operating Hours",
+     image: "operations.svg",
+     desc: "All transit runs on schedules. Your choice is to decide the frequency of service. How long will a rider potentially wait at a stop? Will you provide service late into the night or on weekends?"
    },
    {
      index: 5,
      title: "Budget Submission",
      image: "envelope.svg",
-     desc: "The departments housed under community services provide services including providing environmental health services, animal services, and family health services, and managing the City’s libraries, parks, and affordable housing efforts."
+     desc: ""
    },
 ]
 

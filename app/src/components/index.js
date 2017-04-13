@@ -78,7 +78,11 @@ export default class App extends Component {
         <div className="container">
           <div className="row">
             <Switch>
-              <Route path='/' exact render={() => <Redirect to="/login" />} />
+              <Route path='/' exact render={() => {
+                return this.state.authed
+                ? <Redirect to="/intro/1" />
+                : <Home />
+              }} />
               <Route path='/login' isAuthed={this.state.authed} render={() => {
                 return this.state.authed
                 ? <Redirect to="/intro/1" />
