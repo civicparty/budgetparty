@@ -1,14 +1,14 @@
 import React from 'react'
 
-const renderOverlay = (service) => {
-  let sign = service.percentChange > 0 ? '+' : '-'
-  if (service.percentChange === 0) sign = ''
+const renderOverlay = (level) => {
+  let sign = level.percentChange > 0 ? '+' : '-'
+  if (level.percentChange === 0) sign = ''
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
     maximumFractionDigits: 0,
   })
-  const serviceBudget = formatter.format(service.serviceBudget)
+  const serviceBudget = formatter.format(level.serviceBudget)
 
   return (
     <div className="PartyLevelHeader__overlay">
@@ -17,25 +17,25 @@ const renderOverlay = (service) => {
         {serviceBudget}
       </h2>
       <span className="PartyLevelHeader__change">
-        {sign}{service.percentChange}% from Last Year
+        {sign}{level.percentChange}% from Last Year
       </span>
     </div>
   )
 }
 
 const PartyLevelHeader = (props) => {
-  const { service } = props
-  const { totalSections, completeSections } = service
+  const { level } = props
+  const { totalSections, completeSections } = level
   const isComplete = totalSections - completeSections === 0
 
   const imgCssClass = isComplete ? 'PartyLevelHeader__image--complete' : 'PartyLevelHeader__image'
 
   return (
     <div className="PartyLevelHeader">
-      { isComplete && renderOverlay(service) }
+      { isComplete && renderOverlay(level) }
       <img
-        src={`../images/${service.image.split(".")[0]}_full.svg`}
-        alt={service.title}
+        src={`../images/${level.image.split(".")[0]}_full.svg`}
+        alt={level.title}
         className={imgCssClass}
       />
     </div>

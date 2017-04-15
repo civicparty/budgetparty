@@ -10,7 +10,7 @@ import {
 import Home from './Home'
 import Intro from './Intro'
 import Dashboard from './Dashboard'
-import Service from './Service'
+import Level from './Level'
 import ServiceBudget from './ServiceBudget'
 import User from './User'
 import { firebaseAuth } from '../config/constants'
@@ -89,12 +89,32 @@ export default class App extends Component {
                 : <Home />
                 }}
               />
-              <Route path='/intro/:id' render={(props) => <Intro {...props} authed={this.state.authed} handleLogout={this.handleLogout.bind(this)} />} />
-              <Route path='/dashboard' render={props => <Dashboard isAuthed={this.state.authed} handleLogout={this.handleLogout.bind(this)} />} />
-              <Route path='/service/:id' render={props => <Service {...props} isAuthed={this.state.authed} handleLogout={this.handleLogout.bind(this)} />} />
-              <Route path='/service/:service_id/budget/:id' render={props => <ServiceBudget {...props} isAuthed={this.state.authed} handleLogout={this.handleLogout.bind(this)} />} />
-              <Route path='/user' render={props => <User isAuthed={this.state.authed} handleLogout={this.handleLogout.bind(this)} />} />
-              <Route render={() => <h3>404, you ain't supposed to be here</h3>} />
+              <Route path='/intro/:id' render={ props => {
+                return <Intro {...props} authed={this.state.authed}
+                  handleLogout={this.handleLogout.bind(this)}
+                />
+              }}/>
+              <Route path='/dashboard' render={ props => {
+                return <Dashboard isAuthed={this.state.authed}
+                  handleLogout={this.handleLogout.bind(this)}
+                />
+              }}/>
+              <Route path='/level/:id' render={props => {
+                return <Level {...props} isAuthed={this.state.authed}
+                  handleLogout={this.handleLogout.bind(this)}
+                />
+              }}/>
+              <Route path='/level/:level_id/choices/:id' render={ props => {
+                return <ServiceBudget {...props} isAuthed={this.state.authed}
+                  handleLogout={this.handleLogout.bind(this)}
+                />
+              }}/>
+              <Route path='/user' render={ props => {
+                return <User isAuthed={this.state.authed}
+                  handleLogout={this.handleLogout.bind(this)}
+                />
+              }}/>
+              <Route render={() => <h3>Oops, you went off the tracks.</h3>} />
             </Switch>
           </div>
         </div>

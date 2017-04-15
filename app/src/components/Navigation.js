@@ -13,7 +13,7 @@ export default class Navigation extends Component {
       <nav className="Navigation">
         <div className="flexbox">
           {
-            this.props.service &&
+            this.props.level &&
             <div className="Navigation__back">
               <img
                 src={back}
@@ -24,14 +24,14 @@ export default class Navigation extends Component {
             </div>
           }
           {
-            !this.props.service &&
+            !this.props.level &&
               <Link to="/user" className="flex">
                 <img src={avatar} alt="User Account" className="Navigation__user-icon"/>
               </Link>
           }
           <TotalFundAvailable />
           {
-            this.props.service &&
+            this.props.level &&
               <ServiceFundsAvailable />
           }
         </div>

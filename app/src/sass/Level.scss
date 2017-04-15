@@ -1,33 +1,33 @@
-.Service {
+.Level {
   text-align: center;
 }
 
-.Service__body {
+.Level__body {
   padding: 25px 40px;
 }
 
-.Service__title {
+.Level__title {
   font-size: 26px;
   text-align: center;
   margin: 0 0 15px;
 }
 
-.Service__desc {
+.Level__desc {
   font-size: 16px;
   text-align: center;
   line-height: 24px;
 }
 
-.Service__next-button {
+.Level__next-button {
   @include primary-button;
 }
 
-.Service__review-buttons {
+.Level__review-buttons {
   display: flex;
   padding: 0 15%;
 }
 
-.Service__edit-button {
+.Level__edit-button {
   @include primary-button;
   width: 95px;
   font-size: 14px;
@@ -35,7 +35,7 @@
   min-width: auto;
 }
 
-.Service__done-button {
+.Level__done-button {
   @include secondary-button;
   width: 95px;
   font-size: 14px;

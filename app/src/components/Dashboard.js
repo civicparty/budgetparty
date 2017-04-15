@@ -12,7 +12,7 @@ export default class Dashboard extends Component {
 
         <div className="Dashboard__body">{
           partyLevels.map( (level) => {
-            let link = level.title === "Welcome" ? `/intro/1` : `/service/${level.index}`;
+            let link = level.title === "Welcome" ? `/intro/1` : `/level/${level.index}`;
 
             return (
               <Link to={link} key={level.index}>
