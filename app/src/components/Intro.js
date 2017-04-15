@@ -3,11 +3,11 @@ import { Route, Link } from 'react-router-dom'
 import moneyImg from '../images/money.svg'
 
 const introText = [
-  "As a council member you have $969.2 Million to fund services for all of Austin, Texas",
-  "This money comes from the General Fund for 2016-17",
-  "This money helps Austin run programs and employs 13,838 civil servants",
-  "Outside effects like population change and overall economic activity cause the fund to vary year to year",
-  "It's now up to you to make sure we allocate the funds and create a fair budget."
+  "Congratulations! CapMetro has been awarded a $xxx,xxx,xxx grant from the federal government to build better public transit.",
+  "You will have several hard choices to make about how the money is used.",
+  "Constituents will want frequent service and fast moving transit but with each choice comes costs",
+  "Use your capital budget from provided by the grant, try to minimize the Operating & Maintainence costs.",
+  "It's now up to you to make sure we build the best transit system."
 ]
 
 const IntroPage = (props) => {
