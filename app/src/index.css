@@ -37,9 +37,10 @@
   padding: 12px;
   background-color: #00A3DE;
   border-color: #00A3DE; }
-  .intro__start-button:hover {
-    color: #ffffff;
-    text-decoration: none; }
+
+.intro__start-button:hover {
+  color: #ffffff;
+  text-decoration: none; }
 
 .intro__next-button {
   width: 180px;
@@ -55,9 +56,10 @@
   padding: 12px;
   background-color: #50D200;
   border-color: #50D200; }
-  .intro__next-button:hover {
-    color: #ffffff;
-    text-decoration: none; }
+
+.intro__next-button:hover {
+  color: #ffffff;
+  text-decoration: none; }
 
 .Navigation {
   padding-left: 15px;
@@ -98,9 +100,10 @@
 .Dashboard__body {
   padding-top: 65px;
   height: 100%; }
-  .Dashboard__body a {
-    color: #4D4D4D;
-    text-decoration: none; }
+
+.Dashboard__body a {
+  color: #4D4D4D;
+  text-decoration: none; }
 
 .PartyLevel {
   height: 140px;
@@ -181,23 +184,23 @@
   font-size: 12px;
   text-transform: uppercase; }
 
-.Service {
+.Level {
   text-align: center; }
 
-.Service__body {
+.Level__body {
   padding: 25px 40px; }
 
-.Service__title {
+.Level__title {
   font-size: 26px;
   text-align: center;
   margin: 0 0 15px; }
 
-.Service__desc {
+.Level__desc {
   font-size: 16px;
   text-align: center;
   line-height: 24px; }
 
-.Service__next-button {
+.Level__next-button {
   width: 180px;
   background-color: #ffffff;
   border-color: #4D4D4D;
@@ -211,15 +214,16 @@
   padding: 12px;
   background-color: #00A3DE;
   border-color: #00A3DE; }
-  .Service__next-button:hover {
-    color: #ffffff;
-    text-decoration: none; }
 
-.Service__review-buttons {
+.Level__next-button:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
+.Level__review-buttons {
   display: flex;
   padding: 0 15%; }
 
-.Service__edit-button {
+.Level__edit-button {
   width: 180px;
   background-color: #ffffff;
   border-color: #4D4D4D;
@@ -237,11 +241,12 @@
   font-size: 14px;
   height: auto;
   min-width: auto; }
-  .Service__edit-button:hover {
-    color: #ffffff;
-    text-decoration: none; }
 
-.Service__done-button {
+.Level__edit-button:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
+.Level__done-button {
   width: 180px;
   background-color: #ffffff;
   border-color: #4D4D4D;
@@ -259,9 +264,59 @@
   font-size: 14px;
   height: auto;
   min-width: auto; }
-  .Service__done-button:hover {
-    color: #ffffff;
-    text-decoration: none; }
+
+.Level__done-button:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
+.Choices__cover {
+  padding-top: 65px;
+  height: 250px;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  background-color: #F8F8F8;
+  color: #4D4D4D; }
+
+.Choices__empty-text {
+  text-align: center; }
+
+.Choices__cover-overlay {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(245, 246, 245, 0.3);
+  height: 185px;
+  padding: 25px 5%; }
+
+.Choices__body {
+  padding: 25px 40px; }
+
+.Choices__mode-dropdown {
+  margin: 10px auto;
+  display: block;
+  font-size: 20px;
+  width: 100%; }
+
+.Choices__button {
+  width: 180px;
+  background-color: #ffffff;
+  border-color: #4D4D4D;
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 25px;
+  margin: auto;
+  padding: 12px;
+  background-color: #00A3DE;
+  border-color: #00A3DE;
+  margin-top: 20px; }
+
+.Choices__button:hover {
+  color: #ffffff;
+  text-decoration: none; }
 
 html, body, #root,
 .container, .row,

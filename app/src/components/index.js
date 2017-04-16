@@ -11,7 +11,7 @@ import Home from './Home'
 import Intro from './Intro'
 import Dashboard from './Dashboard'
 import Level from './Level'
-import ServiceBudget from './ServiceBudget'
+import Choices from './Choices'
 import User from './User'
 import { firebaseAuth } from '../config/constants'
 import { logout } from '../helpers/auth'
@@ -99,13 +99,13 @@ export default class App extends Component {
                   handleLogout={this.handleLogout.bind(this)}
                 />
               }}/>
-              <Route path='/level/:id' render={props => {
+              <Route exact path='/level/:id' render={props => {
                 return <Level {...props} isAuthed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}
                 />
               }}/>
-              <Route path='/level/:level_id/choices/:id' render={ props => {
-                return <ServiceBudget {...props} isAuthed={this.state.authed}
+              <Route path='/level/:level_id/choices' render={ props => {
+                return <Choices {...props} isAuthed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}
                 />
               }}/>

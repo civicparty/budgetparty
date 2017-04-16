@@ -42,10 +42,10 @@ export default class Level extends Component {
                 </Link>
               </div>
             :
-              <Link to={`/level/${level.index}/choices/1`}
+              <Link to={`/level/${level.index}/choices`}
                 className="Level__next-button"
               >
-                {(level.index + 1) < partyLevels.length ? 'Start Budgeting' : 'Review Final Budget'}
+                {(level.index + 1) < partyLevels.length ? 'View Choices' : 'Review Final Budget'}
               </Link>
           }
 
