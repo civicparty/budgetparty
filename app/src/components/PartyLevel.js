@@ -5,22 +5,25 @@ import lock from '../images/lock.svg'
 
 const PartyLevel = (props) => {
 
-  const {totalSections, completeSections } = props
+  const { totalSections, completeSections } = props
   const isComplete = totalSections - completeSections === 0
   const isInProgress = completeSections > 0
   const isUnstarted = !isComplete && !isInProgress
   const partyLevelCssClass = isComplete ? 'PartyLevel--complete' : 'PartyLevel'
-  const imgCssClass = isUnstarted ? 'PartyLevel__image--unstarted' : 'PartyLevel__image'
+  // const imgCssClass = isUnstarted ? 'PartyLevel__image--unstarted' : 'PartyLevel__image'
   let percentChange = "3.2"
 
   const statusIcon = () => {
     if (isComplete){
-      return check
-    } else if (isInProgress) {
-      return pencil
+      return check;
     } else {
-      return lock
+      return pencil;
     }
+    // } else if (isInProgress) {
+    //   return pencil
+    // } else {
+    //   return lock
+    // }
   }
 
   const progressMessage = (index) => {
@@ -32,23 +35,23 @@ const PartyLevel = (props) => {
     }
   }
 
-  const titleCssClass = () => {
-    if (isComplete || isInProgress){
-      return 'PartyLevel__title'
-    } else {
-      return 'PartyLevel__title--unstarted'
-    }
-  }
+  // const titleCssClass = () => {
+  //   if (isComplete || isInProgress){
+  //     return 'PartyLevel__title'
+  //   } else {
+  //     return 'PartyLevel__title--unstarted'
+  //   }
+  // }
 
   return (
     <div className={partyLevelCssClass}>
       <img src={`../images/${props.image}`}
         alt={props.title}
-        className={imgCssClass}
+        className="PartyLevel__image"
       />
       <div className="PartyLevel__details">
         <img src={statusIcon()} alt={props.title} className="PartyLevel__status"/>
-        <h2 className={titleCssClass()}>{props.title}</h2>
+        <h2 className="PartyLevel__title">{props.title}</h2>
         <span className="PartyLevel__progress">{progressMessage(props.index)}</span>
       </div>
     </div>
