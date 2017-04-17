@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import Navigation from './Navigation'
 import partyLevels from '../config/partyLevels.js'
@@ -72,9 +73,9 @@ export default class Choices extends Component {
                 <div className="Choices__description">
                   { activeMode.desc }
                 </div>
-                <div className="Choices__button">
+                <Link to={`/dashboard/`} className="Choices__button" >
                   Select & Continue
-                </div>
+                </Link>
               </div>
               :
               <h3 className="Choices__empty-text">

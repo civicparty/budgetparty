@@ -35,4 +35,5 @@
 .Choices__button {
   @include primary-button;
   margin-top: 20px;
+  display: block;
 }
