@@ -5,8 +5,9 @@ import './index.css';
 
 import Store from './store'
 import { Provider } from 'react-redux'
-
-const storeInstance = Store();
+import InitialState from './config/InitialState';
+const storeInstance = Store(InitialState);
+debugger
 
 ReactDOM.render(
   <Provider store={storeInstance}>

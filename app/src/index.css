@@ -37,10 +37,9 @@
   padding: 12px;
   background-color: #00A3DE;
   border-color: #00A3DE; }
-
-.intro__start-button:hover {
-  color: #ffffff;
-  text-decoration: none; }
+  .intro__start-button:hover {
+    color: #ffffff;
+    text-decoration: none; }
 
 .intro__next-button {
   width: 180px;
@@ -56,10 +55,9 @@
   padding: 12px;
   background-color: #50D200;
   border-color: #50D200; }
-
-.intro__next-button:hover {
-  color: #ffffff;
-  text-decoration: none; }
+  .intro__next-button:hover {
+    color: #ffffff;
+    text-decoration: none; }
 
 .Navigation {
   padding-left: 15px;
@@ -100,10 +98,9 @@
 .Dashboard__body {
   padding-top: 65px;
   height: 100%; }
-
-.Dashboard__body a {
-  color: #4D4D4D;
-  text-decoration: none; }
+  .Dashboard__body a {
+    color: #4D4D4D;
+    text-decoration: none; }
 
 .PartyLevel {
   height: 140px;
@@ -214,10 +211,9 @@
   padding: 12px;
   background-color: #00A3DE;
   border-color: #00A3DE; }
-
-.Level__next-button:hover {
-  color: #ffffff;
-  text-decoration: none; }
+  .Level__next-button:hover {
+    color: #ffffff;
+    text-decoration: none; }
 
 .Level__review-buttons {
   display: flex;
@@ -241,10 +237,9 @@
   font-size: 14px;
   height: auto;
   min-width: auto; }
-
-.Level__edit-button:hover {
-  color: #ffffff;
-  text-decoration: none; }
+  .Level__edit-button:hover {
+    color: #ffffff;
+    text-decoration: none; }
 
 .Level__done-button {
   width: 180px;
@@ -264,10 +259,9 @@
   font-size: 14px;
   height: auto;
   min-width: auto; }
-
-.Level__done-button:hover {
-  color: #ffffff;
-  text-decoration: none; }
+  .Level__done-button:hover {
+    color: #ffffff;
+    text-decoration: none; }
 
 .Choices__cover {
   padding-top: 65px;
@@ -312,11 +306,11 @@
   padding: 12px;
   background-color: #00A3DE;
   border-color: #00A3DE;
-  margin-top: 20px; }
-
-.Choices__button:hover {
-  color: #ffffff;
-  text-decoration: none; }
+  margin-top: 20px;
+  display: block; }
+  .Choices__button:hover {
+    color: #ffffff;
+    text-decoration: none; }
 
 html, body, #root,
 .container, .row,

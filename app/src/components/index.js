@@ -11,37 +11,18 @@ import Home from './Home'
 import Intro from './Intro'
 import Dashboard from './Dashboard'
 import Level from './Level'
-import Choices from './Choices'
+import ChoicesContainer from './ChoicesContainer'
 import User from './User'
 import { firebaseAuth } from '../config/constants'
 import { logout } from '../helpers/auth'
 
-// function PrivateRoute ({component: Component, authed, ...rest}) {
-//   return (
-//     <Route
-//       {...rest}
-//       render={(props) => authed === true
-//         ? <Component {...props} />
-//         : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
-//     />
-//   )
-// }
-//
-// function PublicRoute ({component: Component, authed, ...rest}) {
-//   return (
-//     <Route
-//       {...rest}
-//       render={(props) => authed === false
-//         ? <Component {...props} />
-//         : <Redirect to='/intro' />}
-//     />
-//   )
-// }
-
 export default class App extends Component {
-  state = {
-    authed: false,
-    loading: true,
+  constructor(props) {
+    super(props);
+    this.state = {
+      authed: false,
+      loading: true,
+    }
   }
 
   updateAuthState(user) {
@@ -105,7 +86,7 @@ export default class App extends Component {
                 />
               }}/>
               <Route path='/level/:level_id/choices' render={ props => {
-                return <Choices {...props} isAuthed={this.state.authed}
+                return <ChoicesContainer {...props} isAuthed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}
                 />
               }}/>

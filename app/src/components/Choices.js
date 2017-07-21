@@ -8,20 +8,18 @@ import modeChoices from '../config/modeChoices.js'
 export default class Choices extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      activeModeId: ''
-    }
-
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   handleSelectChange(e) {
-    this.setState({ activeModeId: e.target.value });
+    console.log('handlingSelectChange', e.target.value)
+    this.props.changeModeSelect(e.target.value);
   }
 
   render () {
     const level = partyLevels[this.props.match.params.level_id];
-    const { activeModeId } = this.state;
+    debugger
+    const { activeModeId } = this.props.state;
     const activeMode =  modeChoices[activeModeId];
 
     const imageStyle = {

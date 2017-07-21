@@ -1,6 +1,6 @@
 // create payload for reducers
 
-export function selectTransitMode(modeType) {
+export const selectTransitMode = (modeType) => {
   console.log("selectTransitMode", modeType);
   return {
     type: 'SELECT_TRANSIT_MODE',
