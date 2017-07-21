@@ -10,6 +10,10 @@ const config = {
 
 firebase.initializeApp(config)
 
-export const ref = firebase.database().ref()
+export const database = firebase.database()
 export const firebaseAuth = firebase.auth
 export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
+export const constants = {
+  LAST_YEAR: 2016,
+}

@@ -20,6 +20,10 @@
 
 .Level__next-button {
   @include primary-button;
+&:hover{
+background-color: $darkbluish;
+}
+
 }
 
 .Level__review-buttons {

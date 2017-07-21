@@ -1,41 +1,107 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+import { FormattedNumber } from 'react-intl'
+import { constants } from '../config/constants'
 
-const renderOverlay = (level) => {
-  let sign = level.percentChange > 0 ? '+' : '-'
-  if (level.percentChange === 0) sign = ''
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  })
-  const serviceBudget = formatter.format(level.serviceBudget)
+const getSign = (number) => {
+  let sign = ''
 
-  return (
-    <div className="PartyLevelHeader__overlay">
-      <span className="PartyLevelHeader__status">You Did It!</span>
-      <h2 className="PartyLevelHeader__value">
-        {serviceBudget}
-      </h2>
-      <span className="PartyLevelHeader__change">
-        {sign}{level.percentChange}% from Last Year
-      </span>
-    </div>
-  )
+  if (number.percentChange > 0) {
+    sign = '+'
+  } else if (number.percentChange < 0) {
+    sign = '-'
+  }
+
+  return sign
 }
 
 const PartyLevelHeader = (props) => {
-  const { level } = props
-  const { totalSections, completeSections } = level
-  const isComplete = totalSections - completeSections === 0
+  const { service, services, department, departments } = props;
 
-  const imgCssClass = isComplete ? 'PartyLevelHeader__image--complete' : 'PartyLevelHeader__image'
+  const isServiceComplete = department ? false : service.status === 'complete'
+  const isUnstarted = department && department.amount === null
+  const isInProgress = department && department.amount !== null
+  const imgCssClass = isServiceComplete ? 'PartyLevelHeader__image--complete' : 'PartyLevelHeader__image'
+
+  const handleReset = (deptId, departments, service, services) => {
+    props.resetBudgetAmount(deptId, departments, service, services);
+  };
+
+  const renderFinishedOverlay = (serv) => {
+    const sign = getSign(serv)
+
+    return (
+      <div className="PartyLevelHeader__overlay--green">
+        <span className="PartyLevelHeader__status">
+          You Did It!
+        </span>
+        <h2 className="PartyLevelHeader__value">
+          <FormattedNumber
+            value={service.amount}
+            style="currency" //eslint-disable-line
+            currency="USD"
+            minimumFractionDigits={0}
+            maximumFractionDigits={0}
+          />
+        </h2>
+        <span className="PartyLevelHeader__change">
+          {sign} {Math.abs(service.percentChange)}% from Last Year
+        </span>
+      </div>
+    )
+  }
+
+  const renderInProgressOverlay = (dept) => {
+    const sign = getSign(dept)
+
+    return (
+      <div className="PartyLevelHeader__overlay--grey">
+        <span className="PartyLevelHeader__change">
+          {sign} {Math.abs(dept.percentChange)}% from Last Year
+        </span>
+        <h2 className="PartyLevelHeader__value">
+          <FormattedNumber
+            value={dept.amount}
+            style="currency"  //eslint-disable-line
+            currency="USD"
+            minimumFractionDigits={0}
+            maximumFractionDigits={0}
+          />
+        </h2>
+        <span className="PartyLevelHeader__reset" onClick={handleReset.bind(this, dept.deptId, departments, service, services)}>
+          Reset
+        </span>
+      </div>
+    )
+  }
+
+  const renderStartingOverlay = (dept) => {
+    return (
+      <div className="PartyLevelHeader__overlay--grey">
+        <span className="PartyLevelHeader__change">
+          Department Spending from {constants.LAST_YEAR}
+        </span>
+        <h2 className="PartyLevelHeader__value">
+          <FormattedNumber
+            value={dept.lastYearAmount}
+            style="currency"  //eslint-disable-line
+            currency="USD"
+            minimumFractionDigits={0}
+            maximumFractionDigits={0}
+          />
+        </h2>
+      </div>
+    )
+  }
 
   return (
     <div className="PartyLevelHeader">
-      { isComplete && renderOverlay(level) }
+      { isServiceComplete && renderFinishedOverlay(service, department) }
+      { isInProgress && renderInProgressOverlay(department) }
+      { isUnstarted && renderStartingOverlay(department) }
       <img
-        src={`../images/${level.image.split(".")[0]}_full.svg`}
-        alt={level.title}
+        src={`/images/${service.image.split('.')[0]}_full.svg`}
+        alt={service.title}
         className={imgCssClass}
       />
     </div>
@@ -43,3 +109,32 @@ const PartyLevelHeader = (props) => {
 }
 
 export default PartyLevelHeader
+
+PartyLevelHeader.propTypes = {
+  service: PropTypes.shape({
+    completeSections: PropTypes.number,
+    departments: PropTypes.arrayOf(
+      PropTypes.number,
+    ),
+    desc: PropTypes.string,
+    image: PropTypes.string,
+    index: PropTypes.number,
+    percentChange: PropTypes.number,
+    status: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
+  services: PropTypes.arrayOf(PropTypes.object).isRequired,
+  department: PropTypes.shape({
+    amount: PropTypes.number,
+    amount2015: PropTypes.number,
+    deptId: PropTypes.number,
+    description: PropTypes.string,
+    explainYourSpending: PropTypes.string,
+    lastYearAmount: PropTypes.number,
+    learnMore: PropTypes.string,
+    name: PropTypes.string,
+    percentChange: PropTypes.number,
+    url: PropTypes.string,
+  }),
+  resetBudgetAmount: PropTypes.func,
+};

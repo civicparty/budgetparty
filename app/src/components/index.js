@@ -1,75 +1,82 @@
 import React, { Component } from 'react'
-import 'bootstrap/dist/css/bootstrap.css'
-import {
-  Route,
-  BrowserRouter as Router,
-  Redirect,
-  Switch
-} from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { IntlProvider, addLocaleData } from 'react-intl'
+import en from 'react-intl/locale-data/en';
+import es from 'react-intl/locale-data/es';
+import { Route, Router, Redirect, Switch } from 'react-router-dom'
+import ReactGA from 'react-ga'
+import createHistory from 'history/createBrowserHistory'
 
 import Home from './Home'
 import Intro from './Intro'
-import Dashboard from './Dashboard'
-import Level from './Level'
-import Choices from './Choices'
+import DashboardContainer from '../containers/Dashboard'
+import ServiceContainer from '../containers/Service'
+import DepartmentContainer from '../containers/Department'
+import LearnMore from './Department/LearnMore'
+import ExplainContainer from '../containers/Explain'
+import SubmitContainer from '../containers/Submit'
 import User from './User'
+import Done from './Done'
 import { firebaseAuth } from '../config/constants'
 import { logout } from '../helpers/auth'
+import Landing from './Landing';
 
-// function PrivateRoute ({component: Component, authed, ...rest}) {
-//   return (
-//     <Route
-//       {...rest}
-//       render={(props) => authed === true
-//         ? <Component {...props} />
-//         : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
-//     />
-//   )
-// }
-//
-// function PublicRoute ({component: Component, authed, ...rest}) {
-//   return (
-//     <Route
-//       {...rest}
-//       render={(props) => authed === false
-//         ? <Component {...props} />
-//         : <Redirect to='/intro' />}
-//     />
-//   )
-// }
+import store from '../store';
+
+// Google Analytics
+ReactGA.initialize('UA-64394324-4')
+const history = createHistory()
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname })
+  ReactGA.pageview(location.pathname)
+});
+
+// Internationalization 🌎
+addLocaleData([...en, ...es]);
+const language = (navigator.languages && navigator.languages[0]) ||
+                     navigator.language ||
+                     navigator.userLanguage;
 
 export default class App extends Component {
-  state = {
-    authed: false,
-    loading: true,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      authed: false,
+      loading: true,
+      user: {},
+    }
+  }
+
+  componentDidMount() {
+    this.removeListener = firebaseAuth().onAuthStateChanged(user => this.updateAuthState(user))
+  }
+
+  componentWillUnmount() {
+    this.removeListener()
   }
 
   updateAuthState(user) {
-    console.log(user);
     if (user) {
       this.setState({
         authed: true,
         loading: false,
+        user,
       })
     } else {
       this.setState({
-        loading: false
+        loading: false,
       })
     }
   }
 
-  componentDidMount () {
-    this.removeListener = firebaseAuth().onAuthStateChanged(user => this.updateAuthState(user))
-  }
-
-  componentWillUnmount () {
-    this.removeListener()
-  }
-
   handleLogout() {
-    console.log("LOGGED OUT")
-    logout()
-    this.setState({authed: false})
+    const warning = confirm('Are you sure you want to log out?')
+    if (warning) {
+      console.log("LOGGED OUT")
+      logout()
+      this.setState({ authed: false })
+    }
   }
 
   render() {
