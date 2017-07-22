@@ -24,9 +24,9 @@ import Landing from './Landing';
 import store from '../store';
 
 // Google Analytics
-ReactGA.initialize('UA-64394324-4')
+ReactGA.initialize('')
 const history = createHistory()
-history.listen((location) => {
+  history.listen((location) => {
   ReactGA.set({ page: location.pathname })
   ReactGA.pageview(location.pathname)
 });
@@ -81,7 +81,7 @@ export default class App extends Component {
 
   render() {
     return this.state.loading === true ? <h1>Loading</h1> : (
-      <Router>
+      <Router history={history}>
         <div className="container">
           <div className="row">
             <Switch>
@@ -102,7 +102,7 @@ export default class App extends Component {
                 />
               }}/>
               <Route path='/dashboard' render={ props => {
-                return <Dashboard isAuthed={this.state.authed}
+                return <DashboardContainer isAuthed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}
                 />
               }}/>

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Submit from '../components/Submit/Index'
+import Submit from '../components/Submit/Index.js'
 import { database } from '../config/constants'
 
 // import any actions

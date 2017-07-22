@@ -6,12 +6,12 @@
     "gh-pages": "^1.0.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
-    "react-redux": "^5.0.4",
     "react-scripts": "0.7.0",
-    "redux": "^3.6.0",
     "underscore": "^1.8.3"
   },
   "dependencies": {
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
     "accounting": "^0.4.1",
     "babel-eslint": "^7.2.3",
     "bootstrap": "^3.3.7",
