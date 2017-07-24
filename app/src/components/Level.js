@@ -15,6 +15,7 @@ export default class Level extends Component {
     return (
       <div>
         <Navigation {...this.props}
+          showBack
           level={level}
           isAuthed={this.props.isAuthed}
           handleLogout={this.props.handleLogout}

@@ -30,13 +30,13 @@ export default class Dashboard extends Component {
 
     return (
       <div>
-        <Navigation
-          // showUser showTotalFunds user={user} funds={funds}
+        <Navigation showUser user={user}
+          // showTotalFunds funds={funds}
         />
 
         <div className="Dashboard__body">{
           partyLevels.map( (level) => {
-            let link = level.title === "Welcome" ? `/intro/1` : `/level/${level.index}`;
+            const link = level.title === "Welcome" ? `/intro/1` : `/level/${level.index}`;
 
             return (
               <Link to={link} key={level.index}>
