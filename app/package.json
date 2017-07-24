@@ -6,10 +6,10 @@
     "gh-pages": "^1.0.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
-    "react-scripts": "0.7.0",
-    "underscore": "^1.8.3"
+    "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "underscore": "^1.8.3",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "accounting": "^0.4.1",

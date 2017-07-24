@@ -1,9 +1,15 @@
 const modeChoices = [
   {
     id: 0,
-    type: "Rapid Bus",
-    desc: "Snackwave tbh ennui, squid jianbing lyft XOXO. Hoodie woke iPhone, etsy roof party locavore tote bag microdosing retro authentic raclette hammock venmo 90's.",
-    image: "modes/rapid_bus.jpg"
+    type: 'Rapid Bus',
+    desc: 'Snackwave tbh ennui, squid jianbing lyft XOXO. Hoodie woke iPhone, etsy roof party locavore tote bag microdosing retro authentic raclette hammock venmo 90\'s.',
+    image: 'modes/rapid_bus.jpg',
+    guidewayChoices: [{
+      id: 0,
+      type: 'Mixed Traffic',
+      desc: 'Snackwave tbh ennui, squid jianbing lyft XOXO. Hoodie woke iPhone, etsy roof party locavore tote bag microdosing retro authentic raclette hammock venmo 90',
+      image: 'modes/rapid_bus.jpg',
+    }],
   }, {
     id: 1,
     type: "Bus Rapid Transit",
