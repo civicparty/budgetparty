@@ -14,7 +14,7 @@ export default class DropdownChoices extends Component {
     return (
       <div className="Choices__body">
         <select name="modeChoice"
-          onChange={handleSelectChange}
+          onChange={e => handleSelectChange(e, level.index)}
           className="Choices__mode-dropdown"
           value={activeChoiceId}
         >

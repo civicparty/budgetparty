@@ -4,13 +4,14 @@ function choices(state = [], action = {}) {
       const marketId = Number(action.marketId)
       return Object.assign({}, state, { marketId: marketId })
     case 'SELECT_MODE_TYPE':
-      console.log('select Mode Type', state)
-    case 'SELECT_MODE_TYPE':
-      console.log('select Mode Type', state)
+      const modeId = Number(action.modeId)
+      return Object.assign({}, state, { modeId: modeId })
     case 'SELECT_GUIDEWAY_TYPE':
-      console.log('select Guideway Type', state)
+      const guidewayId = Number(action.guidewayId)
+      return Object.assign({}, state, { guidewayId: guidewayId })
     case 'SELECT_SERVICE_TIMES':
-      console.log('select Guideway Type', state)
+      const { serviceTimes } = action;
+      return Object.assign({}, state, { serviceTimes: serviceTimes })
     default:
       return state;
   }

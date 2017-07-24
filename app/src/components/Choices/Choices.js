@@ -16,25 +16,27 @@ export default class Choices extends Component {
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
-  handleSelectChange(e) {
-    this.props.onSelectMarket(e.target.value);
-    // this.setState({ activeChoiceId: e.target.value });
+  handleSelectChange(e, levelId) {
+    console.log('levelId', levelId)
+    return levelId === 1 ? this.props.onSelectMarket(e.target.value) :
+           levelId === 2 ? this.props.onSelectMode(e.target.value) :
+           levelId === 3 ? this.props.onSelectGuideway(e.target.value) :
+           levelId === 4 ? this.props.onSelectTimes(e.target.value) : ''
   }
 
   render() {
-    console.log(this.props.choices)
     const level = partyLevels[this.props.match.params.level_id];
     const { marketId, modeId, guidewayId } = this.props.choices;
-    const guidewayChoices = modeId ?
+    const guidewayChoices = modeId && modeChoices[modeId] ?
                               modeChoices[modeId].guidewayChoices :
                               modeChoices[0].guidewayChoices;
     const choices = level.index === 1 ? marketChoices :
                     level.index === 2 ? modeChoices :
                     level.index === 3 ? guidewayChoices : '';
     const activeChoiceId = level.index === 1 ? marketId :
-                    level.index === 2 ? modeId :
-                    level.index === 3 ? guidewayId : '';
-    const activeChoice = activeChoiceId ? choices[activeChoiceId] : choices[0]
+                           level.index === 2 ? modeId :
+                           level.index === 3 ? guidewayId : '';
+    const activeChoice = activeChoiceId ? choices[activeChoiceId - 1] : ''
     const showDropdown = _.contains([1, 2, 3], level.index);
 
     const imageStyle = {

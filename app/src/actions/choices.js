@@ -4,3 +4,24 @@ export function selectMarketType(marketId) {
     marketId,
   };
 }
+
+export function selectModeType(modeId) {
+  return {
+    type: 'SELECT_MODE_TYPE',
+    modeId,
+  };
+}
+
+export function selectGuidewayType(guidewayId) {
+  return {
+    type: 'SELECT_GUIDEWAY_TYPE',
+    guidewayId,
+  };
+}
+
+export function selectServiceTimes(serviceTimes) {
+  return {
+    type: 'SELECT_SERVICE_TIMES',
+    serviceTimes,
+  };
+}
