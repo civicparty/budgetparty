@@ -1,11 +1,8 @@
 import { combineReducers } from 'redux';
-
-import levels from './levels';
-import selections from './selections';
+import choices from './choices';
 
 const rootReducer = combineReducers({
-  levels,
-  selections,
+  choices,
 });
 
 export default rootReducer;

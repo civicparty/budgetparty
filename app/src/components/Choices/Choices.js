@@ -10,26 +10,30 @@ import modeChoices from '../../config/modeChoices'
 export default class Choices extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      activeChoiceId: '',
-    }
-
+    // this.state = {
+    //   activeChoiceId: '',
+    // }
     this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   handleSelectChange(e) {
-    this.setState({ activeChoiceId: e.target.value });
+    this.props.onSelectMarket(e.target.value);
+    // this.setState({ activeChoiceId: e.target.value });
   }
 
   render() {
+    console.log(this.props.choices)
     const level = partyLevels[this.props.match.params.level_id];
-    const { activeChoiceId } = this.state;
-    const guidewayChoices = activeChoiceId ?
-                              modeChoices[activeChoiceId].guidewayChoices :
+    const { marketId, modeId, guidewayId } = this.props.choices;
+    const guidewayChoices = modeId ?
+                              modeChoices[modeId].guidewayChoices :
                               modeChoices[0].guidewayChoices;
     const choices = level.index === 1 ? marketChoices :
                     level.index === 2 ? modeChoices :
                     level.index === 3 ? guidewayChoices : '';
+    const activeChoiceId = level.index === 1 ? marketId :
+                    level.index === 2 ? modeId :
+                    level.index === 3 ? guidewayId : '';
     const activeChoice = activeChoiceId ? choices[activeChoiceId] : choices[0]
     const showDropdown = _.contains([1, 2, 3], level.index);
 

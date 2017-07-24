@@ -16,7 +16,7 @@ import LearnMore from './Department/LearnMore'
 import ExplainContainer from '../containers/Explain'
 import SubmitContainer from '../containers/Submit'
 import Level from './Level'
-import Choices from './Choices/Choices'
+import ChoicesContainer from '../containers/Choices'
 import User from './User'
 import Done from './Done'
 import { firebaseAuth } from '../config/constants'
@@ -114,7 +114,7 @@ export default class App extends Component {
                 />
               }}/>
               <Route path='/level/:level_id/choices' render={ props => {
-                return <Choices {...props} isAuthed={this.state.authed}
+                return <ChoicesContainer {...props} isAuthed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}
                 />
               }}/>

@@ -16,6 +16,7 @@ export default class DropdownChoices extends Component {
         <select name="modeChoice"
           onChange={handleSelectChange}
           className="Choices__mode-dropdown"
+          value={activeChoiceId}
         >
           <option value="">Select a {level.title}</option>{
             choices.map((item) => {

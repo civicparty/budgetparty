@@ -1,6 +1,6 @@
 import InitialState from '../config/InitialState';
 
-function funds(state = InitialState.funds, action = {}) {
+export default(state = InitialState.funds, action = {}) {
   switch (action.type) {
     case 'CHANGE_REMAINING_FUNDS_AMOUNT':
       const newFunds = state
@@ -21,5 +21,3 @@ function funds(state = InitialState.funds, action = {}) {
 
   }
 }
-
-export default funds;
