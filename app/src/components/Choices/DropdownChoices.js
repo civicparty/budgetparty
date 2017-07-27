@@ -21,7 +21,7 @@ export default class DropdownChoices extends Component {
             choices.map((item) => {
               return (
                 <option value={item.id} key={item.id}>
-                  {item.type}
+                  {item.title}
                 </option>
               )
             })
@@ -29,7 +29,7 @@ export default class DropdownChoices extends Component {
 
         { activeChoiceId ?
           <div>
-            <h2>{ activeChoice.type }</h2>
+            <h2>{ activeChoice.title }</h2>
             <div className="Choices__description">
               { activeChoice.desc }
             </div>

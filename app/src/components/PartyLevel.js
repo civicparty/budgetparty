@@ -14,8 +14,8 @@ const PartyLevel = (props) => {
     index,
     completeSections,
     market,
-    modeId,
-    guidewayId,
+    mode,
+    guideway,
     serviceTimes,
   } = props
 
@@ -35,23 +35,6 @@ const PartyLevel = (props) => {
     } return lock
   }
 
-  const progressMessage = (i) => {
-    let changeText
-
-    if (percentChange === 0) {
-      changeText = '0% Change in Funding'
-    } else {
-      changeText = `${incrOrDecr} Funding ${percentChange}%`
-    }
-
-    if (isComplete) {
-      if (i === 0) return // Don't show anything for Welcome
-      return changeText
-    } else if (isInProgress) {
-      return `${completeSections || 0}/${departments.length} Complete`
-    }
-  }
-
   const titleCssClass = () => {
     if (isComplete || isInProgress) {
       return 'PartyLevel__title'
@@ -60,12 +43,17 @@ const PartyLevel = (props) => {
     }
   }
 
-  const selectedChoices = [market, modeId, guidewayId, serviceTimes];
+  const selectedChoices = [market, mode, guideway, serviceTimes];
 
   const selectedChoiceText = (index, selectedChoices) => {
     const selectedChoice = selectedChoices[index - 1]
+    const title = selectedChoice && selectedChoice.title
+    
+    console.log('selectedChoices', selectedChoices)
+    console.log('selectedChoices', selectedChoice)
+    console.log('title', title)
 
-    return selectedChoice && selectedChoice.type
+    return title
   }
 
   return (

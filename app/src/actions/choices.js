@@ -5,19 +5,17 @@ export function selectMarketType(marketChoice) {
   };
 }
 
-export function selectModeType(modeId, selectText) {
+export function selectModeType(modeChoice) {
   return {
     type: 'SELECT_MODE_TYPE',
-    modeId,
-    selectText,
+    modeChoice,
   };
 }
 
-export function selectGuidewayType(guidewayId, selectText) {
+export function selectGuidewayType(guidewayChoice) {
   return {
     type: 'SELECT_GUIDEWAY_TYPE',
-    guidewayId,
-    selectText,
+    guidewayChoice,
   };
 }
 

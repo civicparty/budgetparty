@@ -7,11 +7,13 @@ function choices(state = [], action = {}) {
       return Object.assign({}, state, marketState)
 
     case 'SELECT_MODE_TYPE':
-      const modeId = Number(action.modeId)
-      return Object.assign({}, state, { modeId: { id: modeId, text: action.selectText} })
+      const modeState = { mode: action.modeChoice }
+      return Object.assign({}, state, modeState)
+
     case 'SELECT_GUIDEWAY_TYPE':
-      const guidewayId = Number(action.guidewayId)
-      return Object.assign({}, state, { guidewayId: { id: guidewayId, text: action.selectText }  })
+      const guidewayState = { guideway: action.guidewayChoice }
+      return Object.assign({}, state, guidewayState)
+
     case 'SELECT_SERVICE_TIMES':
       const serviceId = Number(action.serviceId);
       const updated = _.clone(state)

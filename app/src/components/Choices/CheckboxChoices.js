@@ -20,7 +20,7 @@ export default class CheckboxChoices extends Component {
           return (
             <p key={option.id}>
               <input type="checkbox" value={option.id} id={option.id}
-                name={option.type} checked={isChecked}
+                name={option.title} checked={isChecked}
                 onChange={e => handleChange(e, level.index, choices)}
               />
               <label htmlFor={option.id}>{option.title} ({option.times})</label>

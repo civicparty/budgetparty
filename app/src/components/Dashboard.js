@@ -13,7 +13,14 @@ export default class Dashboard extends Component {
       choices,
       calculations,
       user,
-    } = this.props;
+    } = this.props
+
+    const {
+      market,
+      mode,
+      guideway,
+      serviceTimes,
+    } = choices
 
     // const getServiceLink = (service) => {
     //   // The Welcome Level should go back to the Intro pages...
@@ -28,18 +35,17 @@ export default class Dashboard extends Component {
     //   return service.status && service.status !== "locked";
     // }
 
+
     return (
       <div>
-        <Navigation showUser showBudget user={user} amounts={calculations}
-          // showTotalFunds funds={funds}
-        />
+        <Navigation showUser showBudget user={user} amounts={calculations} />
 
         <div className="Dashboard__body">{
           partyLevels.map( (level) => {
-            const routeSelected = level.index === 1 && choices.market && choices.market.id;
-            const modeSelected = level.index === 2 && choices.modeId;
-            const guidewaySelected = level.index === 3 && choices.guidewayId;
-            const servicesSelected = level.index === 4 && choices.serviceTimes > 0;
+            const routeSelected = level.index === 1 && market && market.id;
+            const modeSelected = level.index === 2 && mode && mode.id;
+            const guidewaySelected = level.index === 3 && guideway && guideway.id;
+            const servicesSelected = level.index === 4 && serviceTimes > 0;
             const skipLevelPage = routeSelected || modeSelected || guidewaySelected || servicesSelected;
 
             const link = level.title === "Welcome" ? `/intro/1` :
@@ -60,11 +66,4 @@ export default class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-  services: PropTypes.arrayOf(PropTypes.object).isRequired,
-  funds: PropTypes.shape({
-    generalFund: PropTypes.number,
-    servicesSum: PropTypes.number,
-    generalFund2016: PropTypes.number,
-  }).isRequired,
-  user: PropTypes.object,
 };

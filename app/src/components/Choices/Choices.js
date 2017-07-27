@@ -37,8 +37,8 @@ export default class Choices extends Component {
     const newChoice = currentChoices.find(item => Number(selectId) === item.id)
 
     return levelId === 1 ? onSelectMarket(newChoice) :
-           levelId === 2 ? onSelectMode(selectId, selectText) :
-           levelId === 3 ? onSelectGuideway(selectId, selectText) :
+           levelId === 2 ? onSelectMode(newChoice) :
+           levelId === 3 ? onSelectGuideway(newChoice) :
            levelId === 4 ? onSelectTimes(selectId, selectText, isChecked) : ''
   }
 
@@ -50,10 +50,10 @@ export default class Choices extends Component {
   render() {
     const level = partyLevels[this.props.match.params.level_id];
     const showDropdown = _.contains([1, 2, 3], level.index);
-    const { market, modeId, guidewayId, serviceTimes } = this.props.choices;
+    const { market, mode, guideway, serviceTimes } = this.props.choices;
 
-    const guidewayChoices = modeId && modeChoices[modeId.id] ?
-                              modeChoices[modeId.id].guidewayChoices :
+    const guidewayChoices = mode && modeChoices[mode.id] ?
+                              modeChoices[mode.id].guidewayChoices :
                               modeChoices[0].guidewayChoices;
 
     const choices = level.index === 1 ? marketChoices :
@@ -62,8 +62,8 @@ export default class Choices extends Component {
                     level.index === 4 ? serviceTimeChoices : '';
 
     const activeChoiceId = level.index === 1 ? market && market.id :
-                           level.index === 2 ? modeId && modeId.id :
-                           level.index === 3 ? guidewayId && guidewayId.id : '';
+                           level.index === 2 ? mode && mode.id :
+                           level.index === 3 ? guideway && guideway.id : '';
 
     const activeChoice = activeChoiceId ? choices[activeChoiceId - 1] :
                          level.index === 4 ? serviceTimes : '';

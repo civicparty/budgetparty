@@ -23,11 +23,11 @@ const mapDispatchToProps = (dispatch) => {
     onSelectMarket: (newChoice) => {
       dispatch(selectMarketType(newChoice));
     },
-    onSelectMode: (modeId, text) => {
-      dispatch(selectModeType(modeId, text))
+    onSelectMode: (newChoice) => {
+      dispatch(selectModeType(newChoice))
     },
-    onSelectGuideway: (guidewayId, text) => {
-      dispatch(selectGuidewayType(guidewayId, text))
+    onSelectGuideway: (newChoice) => {
+      dispatch(selectGuidewayType(newChoice))
     },
     onSelectTimes: (serviceTimes, text, isChecked) => {
       dispatch(selectServiceTimes(serviceTimes, text, isChecked))

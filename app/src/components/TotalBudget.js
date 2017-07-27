@@ -3,14 +3,12 @@ import { FormattedNumber } from 'react-intl'
 import PropTypes from 'prop-types';
 
 const TotalBudget = (props) => {
-  debugger
   const { amount } = props
 
   return (
     <div className="TotalFundsAvailable">
       <h4 className="TotalFundsAvailable__header">
-        Total Funds<br/>
-        Available
+        Total Funds
       </h4>
       <h4 className="TotalFundsAvailable__dollars">
         <FormattedNumber
@@ -29,8 +27,5 @@ const TotalBudget = (props) => {
 export default TotalBudget
 
 TotalBudget.propTypes = {
-  funds: PropTypes.shape({
-    generalFund: PropTypes.number,
-    generalFundsRemaining: PropTypes.number,
-  }).isRequired,
+  amount: PropTypes.number.isRequired,
 };
