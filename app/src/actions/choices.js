@@ -22,10 +22,11 @@ export function selectGuidewayType(guidewayId, selectText) {
   };
 }
 
-export function selectServiceTimes(serviceTimes, selectText) {
+export function selectServiceTimes(serviceId, selectText, isChecked) {
   return {
     type: 'SELECT_SERVICE_TIMES',
-    serviceTimes,
+    serviceId,
     selectText,
+    isChecked,
   };
 }

@@ -21,19 +21,18 @@ export default class Choices extends Component {
     const selectText = e.target.options ?
       e.target.options[e.target.selectedIndex].text :
       e.target.labels[0].textContent;
-    debugger
-
+    const isChecked = e.target.checked
 
     return levelId === 1 ? this.props.onSelectMarket(selectId, selectText) :
            levelId === 2 ? this.props.onSelectMode(selectId, selectText) :
            levelId === 3 ? this.props.onSelectGuideway(selectId, selectText) :
-           levelId === 4 ? this.props.onSelectTimes(selectId, selectText) : ''
+           levelId === 4 ? this.props.onSelectTimes(selectId, selectText, isChecked) : ''
   }
 
   render() {
     const level = partyLevels[this.props.match.params.level_id];
     const showDropdown = _.contains([1, 2, 3], level.index);
-    const { marketId, modeId, guidewayId } = this.props.choices;
+    const { marketId, modeId, guidewayId, serviceTimes } = this.props.choices;
 
     const guidewayChoices = modeId && modeChoices[modeId.id] ?
                               modeChoices[modeId.id].guidewayChoices :
@@ -48,7 +47,8 @@ export default class Choices extends Component {
                            level.index === 2 ? modeId && modeId.id :
                            level.index === 3 ? guidewayId && guidewayId.id : '';
 
-    const activeChoice = activeChoiceId ? choices[activeChoiceId - 1] : ''
+    const activeChoice = activeChoiceId ? choices[activeChoiceId - 1] :
+                         level.index === 4 ? serviceTimes : '';
 
     const imageStyle = {
       backgroundImage: activeChoice ? `url(/images/${activeChoice.image})` : '',
@@ -93,7 +93,6 @@ export default class Choices extends Component {
                 handleChange={this.handleChange}
                 choices={choices}
                 level={level}
-                activeChoiceId={activeChoiceId}
                 activeChoice={activeChoice}
               />
           }

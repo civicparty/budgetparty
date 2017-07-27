@@ -5,7 +5,6 @@ export default class CheckboxChoices extends Component {
   render() {
     const {
       activeChoice,
-      activeChoiceId,
       level,
       choices,
       handleChange,
@@ -15,49 +14,25 @@ export default class CheckboxChoices extends Component {
       <div className="Choices__body">
 
         {choices.map((option) => {
+          const isChecked = activeChoice && activeChoice.find((item) => {
+            return (item.id === option.id) && item.checked
+          })
+
           return (
-            <p>
-              <input type="checkbox" value={option.id} id={option.id} name={option.type}
+            <p key={option.id}>
+              <input type="checkbox" value={option.id} id={option.id}
+                name={option.type} checked={isChecked}
                 onChange={e => handleChange(e, level.index)}
               />
-              <label htmlFor={option.id}>{option.type}</label>
+              <label htmlFor={option.id}>{option.title} ({option.times})</label>
             </p>
           )
         })}
+
+        <Link to="/dashboard/" className="Choices__button" >
+          Confirm & Continue
+        </Link>
       </div>
-      //
-      // <div className="Choices__body">
-      //   <select name="modeChoice"
-      //     onChange={e => handleSelectChange(e, level.index)}
-      //     className="Choices__mode-dropdown"
-      //     value={activeChoiceId}
-      //   >
-      //     <option value="">Select a {level.title}</option>{
-      //       choices.map((item) => {
-      //         return (
-      //           <option value={item.id} key={item.id}>
-      //             {item.type}
-      //           </option>
-      //         )
-      //       })
-      //   }</select>
-      //
-      //   { activeChoiceId ?
-      //     <div>
-      //       <h2>{ activeChoice.type }</h2>
-      //       <div className="Choices__description">
-      //         { activeChoice.desc }
-      //       </div>
-      //       <Link to="/dashboard/" className="Choices__button" >
-      //         Select & Continue
-      //       </Link>
-      //     </div>
-      //     :
-      //     <h3 className="Choices__empty-text">
-      //       Choose a {level.title}<br /> to learn more about it
-      //     </h3>
-      //   }
-      // </div>
     )
   }
 }

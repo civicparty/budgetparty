@@ -23,8 +23,8 @@ const mapDispatchToProps = (dispatch) => {
     onSelectGuideway: (guidewayId, text) => {
       dispatch(selectGuidewayType(guidewayId, text))
     },
-    onSelectTimes: (serviceTimes, text) => {
-      dispatch(selectServiceTimes(serviceTimes, text))
+    onSelectTimes: (serviceTimes, text, isChecked) => {
+      dispatch(selectServiceTimes(serviceTimes, text, isChecked))
     },
   }
 }

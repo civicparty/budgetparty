@@ -1,3 +1,5 @@
+import _ from 'underscore'
+
 function choices(state = [], action = {}) {
   switch (action.type) {
     case 'SELECT_MARKET_TYPE':
@@ -10,8 +12,30 @@ function choices(state = [], action = {}) {
       const guidewayId = Number(action.guidewayId)
       return Object.assign({}, state, { guidewayId: { id: guidewayId, text: action.selectText }  })
     case 'SELECT_SERVICE_TIMES':
-      const { serviceTimes } = action;
-      return Object.assign({}, state, { serviceTimes: { id: serviceTimes, text: action.selectText } })
+      const serviceId = Number(action.serviceId);
+      const updated = _.clone(state)
+
+      if (updated.serviceTimes) {
+        let itemExists = updated.serviceTimes.find((item) => item.id === serviceId )
+
+        if (itemExists) {
+          itemExists.checked = action.isChecked
+        } else {
+          updated.serviceTimes.push({
+            id: serviceId,
+            text: action.selectText,
+            checked: action.isChecked,
+          })
+        }
+      } else {
+        updated.serviceTimes = [{
+          id: serviceId,
+          text: action.selectText,
+          checked: action.isChecked,
+        }]
+      }
+      const newState = {...state, serviceTimes: updated.serviceTimes };
+      return newState
     default:
       return state;
   }
