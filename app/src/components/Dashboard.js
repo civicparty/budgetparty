@@ -40,14 +40,14 @@ export default class Dashboard extends Component {
             const guidewaySelected = level.index === 3 && choices.guidewayId;
             const servicesSelected = level.index === 4 && choices.serviceTimes > 0;
             const skipLevelPage = routeSelected || modeSelected || guidewaySelected || servicesSelected;
-            
+
             const link = level.title === "Welcome" ? `/intro/1` :
                          skipLevelPage ? `/level/${level.index}/choices`:
                          `/level/${level.index}`;
 
             return (
               <Link to={link} key={level.index}>
-                <PartyLevel {...level} />
+                <PartyLevel {...level} {...choices} />
               </Link>
             )
           })

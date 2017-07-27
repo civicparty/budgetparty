@@ -14,17 +14,17 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSelectMarket: (marketId) => {
-      dispatch(selectMarketType(marketId))
+    onSelectMarket: (marketId, text) => {
+      dispatch(selectMarketType(marketId, text))
     },
-    onSelectMode: (modeId) => {
-      dispatch(selectModeType(modeId))
+    onSelectMode: (modeId, text) => {
+      dispatch(selectModeType(modeId, text))
     },
-    onSelectGuideway: (guidewayId) => {
-      dispatch(selectGuidewayType(guidewayId))
+    onSelectGuideway: (guidewayId, text) => {
+      dispatch(selectGuidewayType(guidewayId, text))
     },
-    onSelectTimes: (serviceTimes) => {
-      dispatch(selectServiceTimes(serviceTimes))
+    onSelectTimes: (serviceTimes, text) => {
+      dispatch(selectServiceTimes(serviceTimes, text))
     },
   }
 }

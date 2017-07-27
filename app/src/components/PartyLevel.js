@@ -13,6 +13,10 @@ const PartyLevel = (props) => {
     image,
     index,
     completeSections,
+    marketId,
+    modeId,
+    guidewayId,
+    serviceTimes,
   } = props
 
   const isComplete = status === 'complete' || (departments && departments.length === completeSections)
@@ -56,6 +60,14 @@ const PartyLevel = (props) => {
     }
   }
 
+  const selectedChoices = [marketId, modeId, guidewayId, serviceTimes];
+
+  const selectedChoiceText = (index, selectedChoices) => {
+    const selectedChoice = selectedChoices[index - 1]
+
+    return selectedChoice && selectedChoice.text
+  }
+
   return (
     <div className={partyLevelCssClass}>
       <img src={`../images/${image}`}
@@ -65,7 +77,7 @@ const PartyLevel = (props) => {
       <div className="PartyLevel__details">
         <img src={statusIcon()} alt={title} className="PartyLevel__status" />
         <h2 className={titleCssClass()}>{title}</h2>
-        <span className="PartyLevel__progress">{progressMessage(index)}</span>
+        <span className="PartyLevel__progress">{selectedChoiceText(index, selectedChoices)}</span>
       </div>
     </div>
   )
