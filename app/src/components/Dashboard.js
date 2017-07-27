@@ -10,8 +10,7 @@ import partyLevels from '../config/partyLevels.js'
 export default class Dashboard extends Component {
   render () {
     const {
-      // services,
-      // funds,
+      choices,
       user,
     } = this.props;
 
@@ -36,7 +35,15 @@ export default class Dashboard extends Component {
 
         <div className="Dashboard__body">{
           partyLevels.map( (level) => {
-            const link = level.title === "Welcome" ? `/intro/1` : `/level/${level.index}`;
+            const routeSelected = level.index === 1 && choices.marketId;
+            const modeSelected = level.index === 2 && choices.modeId;
+            const guidewaySelected = level.index === 3 && choices.guidewayId;
+            const servicesSelected = level.index === 4 && choices.serviceTimes > 0;
+            const skipLevelPage = routeSelected || modeSelected || guidewaySelected || servicesSelected;
+            
+            const link = level.title === "Welcome" ? `/intro/1` :
+                         skipLevelPage ? `/level/${level.index}/choices`:
+                         `/level/${level.index}`;
 
             return (
               <Link to={link} key={level.index}>
