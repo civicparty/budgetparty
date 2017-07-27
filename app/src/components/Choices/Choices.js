@@ -3,22 +3,26 @@ import _ from 'underscore'
 
 import Navigation from '../Navigation'
 import DropdownChoices from './DropdownChoices'
+import CheckboxChoices from './CheckboxChoices'
 import partyLevels from '../../config/partyLevels'
 import marketChoices from '../../config/marketChoices'
 import modeChoices from '../../config/modeChoices'
+import serviceTimeChoices from '../../config/serviceTimeChoices'
 
 export default class Choices extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   activeChoiceId: '',
-    // }
-    this.handleSelectChange = this.handleSelectChange.bind(this);
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSelectChange(e, levelId) {
+  handleChange(e, levelId) {
     const selectId = e.target.value;
-    const selectText = e.target.options[e.target.selectedIndex].text;
+    const selectText = e.target.options ?
+      e.target.options[e.target.selectedIndex].text :
+      e.target.labels[0].textContent;
+    debugger
+
 
     return levelId === 1 ? this.props.onSelectMarket(selectId, selectText) :
            levelId === 2 ? this.props.onSelectMode(selectId, selectText) :
@@ -28,18 +32,23 @@ export default class Choices extends Component {
 
   render() {
     const level = partyLevels[this.props.match.params.level_id];
+    const showDropdown = _.contains([1, 2, 3], level.index);
     const { marketId, modeId, guidewayId } = this.props.choices;
+
     const guidewayChoices = modeId && modeChoices[modeId.id] ?
                               modeChoices[modeId.id].guidewayChoices :
                               modeChoices[0].guidewayChoices;
+
     const choices = level.index === 1 ? marketChoices :
                     level.index === 2 ? modeChoices :
-                    level.index === 3 ? guidewayChoices : '';
+                    level.index === 3 ? guidewayChoices :
+                    level.index === 4 ? serviceTimeChoices : '';
+
     const activeChoiceId = level.index === 1 ? marketId && marketId.id :
                            level.index === 2 ? modeId && modeId.id :
                            level.index === 3 ? guidewayId && guidewayId.id : '';
+
     const activeChoice = activeChoiceId ? choices[activeChoiceId - 1] : ''
-    const showDropdown = _.contains([1, 2, 3], level.index);
 
     const imageStyle = {
       backgroundImage: activeChoice ? `url(/images/${activeChoice.image})` : '',
@@ -68,14 +77,25 @@ export default class Choices extends Component {
           }
 
           {
-            showDropdown ?
+            showDropdown &&
               <DropdownChoices {...this.props}
                 level={level}
                 choices={choices}
                 activeChoiceId={activeChoiceId}
                 activeChoice={activeChoice}
-                handleSelectChange={this.handleSelectChange}
-              /> : ''
+                handleChange={this.handleChange}
+              />
+          }
+
+          {
+            !showDropdown &&
+              <CheckboxChoices {...this.props}
+                handleChange={this.handleChange}
+                choices={choices}
+                level={level}
+                activeChoiceId={activeChoiceId}
+                activeChoice={activeChoice}
+              />
           }
         </div>
       </div>
