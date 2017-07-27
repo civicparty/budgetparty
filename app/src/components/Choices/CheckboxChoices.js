@@ -8,6 +8,7 @@ export default class CheckboxChoices extends Component {
       level,
       choices,
       handleChange,
+      handleSave,
     } = this.props
 
     return (
@@ -22,15 +23,17 @@ export default class CheckboxChoices extends Component {
             <p key={option.id}>
               <input type="checkbox" value={option.id} id={option.id}
                 name={option.type} checked={isChecked}
-                onChange={e => handleChange(e, level.index)}
+                onChange={e => handleChange(e, level.index, choices)}
               />
               <label htmlFor={option.id}>{option.title} ({option.times})</label>
             </p>
           )
         })}
 
-        <Link to="/dashboard/" className="Choices__button" >
-          Confirm & Continue
+        <Link to="/dashboard/" className="Choices__button"
+          onClick={handleSave}
+        >
+          Continue
         </Link>
       </div>
     )

@@ -13,7 +13,7 @@ const PartyLevel = (props) => {
     image,
     index,
     completeSections,
-    marketId,
+    market,
     modeId,
     guidewayId,
     serviceTimes,
@@ -60,12 +60,12 @@ const PartyLevel = (props) => {
     }
   }
 
-  const selectedChoices = [marketId, modeId, guidewayId, serviceTimes];
+  const selectedChoices = [market, modeId, guidewayId, serviceTimes];
 
   const selectedChoiceText = (index, selectedChoices) => {
     const selectedChoice = selectedChoices[index - 1]
 
-    return selectedChoice && selectedChoice.text
+    return selectedChoice && selectedChoice.type
   }
 
   return (

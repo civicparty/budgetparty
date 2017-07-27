@@ -35,7 +35,7 @@ export default class Dashboard extends Component {
 
         <div className="Dashboard__body">{
           partyLevels.map( (level) => {
-            const routeSelected = level.index === 1 && choices.marketId;
+            const routeSelected = level.index === 1 && choices.market && choices.market.id;
             const modeSelected = level.index === 2 && choices.modeId;
             const guidewaySelected = level.index === 3 && choices.guidewayId;
             const servicesSelected = level.index === 4 && choices.serviceTimes > 0;

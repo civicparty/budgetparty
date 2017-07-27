@@ -1,8 +1,7 @@
-export function selectMarketType(marketId, selectText) {
+export function selectMarketType(marketChoice) {
   return {
     type: 'SELECT_MARKET_TYPE',
-    marketId,
-    selectText,
+    marketChoice,
   };
 }
 

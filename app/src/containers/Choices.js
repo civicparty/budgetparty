@@ -8,14 +8,20 @@ import {
   selectServiceTimes,
 } from '../actions/choices'
 
+import {
+  updateBudgetAmount,
+  updateCostsAmount,
+} from '../actions/calculations'
+
 const mapStateToProps = (state) => {
   return state
 }
 
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSelectMarket: (marketId, text) => {
-      dispatch(selectMarketType(marketId, text))
+    onSelectMarket: (newChoice) => {
+      dispatch(selectMarketType(newChoice));
     },
     onSelectMode: (modeId, text) => {
       dispatch(selectModeType(modeId, text))
@@ -26,6 +32,10 @@ const mapDispatchToProps = (dispatch) => {
     onSelectTimes: (serviceTimes, text, isChecked) => {
       dispatch(selectServiceTimes(serviceTimes, text, isChecked))
     },
+    onUpdateAmounts: (choices) => {
+      dispatch(updateBudgetAmount(choices))
+      dispatch(updateCostsAmount(choices))
+    }
   }
 }
 

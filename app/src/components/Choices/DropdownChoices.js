@@ -9,12 +9,13 @@ export default class DropdownChoices extends Component {
       level,
       choices,
       handleChange,
+      handleSave
     } = this.props
 
     return (
       <div className="Choices__body">
         <select name="modeChoice"
-          onChange={e => handleChange(e, level.index)}
+          onChange={e => handleChange(e, level.index, choices)}
           className="Choices__mode-dropdown"
           value={activeChoiceId}
         >
@@ -34,7 +35,9 @@ export default class DropdownChoices extends Component {
             <div className="Choices__description">
               { activeChoice.desc }
             </div>
-            <Link to="/dashboard/" className="Choices__button" >
+            <Link to="/dashboard/" className="Choices__button"
+              onClick={handleSave}
+            >
               Select & Continue
             </Link>
           </div>

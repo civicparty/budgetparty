@@ -3,8 +3,9 @@ import _ from 'underscore'
 function choices(state = [], action = {}) {
   switch (action.type) {
     case 'SELECT_MARKET_TYPE':
-      const marketId = Number(action.marketId)
-      return Object.assign({}, state, { marketId: { id: marketId, text: action.selectText } })
+      const marketState = { market: action.marketChoice }
+      return Object.assign({}, state, marketState)
+
     case 'SELECT_MODE_TYPE':
       const modeId = Number(action.modeId)
       return Object.assign({}, state, { modeId: { id: modeId, text: action.selectText} })
