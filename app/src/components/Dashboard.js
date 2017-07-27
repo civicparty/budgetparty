@@ -11,6 +11,7 @@ export default class Dashboard extends Component {
   render () {
     const {
       choices,
+      calculations,
       user,
     } = this.props;
 
@@ -29,7 +30,7 @@ export default class Dashboard extends Component {
 
     return (
       <div>
-        <Navigation showUser user={user}
+        <Navigation showUser showBudget user={user} amounts={calculations}
           // showTotalFunds funds={funds}
         />
 

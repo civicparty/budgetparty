@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 export default class CheckboxChoices extends Component {
   render() {
@@ -8,7 +7,6 @@ export default class CheckboxChoices extends Component {
       level,
       choices,
       handleChange,
-      handleSave,
     } = this.props
 
     return (
@@ -29,12 +27,6 @@ export default class CheckboxChoices extends Component {
             </p>
           )
         })}
-
-        <Link to="/dashboard/" className="Choices__button"
-          onClick={handleSave}
-        >
-          Continue
-        </Link>
       </div>
     )
   }

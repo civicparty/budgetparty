@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 export default class DropdownChoices extends Component {
   render() {
@@ -9,7 +8,6 @@ export default class DropdownChoices extends Component {
       level,
       choices,
       handleChange,
-      handleSave
     } = this.props
 
     return (
@@ -35,11 +33,6 @@ export default class DropdownChoices extends Component {
             <div className="Choices__description">
               { activeChoice.desc }
             </div>
-            <Link to="/dashboard/" className="Choices__button"
-              onClick={handleSave}
-            >
-              Select & Continue
-            </Link>
           </div>
           :
           <h3 className="Choices__empty-text">

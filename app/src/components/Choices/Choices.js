@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 import _ from 'underscore'
 
 import Navigation from '../Navigation'
@@ -100,7 +102,6 @@ export default class Choices extends Component {
                 activeChoiceId={activeChoiceId}
                 activeChoice={activeChoice}
                 handleChange={this.handleChange}
-                handleSave={this.handleSave}
               />
           }
 
@@ -111,9 +112,13 @@ export default class Choices extends Component {
                 choices={choices}
                 level={level}
                 activeChoice={activeChoice}
-                handleSave={this.handleSave}
               />
           }
+          <Link to="/dashboard/" className="Choices__button"
+            onClick={this.handleSave}
+          >
+            Select & Continue
+          </Link>
         </div>
       </div>
     )

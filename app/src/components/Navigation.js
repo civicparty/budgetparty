@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
-import TotalFundAvailable from './TotalFundAvailable'
+import TotalBudget from './TotalBudget'
 import ServiceFundsAvailable from './ServiceFundsAvailable'
 
 import avatar from '../images/avatar.svg'
@@ -16,12 +16,12 @@ const Navigation = (props) => {
     showClose,
     showBack,
     showUser,
-    showTotalFunds,
-    showServiceFunds,
-    funds,
-    service,
+    showBudget,
+    amounts,
     user,
   } = props
+
+  const totalBudget = amounts && amounts.budgetAmount
 
   return (
     <nav className="Navigation">
@@ -44,8 +44,8 @@ const Navigation = (props) => {
             <p className="Navigation__welcome-message">{(user && user.displayName) || (user && user.email)}</p>
           </div>
       }
-      { showTotalFunds && <TotalFundAvailable funds={funds} /> }
-      { showServiceFunds && <ServiceFundsAvailable service={service} /> }
+      { totalBudget && <TotalBudget amount={totalBudget} /> }
+      {/* { showServiceFunds && <ServiceFundsAvailable service={service} /> } */}
       {
         showClose &&
           <div className="Navigation__special-header">

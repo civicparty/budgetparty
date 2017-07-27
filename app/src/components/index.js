@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import { IntlProvider, addLocaleData } from 'react-intl'
-import en from 'react-intl/locale-data/en';
-import es from 'react-intl/locale-data/es';
 import { Route, Router, Redirect, Switch } from 'react-router-dom'
 import ReactGA from 'react-ga'
 import createHistory from 'history/createBrowserHistory'
@@ -32,12 +29,6 @@ const history = createHistory()
   ReactGA.set({ page: location.pathname })
   ReactGA.pageview(location.pathname)
 });
-
-// Internationalization 🌎
-addLocaleData([...en, ...es]);
-const language = (navigator.languages && navigator.languages[0]) ||
-                     navigator.language ||
-                     navigator.userLanguage;
 
 export default class App extends Component {
   constructor(props) {

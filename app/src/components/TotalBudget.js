@@ -2,9 +2,9 @@ import React from 'react'
 import { FormattedNumber } from 'react-intl'
 import PropTypes from 'prop-types';
 
-const TotalFundAvailable = (props) => {
-  const { generalFund, generalFundsRemaining } = props.funds
-  const remainingAmount = generalFundsRemaining || generalFund
+const TotalBudget = (props) => {
+  debugger
+  const { amount } = props
 
   return (
     <div className="TotalFundsAvailable">
@@ -14,20 +14,21 @@ const TotalFundAvailable = (props) => {
       </h4>
       <h4 className="TotalFundsAvailable__dollars">
         <FormattedNumber
-          value={remainingAmount}
+          value={amount}
           style="currency" //eslint-disable-line
           currency="USD"
           minimumFractionDigits={0}
           maximumFractionDigits={0}
         />
+        {' billon'}
       </h4>
     </div>
   )
 }
 
-export default TotalFundAvailable
+export default TotalBudget
 
-TotalFundAvailable.propTypes = {
+TotalBudget.propTypes = {
   funds: PropTypes.shape({
     generalFund: PropTypes.number,
     generalFundsRemaining: PropTypes.number,
