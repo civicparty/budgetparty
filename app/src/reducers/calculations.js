@@ -15,6 +15,7 @@ function calculations(state = [], action = {}) {
       let routeDistance = (market && market.distance) || 1
       let capacityPerVehicle = (mode && mode.capacityPerVehicle) || 1
       let capitalCostPerMile = (guideway && guideway.capitalCostPerMile) || 1
+      let costPerRevHour = (guideway && guideway.costPerRevHour) || 1
       let maintenanceCosts = (guideway && guideway.maintenanceCosts) || 1
 
       // TODO, get theses numbers dynamically
@@ -25,10 +26,19 @@ function calculations(state = [], action = {}) {
       const vehicleCost = mode ? _vehicleCount * mode.capitalCostPerVehicle : 0
       const guidewayCost = market && guideway ? market && market.distance * guideway.capitalCostPerMile : 0
       const maintenanceCost = guideway ? guideway.maintenanceCosts : 0
-      const serviceTimeWeeklySum = serviceTimes ? serviceTimes.reduce((item) => console.log(item.operatingHoursPerWeek)) : 0
-      const revenueHours = serviceTimeWeeklySum * 52
+      const serviceTimeWeeklySum = () => {
+        if (serviceTimes) {
+          return serviceTimes.reduce((sum, item) => {
+            return sum + item.hours
+          }, 0)
+        } else {
+          return 1
+        }
+      }
+      const revenueHours = serviceTimeWeeklySum() * 52
       const revenueMiles = _revenueMiles
-      const operatingCost = revenueHours * _costPerHour || 0
+      const operatingCost = serviceTimes ?
+        _vehicleCount * revenueHours * costPerRevHour : 0
       const capacity = _vehicleCount * capacityPerVehicle
 
       const newCalculations = {

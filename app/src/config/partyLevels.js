@@ -1,10 +1,11 @@
 const partyLevels = [
+  // {
+  //   index: 0,
+  //   title: 'Welcome',
+  //   image: 'titled_logo.svg',
+  //   desc: '',
+  // },
   {
-    index: 0,
-    title: 'Welcome',
-    image: 'titled_logo.svg',
-    desc: '',
-  }, {
     index: 1,
     title: 'Route Type',
     image: 'infrastructure.svg',

@@ -28,6 +28,7 @@ function choices(state = [], action = {}) {
             id: serviceId,
             text: action.selectText,
             checked: action.isChecked,
+            hours: action.hours,
           })
         }
       } else {
@@ -35,8 +36,10 @@ function choices(state = [], action = {}) {
           id: serviceId,
           text: action.selectText,
           checked: action.isChecked,
+          hours: action.hours,
         }]
       }
+
       const newState = {...state, serviceTimes: updated.serviceTimes };
       return newState
     default:

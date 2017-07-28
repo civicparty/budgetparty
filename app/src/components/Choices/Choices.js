@@ -16,7 +16,6 @@ export default class Choices extends Component {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSave = this.handleSave.bind(this);
   }
 
   handleChange(e, levelId, currentChoices) {
@@ -39,17 +38,21 @@ export default class Choices extends Component {
     return levelId === 1 ? onSelectMarket(newChoice) :
            levelId === 2 ? onSelectMode(newChoice) :
            levelId === 3 ? onSelectGuideway(newChoice) :
-           levelId === 4 ? onSelectTimes(selectId, selectText, isChecked) : ''
+           levelId === 4 ? onSelectTimes(selectId, selectText, newChoice.operatingHoursPerWeek, isChecked) : ''
   }
 
-  handleSave() {
-    const { choices, onUpdateAmounts } = this.props
-    onUpdateAmounts(choices);
+  componentWillReceiveProps(nextProps) {
+    const { choices, onUpdateAmounts } = nextProps
+
+    if (choices !== this.props.choices) {
+      onUpdateAmounts(choices);
+    }
   }
 
   render() {
     const level = partyLevels[this.props.match.params.level_id];
     const showDropdown = _.contains([1, 2, 3], level.index);
+    const { calculations } = this.props;
     const { market, mode, guideway, serviceTimes } = this.props.choices;
 
     const guidewayChoices = mode && modeChoices[mode.id] ?
@@ -77,7 +80,7 @@ export default class Choices extends Component {
 
     return (
       <div>
-        <Navigation {...this.props} showBack />
+        <Navigation showBack showBudget amounts={calculations} />
 
         <div className="Choices">
 
@@ -107,16 +110,14 @@ export default class Choices extends Component {
 
           {
             !showDropdown &&
-              <CheckboxChoices {...this.props}
+              <CheckboxChoices
                 handleChange={this.handleChange}
                 choices={choices}
                 level={level}
                 activeChoice={activeChoice}
               />
           }
-          <Link to="/dashboard/" className="Choices__button"
-            onClick={this.handleSave}
-          >
+          <Link to="/dashboard/" className="Choices__button">
             Select & Continue
           </Link>
         </div>

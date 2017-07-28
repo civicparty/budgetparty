@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 export default class CheckboxChoices extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     const {
       activeChoice,
@@ -22,6 +26,8 @@ export default class CheckboxChoices extends Component {
               <input type="checkbox" value={option.id} id={option.id}
                 name={option.title} checked={isChecked}
                 onChange={e => handleChange(e, level.index, choices)}
+                ref={input => this.input = input}
+                defaultChecked={false}
               />
               <label htmlFor={option.id}>{option.title} ({option.times})</label>
             </p>
