@@ -8,7 +8,7 @@ const modeChoices = [
     capitalCostPerVehicle: 700000,
     guidewayChoices: [{
       id: 1,
-      title: 'Mixed Traffic',
+      title: 'Mixed with Normal Traffic',
       desc: 'Snackwave tbh ennui, squid jianbing lyft XOXO. Hoodie woke iPhone, etsy roof party locavore tote bag microdosing retro authentic raclette hammock venmo 90',
       image: 'modes/rapid_bus.jpg',
       oAndMCostPerRevMile: 60,
@@ -25,7 +25,7 @@ const modeChoices = [
     capitalCostPerVehicle: 700000,
     guidewayChoices: [{
       id: 1,
-      title: 'Mixed Traffic',
+      title: 'Mixed with Normal Traffic',
       desc: 'Snackwave tbh ennui, squid jianbing lyft XOXO. Hoodie woke iPhone, etsy roof party locavore tote bag microdosing retro authentic raclette hammock venmo 90',
       image: 'modes/rapid_bus.jpg',
       oAndMCostPerRevMile: 60,
@@ -114,7 +114,7 @@ const modeChoices = [
   }, {
     id: 6,
     title: 'Commuter Rail (DMU)',
-    desc: 'MetroRail is already operating the 32-mile Red Line commuter rail service with 9 stations between Leander and downtown Austin with trains at capacity during rush hours. Commuter Rail can carry 400 - 1,400 passengers during rush hour and travels at an average speed of 30-50 mph. Rail stops are betwen 1 - 5 miles apart.',
+    desc: 'MetroRail is already operating the 32-mile Red Line commuter rail service with 9 stations between Leander and downtown Austin with trains at capacity during rush hours. Commuter Rail can carry 400 - 1,400 passengers during rush hour and travels at an average speed of 30-50 mph. Rail stops are between 1 - 5 miles apart.',
     image: 'modes/commuter_rail.jpg',
     capacityPerVehicle: 120,
     capitalCostPerVehicle: 3000000,
@@ -137,7 +137,7 @@ const modeChoices = [
     capitalCostPerVehicle: 5000000,
     guidewayChoices: [{
       id: 1,
-      title: 'Fixed Dedicated Guideway',
+      title: 'Aerial Cable',
       desc: 'fixed guideway (rail); fully dedicated (median or curb)',
       image: 'modes/rapid_bus.jpg',
       oAndMCostPerRevMile: 20,
