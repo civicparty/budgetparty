@@ -7,7 +7,7 @@ import partyLevels from '../config/partyLevels.js'
 
 export default class Level extends Component {
   render () {
-    let level = partyLevels[this.props.match.params.id]
+    let level = partyLevels[this.props.match.params.id - 1]
 
     const { totalSections, completeSections } = level
     const isComplete = totalSections - completeSections === 0

@@ -50,7 +50,7 @@ export default class Choices extends Component {
   }
 
   render() {
-    const level = partyLevels[this.props.match.params.level_id];
+    const level = partyLevels[this.props.match.params.level_id - 1];
     const showDropdown = _.contains([1, 2, 3], level.index);
     const { calculations } = this.props;
     const { market, mode, guideway, serviceTimes } = this.props.choices;
