@@ -25,7 +25,8 @@
     "react/forbid-prop-types": "warn",
     "react/jsx-closing-bracket-location": "off",
     "react/jsx-first-prop-new-line": "off",
-    "no-nested-ternary": 'off'
+    "no-nested-ternary": 'off',
+    "no-else-return": "off"
   },
   "parser": "babel-eslint"
 }
