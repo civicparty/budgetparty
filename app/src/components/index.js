@@ -109,6 +109,12 @@ export default class App extends Component {
                   handleLogout={this.handleLogout.bind(this)}
                 />
               }}/>
+              <Route path="/submit" render={(props) => {
+                return <SubmitContainer {...props} />
+              }} />
+              <Route path="/done" render={(props) => {
+                return <Done {...props} />
+              }} />
               <Route path='/user' render={ props => {
                 return <User isAuthed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}

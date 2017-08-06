@@ -8,18 +8,17 @@ import partyLevels from '../config/partyLevels.js'
 export default class Level extends Component {
   render () {
     let level = partyLevels[this.props.match.params.id - 1]
+    const { calculations } = this.props
 
     const { totalSections, completeSections } = level
     const isComplete = totalSections - completeSections === 0
+    const link = (level.index) < partyLevels.length ?
+      `/level/${level.index}/choices` :
+      '/submit'
 
     return (
       <div>
-        <Navigation {...this.props}
-          showBack
-          level={level}
-          isAuthed={this.props.isAuthed}
-          handleLogout={this.props.handleLogout}
-        />
+        <Navigation showBack showBudget amounts={calculations} />
 
         <div className="Level">
 
@@ -43,10 +42,10 @@ export default class Level extends Component {
                 </Link>
               </div>
             :
-              <Link to={`/level/${level.index}/choices`}
+              <Link to={link}
                 className="Level__next-button"
               >
-                {(level.index) < partyLevels.length ? 'View Choices' : 'Review Final Budget'}
+                {(level.index) < partyLevels.length ? 'View Choices' : 'Review & Submit'}
               </Link>
           }
 

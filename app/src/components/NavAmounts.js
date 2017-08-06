@@ -26,7 +26,7 @@ const NavAmounts = (props) => {
           style="currency" //eslint-disable-line
           currency="USD"
           minimumFractionDigits={0}
-          maximumFractionDigits={0}
+          maximumFractionDigits={2}
         />
         {` ${parsedAmount(amount)[1]}`}
       </h4>

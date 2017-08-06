@@ -46,7 +46,7 @@ const Navigation = (props) => {
           </div>
       }
       { totalCosts > 0 && <NavAmounts header="Total Costs" amount={totalCosts} /> }
-      { totalBudget    && <NavAmounts header="Total Budget" amount={totalBudget} /> }
+      { totalBudget && <NavAmounts header="Total Budget" amount={totalBudget} /> }
       {
         showClose &&
           <div className="Navigation__special-header">

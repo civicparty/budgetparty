@@ -18,20 +18,13 @@ const ReviewPage = (props) => {
       </div>
       <div className="Submit__body">
         <h3>Review Your Budget Changes</h3>
-        <h4 className="Submit__review-subtitle">You opted to increase overall service spending from last years amount.</h4>
-        {services.map((service) => {
-          const incDecText = service.percentChange > 0 ? 'Increased' : 'Decreased'
+        <h4 className="Submit__review-subtitle">You opted to...</h4>
 
-          // Skip Welcome & Submit
-          if (service.index === 0 || service.index === 5) return false
+        <p className="Submit__review-service-list">
+          overview of choices here
+        </p>
 
-          return (
-            <p className="Submit__review-service-list" key={service.index}>
-              {incDecText} {service.title} by {service.percentChange || 0}%
-            </p>
-          )
-        })}
-        <Link to="/dashboard" className="Submit__revise-link">Revise Service Spending</Link>
+        <Link to="/dashboard" className="Submit__revise-link">Revise Project</Link>
         <div className="Submit__review-buttons">
           <Link to="/submit" className="Department__edit-button">
             <div className="flexconatiner">
