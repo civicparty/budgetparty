@@ -29,8 +29,8 @@ const mapDispatchToProps = (dispatch) => {
     onSelectGuideway: (newChoice) => {
       dispatch(selectGuidewayType(newChoice))
     },
-    onSelectTimes: (serviceTimes, text, hours, isChecked) => {
-      dispatch(selectServiceTimes(serviceTimes, text, hours, isChecked))
+    onSelectTimes: (serviceTime, frequencyChoice) => {
+      dispatch(selectServiceTimes(serviceTime, frequencyChoice))
     },
     onUpdateAmounts: (choices) => {
       dispatch(updateBudgetAmount(choices))

@@ -48,10 +48,6 @@ const PartyLevel = (props) => {
   const selectedChoiceText = (index, selectedChoices) => {
     const selectedChoice = selectedChoices[index - 1]
     const title = selectedChoice && selectedChoice.title
-    
-    console.log('selectedChoices', selectedChoices)
-    console.log('selectedChoices', selectedChoice)
-    console.log('title', title)
 
     return title
   }

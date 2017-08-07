@@ -6,6 +6,7 @@ const marketChoices = [
     image: '',
     distance: 2,
     budget: 150000000,
+    targetRidership: 10000,
   }, {
     id: 2,
     title: 'Connector',
@@ -13,6 +14,7 @@ const marketChoices = [
     image: '',
     distance: 5,
     budget: 500000000,
+    targetRidership: 10000,
   }, {
     id: 3,
     title: 'Commuter',
@@ -20,9 +22,8 @@ const marketChoices = [
     image: '',
     distance: 15,
     budget: 500000000,
+    targetRidership: 10000,
   },
 ]
-
-// add target ridershipe of 10000 ppl per day to each market 
 
 export default marketChoices;

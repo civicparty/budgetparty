@@ -15,33 +15,23 @@ function choices(state = [], action = {}) {
       return Object.assign({}, state, guidewayState)
 
     case 'SELECT_SERVICE_TIMES':
-      const serviceId = Number(action.serviceId);
-      const updated = _.clone(state)
+      const serviceId = Number(action.serviceTime.id);
+      const serviceTimesState = state.serviceTimes || [];
+      const exisiting = serviceTimesState && serviceTimesState.find((item) => {
+        return item.serviceTime.id === serviceId
+      });
 
-      if (updated.serviceTimes) {
-        let itemExists = updated.serviceTimes.find((item) => item.id === serviceId )
-
-        if (itemExists) {
-          itemExists.checked = action.isChecked
-        } else {
-          updated.serviceTimes.push({
-            id: serviceId,
-            text: action.selectText,
-            checked: action.isChecked,
-            hours: action.hours,
-          })
-        }
+      if (exisiting) {
+        exisiting.frequency = action.frequencyChoice
       } else {
-        updated.serviceTimes = [{
-          id: serviceId,
-          text: action.selectText,
-          checked: action.isChecked,
-          hours: action.hours,
-        }]
+        serviceTimesState.push({
+          serviceTime: action.serviceTime,
+          frequency: action.frequencyChoice,
+        })
       }
 
-      const newState = {...state, serviceTimes: updated.serviceTimes };
-      return newState
+      const newState = { serviceTimes: serviceTimesState };
+      return Object.assign({}, state, newState)
     default:
       return state;
   }

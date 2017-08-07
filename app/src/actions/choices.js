@@ -19,12 +19,10 @@ export function selectGuidewayType(guidewayChoice) {
   };
 }
 
-export function selectServiceTimes(serviceId, selectText, hours, isChecked) {
+export function selectServiceTimes(serviceTime, frequencyChoice) {
   return {
     type: 'SELECT_SERVICE_TIMES',
-    serviceId,
-    selectText,
-    hours,
-    isChecked,
+    serviceTime,
+    frequencyChoice,
   };
 }

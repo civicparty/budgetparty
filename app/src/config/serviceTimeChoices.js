@@ -7,13 +7,14 @@ const serviceTimeChoices = [
     desc: 'TODO: goes around and around',
     frequencyChoices: [
       {
-        id: 1,
+        id: 0,
         title: '15 min',
         value: 15,
+        selected: true,
       }, {
-        id: 2,
+        id: 1,
         title: '10 min',
-        value: 20,
+        value: 10,
       },
     ],
   }, {
@@ -27,6 +28,7 @@ const serviceTimeChoices = [
         id: 0,
         title: 'No service',
         value: null,
+        selected: true,
       }, {
         id: 1,
         title: '15 min',
@@ -34,7 +36,7 @@ const serviceTimeChoices = [
       }, {
         id: 2,
         title: '10 min',
-        value: 20,
+        value: 10,
       },
     ],
   }, {
@@ -48,6 +50,7 @@ const serviceTimeChoices = [
         id: 0,
         title: 'No service',
         value: null,
+        selected: true,
       }, {
         id: 1,
         title: '30 min',
@@ -69,6 +72,7 @@ const serviceTimeChoices = [
         id: 0,
         title: 'No service',
         value: null,
+        selected: true,
       }, {
         id: 1,
         title: '30 min',
