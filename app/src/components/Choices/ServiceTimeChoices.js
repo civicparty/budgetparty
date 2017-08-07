@@ -27,21 +27,21 @@ export default class CheckboxChoices extends Component {
       <div className="Choices__body">
 
         {serviceTimeChoices.map((serviceTime) => {
-
-          const isChecked = activeChoice && activeChoice.find((item) => {
-            return (item.id === serviceTime.id) && item.checked
-          })
-
           return (
             <div>
               <h3>{serviceTime.title} ({serviceTime.times})</h3>
               <form onChange={e => handleChange(serviceTime, serviceTime.frequencyChoices[e.target.value])}>
                 {serviceTime.frequencyChoices.map((frequencyChoice) => {
+                  const isChecked = activeChoice && activeChoice.find((choice) => {
+                    return (choice.frequency.id === frequencyChoice.id) &&
+                      (choice.serviceTime.id === serviceTime.id)
+                  })
+
                   return (
                     <div>
                       <input id={`${serviceTime.id}: ${frequencyChoice.id}`} type="radio"
                         value={frequencyChoice.id}
-                        checked={false}
+                        checked={isChecked}
                       />
                       <label htmlFor={`${serviceTime.id}: ${frequencyChoice.id}`}>
                         {frequencyChoice.title}
