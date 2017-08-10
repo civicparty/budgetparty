@@ -56,9 +56,9 @@ export default class Choices extends Component {
     const { calculations } = this.props;
     const { market, mode, guideway, serviceTimes } = this.props.choices;
 
-    const guidewayChoices = mode && modeChoices[mode.id] ?
-                              modeChoices[mode.id].guidewayChoices :
-                              modeChoices[0].guidewayChoices;
+    const guidewayChoices = mode && modeChoices[mode.id - 1] ?
+                              modeChoices[mode.id - 1].guidewayChoices :
+                              [''];
 
     const choices = level.index === 1 ? marketChoices :
                     level.index === 2 ? modeChoices :
@@ -76,7 +76,6 @@ export default class Choices extends Component {
       backgroundImage: activeChoice ? `url(/images/${activeChoice.image})` : '',
       backgroundSize: 'cover',
       paddingTop: '65px',
-      height: '200px',
     }
 
     return (
