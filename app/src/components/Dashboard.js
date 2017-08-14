@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
 import Navigation from './Navigation'
@@ -53,9 +52,7 @@ export default class Dashboard extends Component {
                          `/level/${level.index}`;
 
             return (
-              <Link to={link} key={level.index}>
-                <PartyLevel {...level} {...choices} />
-              </Link>
+              <PartyLevel {...level} {...choices} link={link} key={level.index} />
             )
           })
         }</div>

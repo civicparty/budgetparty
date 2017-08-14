@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import _ from 'underscore'
 
@@ -67,17 +68,32 @@ const PartyLevel = (props) => {
   }
 
   return (
-    <div className={partyLevelCssClass}>
-      <img src={`../images/${image}`}
-        alt={title}
-        className={imgCssClass}
-      />
-      <div className="PartyLevel__details">
-        <img src={statusIcon()} alt={title} className="PartyLevel__status" />
-        <h2 className={titleCssClass()}>{title}</h2>
-        <span className="PartyLevel__progress">{selectedChoiceText(index, selectedChoices)}</span>
+    isLocked ?
+      <div className={partyLevelCssClass}>
+        <img src={`../images/${image}`}
+          alt={title}
+          className={imgCssClass}
+        />
+        <div className="PartyLevel__details">
+          <img src={statusIcon()} alt={title} className="PartyLevel__status" />
+          <h2 className={titleCssClass()}>{title}</h2>
+          <span className="PartyLevel__progress">{selectedChoiceText(index, selectedChoices)}</span>
+        </div>
       </div>
-    </div>
+    :
+      <Link to={props.link}>
+        <div className={partyLevelCssClass}>
+          <img src={`../images/${image}`}
+            alt={title}
+            className={imgCssClass}
+          />
+          <div className="PartyLevel__details">
+            <img src={statusIcon()} alt={title} className="PartyLevel__status" />
+            <h2 className={titleCssClass()}>{title}</h2>
+            <span className="PartyLevel__progress">{selectedChoiceText(index, selectedChoices)}</span>
+          </div>
+        </div>
+      </Link>
   )
 }
 
@@ -91,4 +107,5 @@ PartyLevel.propTypes = {
   image: PropTypes.string.isRequired,
   index: PropTypes.number,
   completeSections: PropTypes.number,
+  link: PropTypes.string,
 };
