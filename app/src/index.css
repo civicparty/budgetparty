@@ -593,7 +593,7 @@ button::-moz-focus-inner {
 
 .Choices__cover {
   padding-top: 65px;
-  height: 250px;
+  height: 280px;
   cursor: pointer;
   overflow: hidden;
   text-align: center;
@@ -608,7 +608,7 @@ button::-moz-focus-inner {
   width: 100%;
   z-index: 1;
   background-color: rgba(245, 246, 245, 0.3);
-  height: 185px;
+  height: 215px;
   padding: 25px 5%; }
 
 .Choices__body {
@@ -645,6 +645,29 @@ button::-moz-focus-inner {
 
 .Choices__button:hover {
   background-color: #006285; }
+
+.Choices__button--invalid {
+  display: block;
+  width: 180px;
+  background-color: #ffffff;
+  border-color: #4D4D4D;
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 25px;
+  margin: auto;
+  padding: 12px;
+  cursor: pointer;
+  background-color: #D0011B;
+  border-color: #D0011B;
+  margin-top: 20px;
+  display: block; }
+
+.Choices__button--invalid:hover {
+  color: #ffffff;
+  text-decoration: none; }
 
 .RouteChoices {
   list-style-type: none;
@@ -717,16 +740,9 @@ button::-moz-focus-inner {
   margin: 0;
   list-style: none;
   display: flex;
-  flex-wrap: wrap; }
-
-.TransitModeChoices input[type="radio"] {
-  opacity: 0.011;
-  z-index: 100; }
-
-.TransitModeChoices input[type="radio"]:checked + label {
-  background: #00A3DE;
-  color: #ffffff;
-  border-radius: 4px; }
+  flex-wrap: wrap;
+  input: [type= "radio"];
+  input: [type= "radio"]; }
 
 .TransitModeChoices label {
   cursor: pointer;
@@ -734,6 +750,16 @@ button::-moz-focus-inner {
 
 .TransitModeChoices label:hover {
   background: #9B9B9B;
+  border-radius: 4px; }
+
+.TransitModeChoices :checked + label.TransitModeChoices__labelText {
+  background: #00A3DE;
+  color: #ffffff;
+  border-radius: 4px; }
+
+.TransitModeChoices :checked + label.TransitModeChoices__labelText--invalid {
+  background: #D0011B;
+  color: #ffffff;
   border-radius: 4px; }
 
 .TransitModeChoices__button {
@@ -757,14 +783,17 @@ button::-moz-focus-inner {
   transform: translateY(-1px);
   box-shadow: 0 7px 14px rgba(50, 79, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08); }
 
-.TransitModeChoices__hideInput {
+.TransitModeChoices__input {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0; }
+  bottom: 0;
+  opacity: 0.011;
+  z-index: 100; }
 
-.TransitModeChoices__labelText {
+.TransitModeChoices__labelText,
+.TransitModeChoices__labelText--invalid {
   padding: 10px;
   display: block; }
 
