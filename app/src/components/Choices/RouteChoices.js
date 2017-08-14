@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class RouteChoices extends Component {
 
@@ -73,6 +74,10 @@ export default class RouteChoices extends Component {
                 { this.renderDescription(activeChoice, level) }
               </div>
             </div>
+          { activeChoice &&
+            <Link to="/dashboard/" className="Choices__button">
+              Select & Continue
+            </Link>
           }
         </div>
       </div>

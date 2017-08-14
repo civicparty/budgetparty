@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class TransitModeChoices extends Component {
 
@@ -84,6 +85,15 @@ export default class TransitModeChoices extends Component {
                 { this.renderDescription(activeChoice, level) }
               </div>
             </div>
+          }
+
+          { activeChoice && !activeChoice.disabled ?
+            <Link to="/dashboard/" className="Choices__button">
+              Select & Continue
+            </Link>
+            : activeChoice.disabled ?
+              <div className="Choices__button--invalid">Invalid Option</div>
+            : ''
           }
         </div>
       </div>

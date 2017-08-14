@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class DropdownChoices extends Component {
   renderDescription(activeChoice, level) {
@@ -53,6 +54,11 @@ export default class DropdownChoices extends Component {
             Choose a {level.title}<br /> to learn more about it
           </h3>
         }
+          { activeChoice &&
+            <Link to="/dashboard/" className="Choices__button">
+              Select & Continue
+            </Link>
+          }
       </div>
     )
   }

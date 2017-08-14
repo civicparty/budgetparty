@@ -38,6 +38,12 @@
   display: block;
 }
 
+.Choices__button--invalid {
+  @include warning-button;
+  margin-top: 20px;
+  display: block;
+}
+
 @mixin RadioChoices {
   list-style-type:none;
   margin:25px 0 0 0;

@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-
 import _ from 'underscore'
 
 import Navigation from '../Navigation'
@@ -120,9 +118,6 @@ export default class Choices extends Component {
                 activeChoice={activeChoice}
               />
           }
-          <Link to="/dashboard/" className="Choices__button">
-            Select & Continue
-          </Link>
         </div>
       </div>
     )

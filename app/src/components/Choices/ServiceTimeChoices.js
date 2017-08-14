@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class CheckboxChoices extends Component {
   constructor(props) {
@@ -54,6 +55,11 @@ export default class CheckboxChoices extends Component {
 
           )
         })}
+          { activeChoice &&
+            <Link to="/dashboard/" className="Choices__button">
+              Select & Continue
+            </Link>
+          }
       </div>
     )
   }
