@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import _ from 'underscore'
+
 import check from '../images/check.svg'
 import pencil from '../images/pencil.svg'
 import lock from '../images/lock.svg'
@@ -7,22 +9,32 @@ import lock from '../images/lock.svg'
 const PartyLevel = (props) => {
   const {
     status,
-    percentChange,
-    departments,
     title,
     image,
     index,
-    completeSections,
     market,
     mode,
     guideway,
     serviceTimes,
   } = props
 
-  const isComplete = status === 'complete' || (departments && departments.length === completeSections)
-  const isInProgress = status === 'ready' || status === 'in_progress'
-  const isLocked = !status || status === 'locked' || status === null
-  const incrOrDecr = percentChange > 0 ? 'Increased' : 'Decreased'
+  const hasInvalidMode = _.contains([1, 5, 7], props.mode && props.mode.id)
+
+  const levelOneReady = props.index === 1
+  const levelOneComplete = props.index === 1 && props.market
+  const levelTwoReady = props.index === 2 && !!props.market
+  const levelTwoComplete = props.index === 2 && props.mode && !hasInvalidMode
+  const levelThreeReady = props.index === 3 && !!props.mode && !hasInvalidMode
+  const levelThreeComplete = props.index === 3 && props.guideway
+  const levelFourReady = props.index === 4 && !!props.guideway
+  const levelFourComplete = props.index === 4 && props.serviceTimes &&
+                            props.serviceTimes.length > 0
+  const levelFiveReady = props.index === 5 && props.serviceTimes
+
+  const isInProgress = levelOneReady || levelTwoReady || levelThreeReady ||
+                       levelFourReady || levelFiveReady
+  const isComplete = levelOneComplete || levelTwoComplete || levelThreeComplete || levelFourComplete
+  const isLocked = !isInProgress && !isComplete
 
   const partyLevelCssClass = isComplete ? 'PartyLevel--complete' : 'PartyLevel'
   const imgCssClass = isLocked ? 'PartyLevel__image--unstarted' : 'PartyLevel__image'
@@ -47,9 +59,11 @@ const PartyLevel = (props) => {
 
   const selectedChoiceText = (index, selectedChoices) => {
     const selectedChoice = selectedChoices[index - 1]
-    const title = selectedChoice && selectedChoice.title
+    let text = selectedChoice && selectedChoice.title
 
-    return title
+    if (index === 2 && hasInvalidMode) text = 'Choose another mode'
+
+    return text
   }
 
   return (

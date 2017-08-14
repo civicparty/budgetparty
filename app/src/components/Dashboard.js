@@ -41,15 +41,15 @@ export default class Dashboard extends Component {
         <Navigation showUser showBudget user={user} amounts={calculations} />
 
         <div className="Dashboard__body">{
-          partyLevels.map( (level) => {
+          partyLevels.map((level) => {
             const routeSelected = level.index === 1 && market && market.id;
             const modeSelected = level.index === 2 && mode && mode.id;
             const guidewaySelected = level.index === 3 && guideway && guideway.id;
             const servicesSelected = level.index === 4 && serviceTimes > 0;
-            const skipLevelPage = routeSelected || modeSelected || guidewaySelected || servicesSelected;
+            const skipIntroPage = routeSelected || modeSelected ||
+                                  guidewaySelected || servicesSelected;
 
-            const link = level.title === "Welcome" ? `/intro/1` :
-                         skipLevelPage ? `/level/${level.index}/choices`:
+            const link = skipIntroPage ? `/level/${level.index}/choices` :
                          `/level/${level.index}`;
 
             return (
