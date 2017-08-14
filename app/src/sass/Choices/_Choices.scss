@@ -1,6 +1,8 @@
+$cover-height: 280px;
+
 .Choices__cover {
   padding-top: $nav_height;
-  height: 250px;
+  height: $cover-height;
   cursor: pointer;
   overflow: hidden;
   text-align: center;
@@ -17,7 +19,7 @@
   width: 100%;
   z-index: 1;
   background-color: rgba($grey, 0.3);
-  height: 250px - $nav_height;
+  height: $cover-height - $nav_height;
   padding: 25px 5%;
 }
 
