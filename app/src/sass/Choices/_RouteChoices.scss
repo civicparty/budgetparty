@@ -1,0 +1,22 @@
+.RouteChoices {
+  @include RadioChoices;
+}
+
+.RouteChoices__img {
+  max-width: 100px;
+  margin: auto;
+  display: block;
+}
+
+.RouteChoices__button {
+  @include choices-buttons;
+}
+
+.RouteChoices__labelText {
+  margin-top: 10px;
+  display: block;
+}
+
+.RouteChoices__hideInput {
+  @include hide-radio-input;
+}

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 import Navigation from './Navigation'
 import PartyLevelHeader from './PartyLevelHeader'
-import partyLevels from '../config/partyLevels.js'
+import partyLevels from '../config/partyLevels'
 
 export default class Level extends Component {
-  render () {
-    let level = partyLevels[this.props.match.params.id - 1]
+  render() {
+    const level = partyLevels[this.props.match.params.id - 1]
     const { calculations } = this.props
 
     const { totalSections, completeSections } = level

@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 import _ from 'underscore'
 
 import Navigation from '../Navigation'
+import RouteChoices from './RouteChoices'
 import DropdownChoices from './DropdownChoices'
+import TransitModeChoices from './TransitModeChoices'
 import ServiceTimeChoices from './ServiceTimeChoices'
 import partyLevels from '../../config/partyLevels'
-import marketChoices from '../../config/marketChoices'
+import routeChoices from '../../config/routeChoices'
 import modeChoices from '../../config/modeChoices'
 import serviceTimeChoices from '../../config/serviceTimeChoices'
 
@@ -45,14 +47,12 @@ export default class Choices extends Component {
 
   handleServiceTimeChange(newServiceTimeId, newFrequencyChoiceId) {
     const { onSelectTimes } = this.props;
-    console.log(newServiceTimeId, ': ', newFrequencyChoiceId)
-
     onSelectTimes(newServiceTimeId, newFrequencyChoiceId)
   }
 
   render() {
     const level = partyLevels[this.props.match.params.level_id - 1];
-    const showDropdown = _.contains([1, 2, 3], level.index);
+    const showDropdown = _.contains([2, 3], level.index);
     const { calculations } = this.props;
     const { market, mode, guideway, serviceTimes } = this.props.choices;
 
@@ -60,7 +60,7 @@ export default class Choices extends Component {
                               modeChoices[mode.id - 1].guidewayChoices :
                               [''];
 
-    const choices = level.index === 1 ? marketChoices :
+    const choices = level.index === 1 ? routeChoices :
                     level.index === 2 ? modeChoices :
                     level.index === 3 ? guidewayChoices :
                     level.index === 4 ? serviceTimeChoices : '';
@@ -72,33 +72,36 @@ export default class Choices extends Component {
     const activeChoice = activeChoiceId ? choices[activeChoiceId - 1] :
                          level.index === 4 ? serviceTimes : '';
 
-    const imageStyle = {
-      backgroundImage: activeChoice ? `url(/images/${activeChoice.image})` : '',
-      backgroundSize: 'cover',
-      paddingTop: '65px',
-    }
-
     return (
       <div>
         <Navigation showBack showBudget amounts={calculations} />
 
         <div className="Choices">
 
-          { activeChoiceId ?
-            <div className="Choices__cover" style={imageStyle}>
-              <div className="Choices__cover-overlay" />
-            </div>
-            :
-            <div className="PartyLevelHeader">
-              <img src={`/images/${level.image.split('.')[0]}_full.svg`}
-                alt={level.title}
-                className="PartyLevelHeader__image"
+          {
+            (level.index === 1) &&
+              <RouteChoices {...this.props}
+                level={level}
+                choices={choices}
+                activeChoiceId={activeChoiceId}
+                activeChoice={activeChoice}
+                handleChange={this.handleChange}
               />
-            </div>
           }
 
           {
-            showDropdown &&
+            (level.index === 2) &&
+              <TransitModeChoices
+                level={level}
+                choices={choices}
+                activeChoiceId={activeChoiceId}
+                activeChoice={activeChoice}
+                handleChange={this.handleChange}
+              />
+          }
+
+          {
+            (level.index === 3) &&
               <DropdownChoices {...this.props}
                 level={level}
                 choices={choices}
@@ -109,7 +112,7 @@ export default class Choices extends Component {
           }
 
           {
-            !showDropdown &&
+            (level.index === 4) &&
               <ServiceTimeChoices
                 handleChange={this.handleServiceTimeChange}
                 serviceTimeChoices={choices}

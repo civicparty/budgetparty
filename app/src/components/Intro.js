@@ -14,11 +14,11 @@ import introConfetti4 from '../images/intro-confetti/4.svg'
 
 
 const introText = [
-  "Congratulations! CapMetro has been awarded a $xxx,xxx,xxx grant from the federal government to build better public transit.",
-  "You will have several hard choices to make about how the money is used.",
-  "Constituents will want frequent service and fast moving transit but with each choice comes costs",
-  "Use your capital budget from provided by the grant, try to minimize the Operating & Maintainence costs.",
-  "It's now up to you to make sure we build the best transit system."
+  'So, you want to develop a high-capacity transit system for Central Texas?',
+  'What type of transit do you think people will ride?',
+  'Where will you locate service? What time of day will it run?',
+  'How will you ensure the most ‘bang for the buck’ without blowing the budget?',
+  'Play the Project Connect Transit Game and test your planning skills!',
 ]
 
 const introImages = [

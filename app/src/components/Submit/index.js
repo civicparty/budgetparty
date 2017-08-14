@@ -9,19 +9,19 @@ import SavePage from './SavePage'
 
 class Submit extends Component {
   render() {
-    const { calculations } = this.props;
+    const { funds, services } = this.props;
 
     return (
       <div>
-        <Navigation showBack showTotalFunds />
+        <Navigation funds={funds} showBack showTotalFunds />
 
         <div className="Submit">
           <Switch>
             <Route path="/submit" className="intro" exact
-              render={() => <IntroPage calculations={calculations} />}
+              render={() => <IntroPage funds={funds} />}
             />
             <Route path="/submit/review" exact
-              render={() => <ReviewPage />}
+              render={() => <ReviewPage services={services} />}
             />
             <Route path="/submit/save" exact
               render={() => <SavePage {...this.props} />}
@@ -38,4 +38,11 @@ class Submit extends Component {
 export default Submit
 
 Submit.propTypes = {
+  funds: PropTypes.shape({
+    sumOfServiceSpending: PropTypes.number.isRequired,
+    servicesSumPercentChange: PropTypes.number.isRequired,
+  }).isRequired,
+  services: PropTypes.arrayOf(
+    PropTypes.object,
+  ),
 }

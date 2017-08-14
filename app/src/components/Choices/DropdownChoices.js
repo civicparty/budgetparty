@@ -1,6 +1,20 @@
 import React, { Component } from 'react'
 
 export default class DropdownChoices extends Component {
+  renderDescription(activeChoice, level) {
+    if (level.index === 1) {
+      return (
+        <div>
+          <p>{ activeChoice.desc }</p>
+          <p>Route Distance: {activeChoice.distance} miles</p>
+          <p>Project Budget: ${activeChoice.budget / 1000000} million</p>
+        </div>
+      )
+    } else {
+      return activeChoice.desc
+    }
+  }
+
   render() {
     const {
       activeChoice,
@@ -31,7 +45,7 @@ export default class DropdownChoices extends Component {
           <div>
             <h2>{ activeChoice.title }</h2>
             <div className="Choices__description">
-              { activeChoice.desc }
+              { this.renderDescription(activeChoice, level) }
             </div>
           </div>
           :

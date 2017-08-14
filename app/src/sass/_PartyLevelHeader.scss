@@ -1,5 +1,5 @@
 .PartyLevelHeader {
-  padding-top: $nav_height;
+  padding: ($nav_height + 15) 0 15px;
   max-height: 205px;
   overflow: hidden;
   text-align: center;
