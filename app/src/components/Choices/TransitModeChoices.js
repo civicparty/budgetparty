@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import Header from './Header'
+
 export default class TransitModeChoices extends Component {
 
   renderDescription(activeChoice, level) {
@@ -36,22 +38,10 @@ export default class TransitModeChoices extends Component {
 
     return (
       <div>
-        {
-          activeChoiceId ?
-            <div className="Choices__cover" style={imageStyle}>
-              <div className="Choices__cover-overlay" />
-            </div>
-            :
-            <div className="PartyLevelHeader">
-              <img src={`/images/${level.image.split('.')[0]}_full.svg`}
-                alt={level.title}
-                className="PartyLevelHeader__image"
-              />
-            </div>
-        }
+        <Header {...this.props} />
 
-        <div className="padded-body">
-          <h1>{level.title} Options</h1>
+        <div className="Choices__body">
+          <h1 className="center-text">{level.title} Options</h1>
 
           {
             !activeChoiceId &&

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import Header from './Header'
+
 export default class CheckboxChoices extends Component {
   constructor(props) {
     super(props)
@@ -25,41 +27,44 @@ export default class CheckboxChoices extends Component {
     // </p>
 
     return (
-      <div className="Choices__body">
+      <div>
+        <Header {...this.props} />
 
-        {serviceTimeChoices.map((serviceTime) => {
-          return (
-            <div>
-              <h3>{serviceTime.title} ({serviceTime.times})</h3>
-              <form onChange={e => handleChange(serviceTime, serviceTime.frequencyChoices[e.target.value])}>
-                {serviceTime.frequencyChoices.map((frequencyChoice) => {
-                  const isChecked = activeChoice && activeChoice.find((choice) => {
-                    return (choice.frequency.id === frequencyChoice.id) &&
-                      (choice.serviceTime.id === serviceTime.id)
-                  })
+        <div className="Choices__body">
+          {serviceTimeChoices.map((serviceTime) => {
+            return (
+              <div>
+                <h3>{serviceTime.title} ({serviceTime.times})</h3>
+                <form onChange={e => handleChange(serviceTime, serviceTime.frequencyChoices[e.target.value])}>
+                  {serviceTime.frequencyChoices.map((frequencyChoice) => {
+                    const isChecked = activeChoice && activeChoice.find((choice) => {
+                      return (choice.frequency.id === frequencyChoice.id) &&
+                        (choice.serviceTime.id === serviceTime.id)
+                    })
 
-                  return (
-                    <div>
-                      <input id={`${serviceTime.id}: ${frequencyChoice.id}`} type="radio"
-                        value={frequencyChoice.id}
-                        checked={isChecked}
-                      />
-                      <label htmlFor={`${serviceTime.id}: ${frequencyChoice.id}`}>
-                        {frequencyChoice.title}
-                      </label>
-                    </div>
-                  )
-                })}
-              </form>
-            </div>
+                    return (
+                      <div>
+                        <input id={`${serviceTime.id}: ${frequencyChoice.id}`} type="radio"
+                          value={frequencyChoice.id}
+                          checked={isChecked}
+                        />
+                        <label htmlFor={`${serviceTime.id}: ${frequencyChoice.id}`}>
+                          {frequencyChoice.title}
+                        </label>
+                      </div>
+                    )
+                  })}
+                </form>
+              </div>
 
-          )
-        })}
+            )
+          })}
           { activeChoice &&
             <Link to="/dashboard/" className="Choices__button">
               Select & Continue
             </Link>
           }
+        </div>
       </div>
     )
   }
