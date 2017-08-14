@@ -17,6 +17,7 @@
   display: block;
 }
 
-.RouteChoices__hideInput {
+.RouteChoices__label {
   @include hide-radio-input;
+  padding: 10px;
 }

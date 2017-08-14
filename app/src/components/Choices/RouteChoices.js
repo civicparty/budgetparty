@@ -31,7 +31,13 @@ export default class RouteChoices extends Component {
         </div>
 
         <div className="padded-body">
-          <h1>{level.title} Options</h1>
+          <h1 className="center-text">{level.title} Options</h1>
+
+          { !activeChoiceId &&
+            <h3 className="Choices__empty-text">
+              Choose a {level.title}<br /> to learn more about it
+            </h3>
+          }
 
           <form onChange={e => handleChange(e, level.index, choices)}>
             <ul className="RouteChoices">
@@ -45,7 +51,7 @@ export default class RouteChoices extends Component {
                         checked={activeChoiceId === item.id}
                       />
                       <label htmlFor={`route_choice_${item.id}`}
-                        className="RouteChoices__hideInput"
+                        className="RouteChoices__label"
                       >
                         <img src={`/images/${item.image}`}
                           className="RouteChoices__img"
@@ -60,17 +66,13 @@ export default class RouteChoices extends Component {
             </ul>
           </form>
 
-          { activeChoiceId ?
+          { activeChoiceId &&
             <div>
               <h2>{ activeChoice.title }</h2>
               <div className="Choices__description">
                 { this.renderDescription(activeChoice, level) }
               </div>
             </div>
-            :
-            <h3 className="Choices__empty-text">
-              Choose a {level.title}<br /> to learn more about it
-            </h3>
           }
         </div>
       </div>
