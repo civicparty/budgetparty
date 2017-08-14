@@ -700,13 +700,16 @@ button::-moz-focus-inner {
   background: #9B9B9B;
   border-radius: 4px; }
 
+.RouteChoices__h1 {
+  margin: 0 0 10px;
+  text-align: center; }
+
 .RouteChoices__img {
   max-width: 100px;
   margin: auto;
   display: block; }
 
 .RouteChoices__button {
-  white-space: nowrap;
   display: inline-block;
   text-align: center;
   box-shadow: 0 4px 6px rgba(50, 79, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -762,8 +765,11 @@ button::-moz-focus-inner {
   color: #ffffff;
   border-radius: 4px; }
 
+.TransitModeChoices__h1 {
+  margin: 0 0 10px;
+  text-align: center; }
+
 .TransitModeChoices__button {
-  white-space: nowrap;
   display: inline-block;
   text-align: center;
   box-shadow: 0 4px 6px rgba(50, 79, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -776,7 +782,9 @@ button::-moz-focus-inner {
   transition: all .15s ease;
   margin: 5px;
   flex: 1;
-  max-width: 48%; }
+  min-width: 25%;
+  max-width: 48%;
+  position: relative; }
 
 .TransitModeChoices__button:hover {
   color: #ffffff;
@@ -795,7 +803,8 @@ button::-moz-focus-inner {
 .TransitModeChoices__labelText,
 .TransitModeChoices__labelText--invalid {
   padding: 10px;
-  display: block; }
+  display: block;
+  height: 100%; }
 
 .ChangeByPercentButtons__adjustButtons {
   display: flex;

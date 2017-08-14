@@ -2,6 +2,10 @@
   @include RadioChoices;
 }
 
+.RouteChoices__h1 {
+  @include choices-h1;
+}
+
 .RouteChoices__img {
   max-width: 100px;
   margin: auto;

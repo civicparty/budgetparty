@@ -87,7 +87,6 @@ $cover-height: 280px;
 }
 
 @mixin choices-buttons {
-  white-space: nowrap;
   display: inline-block;
   text-align: center;
   // padding: 0 14px;
@@ -104,4 +103,9 @@ $cover-height: 280px;
     transform: translateY(-1px);
     box-shadow: 0 7px 14px rgba(50, 79, 93,.1), 0 3px 6px rgba(0,0,0,.08);
   }
+}
+
+@mixin choices-h1 {
+  margin: 0 0 10px;
+  text-align: center;
 }

@@ -28,8 +28,8 @@ export default class RouteChoices extends Component {
       <div>
         <Header {...this.props} overlay="false" />
 
-        <div className="padded-body">
-          <h1 className="center-text">{level.title} Options</h1>
+        <div className="Choices__body">
+          <h1 className="RouteChoices__h1">{level.title} Options</h1>
 
           <form onChange={e => handleChange(e, level.index, choices)}>
             <ul className="RouteChoices">

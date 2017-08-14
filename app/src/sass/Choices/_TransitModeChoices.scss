@@ -24,11 +24,17 @@
   }
 }
 
+.TransitModeChoices__h1 {
+  @include choices-h1;
+}
+
 .TransitModeChoices__button {
   @include choices-buttons;
   margin: 5px;
   flex: 1;
+  min-width: 25%;
   max-width: 48%;
+  position: relative;
 }
 
 .TransitModeChoices__input {
@@ -41,4 +47,5 @@
 .TransitModeChoices__labelText--invalid {
   padding: 10px;
   display: block;
+  height: 100%;
 }

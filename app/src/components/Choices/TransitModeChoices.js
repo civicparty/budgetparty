@@ -41,7 +41,7 @@ export default class TransitModeChoices extends Component {
         <Header {...this.props} />
 
         <div className="Choices__body">
-          <h1 className="center-text">{level.title} Options</h1>
+          <h1 className="TransitModeChoices__h1">{level.title} Options</h1>
 
           {
             !activeChoiceId &&

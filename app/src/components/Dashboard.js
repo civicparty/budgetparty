@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import Navigation from './Navigation'
 import PartyLevel from './PartyLevel'
-import partyLevels from '../config/partyLevels.js'
+import partyLevels from '../config/partyLevels'
 
 
 export default class Dashboard extends Component {
-  render () {
+  render() {
     const {
       choices,
       calculations,
@@ -20,20 +20,6 @@ export default class Dashboard extends Component {
       guideway,
       serviceTimes,
     } = choices
-
-    // const getServiceLink = (service) => {
-    //   // The Welcome Level should go back to the Intro pages...
-    //   if (service.index === 0) return '/intro/1';
-    //   // The Budget Submission will also have a special link...
-    //   else if (service.index + 1 >= services.length) return '/submit';
-    //   // Otherwise, continue at will for the other service buckets.
-    //   else return `/service/${service.index}`;
-    // };
-    //
-    // const isLinkClickAllowed = (service) => {
-    //   return service.status && service.status !== "locked";
-    // }
-
 
     return (
       <div>
