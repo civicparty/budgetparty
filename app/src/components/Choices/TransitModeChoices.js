@@ -7,10 +7,14 @@ export default class TransitModeChoices extends Component {
     return (
       <div>
         <p>{ activeChoice.desc }</p>
-        <p>Passenger capacity: {activeChoice.capacityPerVehicle} (seated)</p>
-        <p>Frequency: {activeChoice.frequency}</p>
-        <p>Route Distance: {activeChoice.routeDistance}</p>
-        <p>Distance between rail stops: {activeChoice.distanceBetweenStops}</p>
+        { !activeChoice.disabled &&
+          <div>
+            <p>Passenger capacity: {activeChoice.capacityPerVehicle} (seated)</p>
+            <p>Frequency: {activeChoice.frequency}</p>
+            <p>Route Distance: {activeChoice.routeDistance}</p>
+            <p>Distance between rail stops: {activeChoice.distanceBetweenStops}</p>
+          </div>
+        }
       </div>
     )
   }
@@ -63,12 +67,12 @@ export default class TransitModeChoices extends Component {
                   return (
                     <li key={item.id} className="TransitModeChoices__button">
                       <input type="radio" value={item.id}
-                        className="TransitModeChoices__hideInput"
+                        className="TransitModeChoices__input"
                         id={`route_choice_${item.id}`}
                         checked={activeChoiceId === item.id}
                       />
                       <label htmlFor={`route_choice_${item.id}`}
-                        className="TransitModeChoices__labelText">
+                        className={`TransitModeChoices__labelText${activeChoice.disabled ? '--invalid' : ''}`}>
                         {item.title}
                       </label>
                     </li>
