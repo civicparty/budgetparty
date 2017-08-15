@@ -1,12 +1,8 @@
 import { createStore } from 'redux';
-
-import levels from './data/levels';
-import selections from './data/selections';
 import rootReducer from './reducers/index';
 
 const defaultState = {
-  levels,
-  selections,
+  // TODO: Update
 }
 
 const store = createStore(

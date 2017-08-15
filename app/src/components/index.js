@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Provider } from 'react-redux'
 import { Route, Router, Redirect, Switch } from 'react-router-dom'
 import ReactGA from 'react-ga'
 import createHistory from 'history/createBrowserHistory'
@@ -7,20 +6,11 @@ import createHistory from 'history/createBrowserHistory'
 import Home from './Home'
 import Intro from './Intro'
 import DashboardContainer from '../containers/Dashboard'
-import ServiceContainer from '../containers/Service'
-import DepartmentContainer from '../containers/Department'
-import LearnMore from './Department/LearnMore'
-import ExplainContainer from '../containers/Explain'
-import SubmitContainer from '../containers/Submit'
 import Level from './Level'
 import ChoicesContainer from '../containers/Choices'
 import User from './User'
-import Done from './Done'
 import { firebaseAuth } from '../config/constants'
 import { logout } from '../helpers/auth'
-import Landing from './Landing';
-
-import store from '../store';
 
 // Google Analytics
 ReactGA.initialize('')

@@ -3,47 +3,32 @@ import { Link } from 'react-router-dom'
 
 import Header from './Header'
 
-export default class CheckboxChoices extends Component {
-  constructor(props) {
-    super(props)
-  }
+export default class ServiceTimeChoices extends Component {
 
   render() {
     const {
       activeChoice,
-      level,
       serviceTimeChoices,
       handleChange,
     } = this.props
-
-    // <p key={option.id}>
-    //   <input type="checkbox" value={option.id} id={option.id}
-    //     name={option.title} checked={isChecked}
-    //     onChange={e => handleChange(e, level.index, serviceTimeChoices)}
-    //     ref={input => this.input = input}
-    //     defaultChecked={false}
-    //   />
-    //   <label htmlFor={option.id}>{option.title} ({option.times})</label>
-    // </p>
 
     return (
       <div>
         <Header {...this.props} />
 
         <div className="Choices__body">
-          {serviceTimeChoices.map((serviceTime) => {
+          {serviceTimeChoices.map((serviceTime, i) => {
             return (
-              <div>
+              <div key={i}>
                 <h3>{serviceTime.title} ({serviceTime.times})</h3>
                 <form onChange={e => handleChange(serviceTime, serviceTime.frequencyChoices[e.target.value])}>
-                  {serviceTime.frequencyChoices.map((frequencyChoice) => {
-                    const isChecked = activeChoice && activeChoice.find((choice) => {
-                      return (choice.frequency.id === frequencyChoice.id) &&
-                        (choice.serviceTime.id === serviceTime.id)
-                    })
+                  {serviceTime.frequencyChoices.map((frequencyChoice, i) => {
+                    const activeFrequencyId = activeChoice && (activeChoice[serviceTime.id] && activeChoice[serviceTime.id].frequencyId)
+                    const isChecked = activeChoice ?
+                      frequencyChoice.id === activeFrequencyId : false
 
                     return (
-                      <div>
+                      <div key={i}>
                         <input id={`${serviceTime.id}: ${frequencyChoice.id}`} type="radio"
                           value={frequencyChoice.id}
                           checked={isChecked}
