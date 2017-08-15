@@ -1,12 +1,14 @@
 const modeChoices = [
   {
     id: 1,
+    disabled: true,
     title: 'Rapid Bus',
     desc: 'Rapid bus, like MetroRapid, offers more frequent service with more amenities, like free onboard Wi-Fi. Rapid bus does not have enough dedicated space to operate as true high-capacity transit.',
     image: 'modes/Rapid_Bus.jpg',
     capitalCostPerVehicle: 700000,
-    disabled: true,
-    // capacityPerVehicle: 50,
+    minCapitalCostPerMile: 700000,
+    minMaintenanceCosts: 2500000,
+    capacityPerVehicle: 50,
     // guidewayChoices: [{
     //   id: 1,
     //   title: 'Mixed with Normal Traffic',
@@ -27,6 +29,8 @@ const modeChoices = [
     routeDistance: '5 – 15 miles',
     distanceBetweenStops: '1/2 – 2 miles',
     capitalCostPerVehicle: 700000,
+    minCapitalCostPerMile: 2500000,
+    minMaintenanceCosts: 2500000,
     guidewayChoices: [{
       id: 1,
       title: 'Mixed with Normal Traffic',
@@ -56,6 +60,8 @@ const modeChoices = [
     frequency: '5 – 15 minutes',
     routeDistance: '2 – 5 miles',
     distanceBetweenStops: '1/8 mile – 1/2 mile',
+    minCapitalCostPerMile: 15000000,
+    minMaintenanceCosts: 25000000,
     guidewayChoices: [{
       id: 1,
       title: 'Fixed Rail with Mixed Traffic',
@@ -85,6 +91,8 @@ const modeChoices = [
     routeDistance: '5 – 15 miles',
     distanceBetweenStops: '1/2 – 2 miles',
     capitalCostPerVehicle: 5000000,
+    minCapitalCostPerMile: 25000000,
+    minMaintenanceCosts: 20000000,
     guidewayChoices: [{
       id: 1,
       title: 'Fully Dedicated Fixed Railway',
@@ -107,11 +115,13 @@ const modeChoices = [
   }, {
     id: 5,
     title: 'Heavy Rail (HRT)',
+    disabled: true,
     desc: 'Heavy rail operates in very dense cities such as New York and London. Operating and capital costs are among the highest of the modes and currently Austin does not have the density or funds to pay for a system.',
     image: 'modes/Heavy_Rail.jpg',
-    disabled: true,
     capacityPerVehicle: 130,
     capitalCostPerVehicle: 7000000,
+    minCapitalCostPerMile: 95000000,
+    minMaintenanceCosts: 30000000,
     // guidewayChoices: [{
     //   id: 1,
     //   title: 'Fully Dedicated Fixed Railway',
@@ -132,6 +142,8 @@ const modeChoices = [
     Frequency: '15 – 60 minutes',
     routeDistance: '15 – 30 miles',
     distanceBetweenStops: '1 – 5 miles',
+    minCapitalCostPerMile: 20000000,
+    minMaintenanceCosts: 10000000,
     guidewayChoices: [{
       id: 1,
       title: 'Fully Dedicated Fixed Railway',
@@ -145,11 +157,13 @@ const modeChoices = [
   }, {
     id: 7,
     title: 'Gondola',
+    disabled: true,
     desc: 'Gondola cable car systems are used for short trips in extreme environments with challenges that prevent typical high-capacity transit solutions.',
     image: 'modes/Gondola.jpg',
     capacityPerVehicle: 12,
     capitalCostPerVehicle: 5000000,
-    disabled: true,
+    minCapitalCostPerMile: 55000000,
+    minMaintenanceCosts: 20000000,
     // guidewayChoices: [{
     //   id: 1,
     //   title: 'Aerial Cable',

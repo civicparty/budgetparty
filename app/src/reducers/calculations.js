@@ -11,11 +11,10 @@ function calculations(state = [], action = {}) {
     case 'UPDATE_COSTS_AMOUNT':
       const { market, mode, guideway, serviceTimes } = action.choices
 
-      const routeDistance = (market && market.distance) || 1
+
       const capacityPerVehicle = (mode && mode.capacityPerVehicle) || 1
-      const capitalCostPerMile = (guideway && guideway.capitalCostPerMile) || 1
-      const costPerRevHour = (guideway && guideway.costPerRevHour) || 1
-      const maintenanceCost = (guideway && guideway.maintenanceCosts) || 0
+      console.log('capacityPerVehicle', capacityPerVehicle)
+
 
       // TODO, get theses numbers dynamically
       const _vehicleCount = 5     // Need a default value for each mode type
@@ -25,9 +24,30 @@ function calculations(state = [], action = {}) {
       // Vehicle count needs to be calculated backwards from frequency
       const vehicleCost = mode ? _vehicleCount * mode.capitalCostPerVehicle : 0
 
-      // Guideway = miles (route type choice) * Capital Cost / mile
-      const guidewayCost = market && guideway ? routeDistance * capitalCostPerMile : 0
+      // GUIDEWAY COSTS = routeDistance * capitalCostPerMile
+      const routeDistance = (market && market.distance) || 1
+      const capitalCostPerMile = (guideway && guideway.capitalCostPerMile) ||
+                                 (mode && mode.minCapitalCostPerMile) || 1
+      const guidewayCost = market && mode ? routeDistance * capitalCostPerMile : 0
+      console.log('guidewayCost', guidewayCost)
+      // end
 
+
+      // MAINTENANCE COSTS: fixed number from guideway
+      const maintenanceCost = (guideway && guideway.maintenanceCosts) ||
+                              (mode && mode.minMaintenanceCosts) || 0
+      console.log('maintenanceCost', maintenanceCost)
+      // end
+
+
+      // OPERATING COSTS = weekly revenue hours * costPerRevHour
+      // weekly revenue hours = service hours * number of vehicles needed each service time range
+
+      // We need to calculate revenue hours for each selected Service Time Range.
+      // That means we need to calculate number of vheciles needed each service time range.
+      // From there, we sum those revenu hours. to a annual value and multiply by costPerRevHour
+
+      // Avg Rev Hours per Week
       const serviceTimeWeeklySum = () => {
         if (serviceTimes) {
           return serviceTimes.reduce((sum, item) => {
@@ -43,13 +63,9 @@ function calculations(state = [], action = {}) {
       }
 
       const revenueHours = serviceTimeWeeklySum() * 52
-      const operatingCost = serviceTimes ?
-        revenueHours * costPerRevHour : 0
+      const costPerRevHour = (guideway && guideway.costPerRevHour) || 1
+      const operatingCost = serviceTimes ? revenueHours * costPerRevHour : 0
 
-      // We need to calculate revenue hours for each selected Service Time Range.
-      // That means we need to calculate number of vheciles needed each service time range.
-
-      // From there, we sum those revenu hours. to a annual value and multiply by costPerRevHour
 
       // MAX NUMBER peak hour VEHCLES NEEDED (Capital Cost)
       // overall distance of market * 2 / speed = round trip time end to end
@@ -63,6 +79,8 @@ function calculations(state = [], action = {}) {
       // capacity per day = tripCount * capacityPerVehicle
 
       // const capacity = tripCount * capacityPerVehicle
+
+      console.log('END HERE ------------')
 
       const newCalculations = {
         vehicleCost,
