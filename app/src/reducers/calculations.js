@@ -1,6 +1,4 @@
-// import _ from 'underscore'
-import modeChoices from '../config/modeChoices'
-
+import _ from 'underscore'
 
 function calculations(state = [], action = {}) {
   switch (action.type) {
@@ -11,69 +9,87 @@ function calculations(state = [], action = {}) {
     case 'UPDATE_COSTS_AMOUNT':
       const { market, mode, guideway, serviceTimes } = action.choices
 
+    // GUIDEWAY COSTS = routeDistance * capitalCostPerMile
+      const routeDistance = (market && market.distance) || 1
+      console.log('routeDistance', routeDistance)
+      const capitalCostPerMile = (guideway && guideway.capitalCostPerMile) ||
+                                 (mode && mode.minCapitalCostPerMile) || 1
+      const guidewayCost = market && mode ? routeDistance * capitalCostPerMile : 0
+      console.log('$guidewayCost', guidewayCost)
+    // end
+
+    // MAINTENANCE COSTS: fixed number from guideway
+      const maintenanceCost = (guideway && guideway.maintenanceCosts) ||
+                              (mode && mode.minMaintenanceCosts) || 0
+      console.log('$maintenanceCost', maintenanceCost)
+    // end
+
+    // VEHICLES COST & COUNT:
+      const getVehicleCountByServiceTime = (serviceTimeId) => {
+        if (!serviceTimes || !serviceTimes[serviceTimeId]) return 0;
+        if (serviceTimes[serviceTimeId].frequencyValue === null) return 0;
+
+        const averageSpeed = guideway && guideway.averageSpeed
+        const roundTripTime = (routeDistance * 2) / averageSpeed
+        const frequency = serviceTimes[serviceTimeId].frequencyValue
+        const vehicleCount = Math.ceil(roundTripTime * (60 / (frequency)))
+        return vehicleCount
+      }
+
+      // MAX NUMBER peak hour vehicles NEEDED (Capital Cost)
+      const vehicleCounts = _.mapObject(serviceTimes, (item) => {
+        return getVehicleCountByServiceTime(item.id)
+      })
+
+      const vehicleCountsArray = Object.keys(vehicleCounts).map(key => vehicleCounts[key])
+      const maxVehicleCount = vehicleCountsArray.length > 0 ? Math.max(...vehicleCountsArray) : 1
+      console.log('maxVehicleCount', maxVehicleCount)
+      const vehicleCost = mode ? maxVehicleCount * mode.capitalCostPerVehicle : 0
+      console.log('$vehicleCost', vehicleCost)
+    // end
+
+
+    // OPERATING COSTS = annual revenue hours * costPerRevHour
+      // weekly revenue hours = service hours * number of vehicles needed each service time range
+      // We need to calculate revenue hours for each selected Service Time Range.
+      // That means we need to calculate number of vheciles needed each service time range.
+      // From there, we sum those revenu hours. to a annual value and multiply by costPerRevHour
+
+      const weeklyOperatingHours = (times, vehicleCounts) => {
+        if (!times) return 0
+        const hoursObj = _.mapObject(times, (item) => {
+          if (item.frequencyValue !== null) {
+            return item.hours
+          } else {
+            return 0
+          }
+        })
+
+        for (let i = 1; i < Object.keys(vehicleCounts).length + 1; i++) {
+          hoursObj[i] *= vehicleCounts[i]
+        }
+
+        const hours = Object.keys(hoursObj).map(key => hoursObj[key]);
+        return hours.reduce((sum, value) => sum + value)
+      }
+
+      // const revenueHours = serviceTimeWeeklySum() * 52
+      const revenueHours = weeklyOperatingHours(serviceTimes, vehicleCounts) * 52
+      console.log('revenueHours', revenueHours)
+      const costPerRevHour = (guideway && guideway.costPerRevHour) || 1
+      const operatingCost = serviceTimes ? revenueHours * costPerRevHour : 0
+      console.log('operatingCost', operatingCost)
+    // end
+
 
       const capacityPerVehicle = (mode && mode.capacityPerVehicle) || 1
       console.log('capacityPerVehicle', capacityPerVehicle)
 
 
-      // TODO, get theses numbers dynamically
-      const _vehicleCount = 5     // Need a default value for each mode type
-      // const _costPerHour = 10
-      // const _revenueMiles = 100
-
-      // Vehicle count needs to be calculated backwards from frequency
-      const vehicleCost = mode ? _vehicleCount * mode.capitalCostPerVehicle : 0
-
-      // GUIDEWAY COSTS = routeDistance * capitalCostPerMile
-      const routeDistance = (market && market.distance) || 1
-      const capitalCostPerMile = (guideway && guideway.capitalCostPerMile) ||
-                                 (mode && mode.minCapitalCostPerMile) || 1
-      const guidewayCost = market && mode ? routeDistance * capitalCostPerMile : 0
-      console.log('guidewayCost', guidewayCost)
-      // end
-
-
-      // MAINTENANCE COSTS: fixed number from guideway
-      const maintenanceCost = (guideway && guideway.maintenanceCosts) ||
-                              (mode && mode.minMaintenanceCosts) || 0
-      console.log('maintenanceCost', maintenanceCost)
-      // end
-
-
-      // OPERATING COSTS = weekly revenue hours * costPerRevHour
-      // weekly revenue hours = service hours * number of vehicles needed each service time range
-
-      // We need to calculate revenue hours for each selected Service Time Range.
-      // That means we need to calculate number of vheciles needed each service time range.
-      // From there, we sum those revenu hours. to a annual value and multiply by costPerRevHour
-
-      // Avg Rev Hours per Week
-      const serviceTimeWeeklySum = () => {
-        if (serviceTimes) {
-          return serviceTimes.reduce((sum, item) => {
-            if (item.checked) {
-              return sum + item.hours
-            } else {
-              return sum
-            }
-          }, 0)
-        } else {
-          return 1
-        }
-      }
-
-      const revenueHours = serviceTimeWeeklySum() * 52
-      const costPerRevHour = (guideway && guideway.costPerRevHour) || 1
-      const operatingCost = serviceTimes ? revenueHours * costPerRevHour : 0
-
-
-      // MAX NUMBER peak hour VEHCLES NEEDED (Capital Cost)
-      // overall distance of market * 2 / speed = round trip time end to end
-      // round trip time / frequency at peak hour = number of vehicles needed
-
       // Total budget - annual capital (O&M) costs  = remaining budget
       // remaining budget / annual o&m = years of operation funded
 
+    // CAPACITY
       // trips per hour = (60 / frequency) * 2 (for roundtrip)
       // trip count = hours in service time range * trips per hour /// need to calculate trip count for each service time range
       // capacity per day = tripCount * capacityPerVehicle

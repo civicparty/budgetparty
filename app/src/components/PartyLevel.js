@@ -29,7 +29,7 @@ const PartyLevel = (props) => {
   const levelThreeComplete = props.index === 3 && props.guideway
   const levelFourReady = props.index === 4 && !!props.guideway
   const levelFourComplete = props.index === 4 && props.serviceTimes &&
-                            props.serviceTimes.length > 0
+                            Object.keys(props.serviceTimes).length > 0
   const levelFiveReady = props.index === 5 && props.serviceTimes
 
   const isInProgress = levelOneReady || levelTwoReady || levelThreeReady ||

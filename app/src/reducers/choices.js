@@ -16,18 +16,14 @@ function choices(state = [], action = {}) {
 
     case 'SELECT_SERVICE_TIMES':
       const serviceId = Number(action.serviceTime.id);
-      const serviceTimesState = state.serviceTimes || [];
-      const exisiting = serviceTimesState && serviceTimesState.find((item) => {
-        return item.serviceTime.id === serviceId
-      });
+      const serviceTimesState = state.serviceTimes || {};
 
-      if (exisiting) {
-        exisiting.frequency = action.frequencyChoice
-      } else {
-        serviceTimesState.push({
-          serviceTime: action.serviceTime,
-          frequency: action.frequencyChoice,
-        })
+      serviceTimesState[serviceId] = {
+        id: serviceId,
+        title: action.serviceTime.title,
+        hours: action.serviceTime.operatingHoursPerWeek,
+        frequencyId: action.frequencyChoice.id,
+        frequencyValue: action.frequencyChoice.value,
       }
 
       const newState = { serviceTimes: serviceTimesState };
