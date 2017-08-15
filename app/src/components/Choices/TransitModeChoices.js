@@ -12,8 +12,7 @@ export default class TransitModeChoices extends Component {
         { !activeChoice.disabled &&
           <div>
             <p>Passenger capacity: {activeChoice.capacityPerVehicle} (seated)</p>
-            <p>Frequency: {activeChoice.frequency}</p>
-            <p>Route Distance: {activeChoice.routeDistance}</p>
+            <p>Optimal Route Distance: {activeChoice.routeDistance}</p>
             <p>Distance between rail stops: {activeChoice.distanceBetweenStops}</p>
           </div>
         }
