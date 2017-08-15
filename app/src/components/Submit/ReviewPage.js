@@ -14,17 +14,17 @@ const ReviewPage = (props) => {
   return (
     <div>
       <div className="Submit__review-header">
-        <img src="/images/submit.svg" alt="Envelope Icon" />
+        <img src="/images/levels/envelope_full.svg" alt="Envelope Icon" />
       </div>
       <div className="Submit__body">
-        <h3>Review Your Budget Changes</h3>
-        <h4 className="Submit__review-subtitle">You opted to...</h4>
+        <h3>Customer Narratives to go here</h3>
+        {/* <h4 className="Submit__review-subtitle">You opted to...</h4>
 
         <p className="Submit__review-service-list">
           overview of choices here
-        </p>
+        </p> */}
 
-        <Link to="/dashboard" className="Submit__revise-link">Revise Project</Link>
+        {/* <Link to="/dashboard" className="Submit__revise-link">Revise Project</Link> */}
         <div className="Submit__review-buttons">
           <Link to="/submit" className="Department__edit-button">
             <div className="flexconatiner">
@@ -38,7 +38,7 @@ const ReviewPage = (props) => {
             <img src={forwardArrow} alt="Back Arrow" className="right" style={{ padding: '6px 10px 0 0' }} />
           </Link>
         </div>
-        <ProgressBar x={1} y={2} />
+        <ProgressBar x={2} y={3} />
       </div>
     </div>
   )

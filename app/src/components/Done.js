@@ -11,11 +11,10 @@ export default class Done extends Component {
         <img src={moneyImg} className="intro__img" alt="Money Emoji" />
         <p className="intro__text">
           Thank You! <br />
-          Your budget has been submitted for review
         </p>
         <Link to="/dashboard" className="Submit__next-button">Go Home</Link>
-        <Link to="https://github.com/open-austin/budgetparty" className="center-text">
-          Learn More about Budget Party
+        <Link to="https://capmetro.org/projectconnect/" className="center-text">
+          Learn More about Project Connect
         </Link>
       </div>
     )

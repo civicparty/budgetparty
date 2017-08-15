@@ -10,6 +10,10 @@
   text-align: center;
 }
 
+.Submit__summary {
+  text-align: left;
+}
+
 .Submit__body {
   text-align: center;
   padding: 25px 40px;
@@ -90,4 +94,114 @@
     display: block;
     margin-bottom: 3px;
   }
+}
+
+
+// TODO: fix this later
+
+
+.Department {
+  text-align: center;
+}
+
+.Department__body {
+  @include body;
+}
+
+.Department__title {
+  @include title-text;
+}
+
+.Department__desc {
+  @include description-text;
+}
+
+.Department__link {
+  font-size: 16px;
+}
+
+.Department__review-buttons {
+  display: flex;
+  padding: 25px 15% 30px;
+}
+
+.Department__edit-button {
+  @include primary-button;
+  width: 95px;
+  font-size: 16px;
+  height: 36px;
+  min-width: auto;
+  padding: 6px;
+  &:hover {
+    background-color: $darkbluish;
+  }
+}
+
+.Department__done-button {
+  @include primary-button;
+  width: 95px;
+  font-size: 16px;
+  height: 36px;
+  min-width: auto;
+  padding: 6px;
+  &:hover {
+    background-color:$darkbluish;
+  }
+}
+
+.Department__button-content--icon {
+  padding: 6px 10px;
+}
+.Department__button-content--right {
+  padding-right: 25px;
+}
+
+.Service {
+  text-align: center;
+}
+
+.Service__body {
+  @include body;
+}
+
+.Service__title {
+  @include title-text;
+}
+
+.Service__desc {
+  @include description-text;
+}
+
+.Service__next-button-flex-container {
+  @include button-flex-container;
+}
+
+.Service__next-button {
+  @include button-flex;
+  @include primary-button;
+&:hover{
+background-color: $darkbluish;
+}
+
+}
+
+.Service__review-buttons {
+  display: flex;
+  padding: 0 15%;
+}
+
+.Service__edit-button {
+  @include primary-button;
+  width: 95px;
+  font-size: 14px;
+  height: auto;
+  min-width: auto;
+}
+
+.Service__done-button {
+  @include secondary-button;
+  width: 95px;
+  font-size: 14px;
+  height: auto;
+  min-width: auto;
 }

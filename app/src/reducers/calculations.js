@@ -100,6 +100,7 @@ function calculations(state = [], action = {}) {
 
       const newCalculations = {
         vehicleCost,
+        vehicleCount: maxVehicleCount,
         guidewayCost,
         maintenanceCost,
         operatingCost,

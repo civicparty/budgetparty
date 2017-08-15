@@ -33,9 +33,10 @@ export default class Dashboard extends Component {
             const servicesSelected = level.index === 4 && serviceTimes > 0;
             const skipIntroPage = routeSelected || modeSelected ||
                                   guidewaySelected || servicesSelected;
+            const submitPage = level.index === 5
 
             const link = skipIntroPage ? `/level/${level.index}/choices` :
-                         `/level/${level.index}`;
+                          submitPage ? '/submit' : `/level/${level.index}`;
 
             return (
               <PartyLevel {...level} {...choices} link={link} key={level.index} />

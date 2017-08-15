@@ -1034,6 +1034,9 @@ button::-moz-focus-inner {
   background: #ffffff;
   text-align: center; }
 
+.Submit__summary {
+  text-align: left; }
+
 .Submit__body {
   text-align: center;
   padding: 25px 40px; }
@@ -1127,6 +1130,208 @@ button::-moz-focus-inner {
 .Submit__save-body small {
   display: block;
   margin-bottom: 3px; }
+
+.Department {
+  text-align: center; }
+
+.Department__body {
+  padding: 25px 40px; }
+
+.Department__title {
+  font-size: 26px;
+  text-align: center;
+  margin: 0 0 15px; }
+
+.Department__desc {
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px; }
+
+.Department__link {
+  font-size: 16px; }
+
+.Department__review-buttons {
+  display: flex;
+  padding: 25px 15% 30px; }
+
+.Department__edit-button {
+  display: block;
+  width: 180px;
+  background-color: #ffffff;
+  border-color: #4D4D4D;
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 25px;
+  margin: auto;
+  padding: 12px;
+  cursor: pointer;
+  background-color: #00A3DE;
+  border-color: #00A3DE;
+  width: 95px;
+  font-size: 16px;
+  height: 36px;
+  min-width: auto;
+  padding: 6px; }
+
+.Department__edit-button:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
+.Department__edit-button:hover {
+  background-color: #006285; }
+
+.Department__edit-button:hover {
+  background-color: #006285; }
+
+.Department__done-button {
+  display: block;
+  width: 180px;
+  background-color: #ffffff;
+  border-color: #4D4D4D;
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 25px;
+  margin: auto;
+  padding: 12px;
+  cursor: pointer;
+  background-color: #00A3DE;
+  border-color: #00A3DE;
+  width: 95px;
+  font-size: 16px;
+  height: 36px;
+  min-width: auto;
+  padding: 6px; }
+
+.Department__done-button:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
+.Department__done-button:hover {
+  background-color: #006285; }
+
+.Department__done-button:hover {
+  background-color: #006285; }
+
+.Department__button-content--icon {
+  padding: 6px 10px; }
+
+.Department__button-content--right {
+  padding-right: 25px; }
+
+.Service {
+  text-align: center; }
+
+.Service__body {
+  padding: 25px 40px; }
+
+.Service__title {
+  font-size: 26px;
+  text-align: center;
+  margin: 0 0 15px; }
+
+.Service__desc {
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px; }
+
+.Service__next-button-flex-container {
+  display: flex;
+  justify-content: center; }
+
+.Service__next-button {
+  position: absolute;
+  bottom: 70px;
+  display: block;
+  width: 180px;
+  background-color: #ffffff;
+  border-color: #4D4D4D;
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 25px;
+  margin: auto;
+  padding: 12px;
+  cursor: pointer;
+  background-color: #00A3DE;
+  border-color: #00A3DE; }
+
+.Service__next-button:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
+.Service__next-button:hover {
+  background-color: #006285; }
+
+.Service__next-button:hover {
+  background-color: #006285; }
+
+.Service__review-buttons {
+  display: flex;
+  padding: 0 15%; }
+
+.Service__edit-button {
+  display: block;
+  width: 180px;
+  background-color: #ffffff;
+  border-color: #4D4D4D;
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 25px;
+  margin: auto;
+  padding: 12px;
+  cursor: pointer;
+  background-color: #00A3DE;
+  border-color: #00A3DE;
+  width: 95px;
+  font-size: 14px;
+  height: auto;
+  min-width: auto; }
+
+.Service__edit-button:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
+.Service__edit-button:hover {
+  background-color: #006285; }
+
+.Service__done-button {
+  display: block;
+  width: 180px;
+  background-color: #ffffff;
+  border-color: #4D4D4D;
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 25px;
+  margin: auto;
+  padding: 12px;
+  cursor: pointer;
+  background-color: #50D200;
+  border-color: #50D200;
+  width: 95px;
+  font-size: 14px;
+  height: auto;
+  min-width: auto; }
+
+.Service__done-button:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
+.Service__done-button:hover {
+  background-color: #4B830E; }
 
 .User {
   align-items: center;

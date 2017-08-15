@@ -9,19 +9,19 @@ import SavePage from './SavePage'
 
 class Submit extends Component {
   render() {
-    const { funds, services } = this.props;
+    const { user, calculations } = this.props;
 
     return (
       <div>
-        <Navigation funds={funds} showBack showTotalFunds />
+        <Navigation showUser showBudget user={user} amounts={calculations} />
 
         <div className="Submit">
           <Switch>
             <Route path="/submit" className="intro" exact
-              render={() => <IntroPage funds={funds} />}
+              render={() => <IntroPage {...this.props} />}
             />
             <Route path="/submit/review" exact
-              render={() => <ReviewPage services={services} />}
+              render={() => <ReviewPage />}
             />
             <Route path="/submit/save" exact
               render={() => <SavePage {...this.props} />}

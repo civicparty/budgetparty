@@ -8,7 +8,9 @@ import Intro from './Intro'
 import DashboardContainer from '../containers/Dashboard'
 import Level from './Level'
 import ChoicesContainer from '../containers/Choices'
+import SubmitContainer from '../containers/Submit'
 import User from './User'
+import Done from './Done'
 import { firebaseAuth } from '../config/constants'
 import { logout } from '../helpers/auth'
 
@@ -83,27 +85,35 @@ export default class App extends Component {
                 return <Intro {...props} authed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}
                 />
-              }}/>
+              }} />
               <Route path='/dashboard' render={ props => {
                 return <DashboardContainer isAuthed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}
                 />
-              }}/>
+              }} />
               <Route exact path='/level/:id' render={props => {
                 return <Level {...props} isAuthed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}
                 />
-              }}/>
+              }} />
               <Route path='/level/:level_id/choices' render={ props => {
                 return <ChoicesContainer {...props} isAuthed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}
                 />
-              }}/>
+              }} />
+              <Route path="/submit" render={(props) => {
+                return (<SubmitContainer {...props} isAuthed={this.state.authed}
+                  handleLogout={this.handleLogout.bind(this)}
+                />)
+              }} />
               <Route path='/user' render={ props => {
                 return <User isAuthed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}
                 />
               }}/>
+              <Route path="/done" render={(props) => {
+                return <Done {...props} />
+              }} />
               <Route render={() => <h3>Oops, you went off the tracks.</h3>} />
             </Switch>
           </div>
