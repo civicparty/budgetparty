@@ -16,7 +16,6 @@ export default class ServiceTimeChoices extends Component {
       <div>
         <Header {...this.props} />
 
-
         <div className="Choices__body">
           <h3 className="Choices__empty-text">
             Choose your desired operating hours and arrival frequency.

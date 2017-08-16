@@ -82,19 +82,48 @@ function calculations(state = [], action = {}) {
     // end
 
 
+    // REMAINING BUDGET
+      // Total budget - total cost = remaining budget
+      const totalCosts = vehicleCost + guidewayCost + maintenanceCost + operatingCost
+      const remainingBudget = (market && market.budget) - totalCosts
+      // years of operation funded = remaining budget / annual o&m
+      const yearOfOperationFunded = remainingBudget > 0 ? remainingBudget / operatingCost : 0
+      console.log('yearOfOperationFunded', yearOfOperationFunded)
+    // end
+
+    // CAPACITY
       const capacityPerVehicle = (mode && mode.capacityPerVehicle) || 1
       console.log('capacityPerVehicle', capacityPerVehicle)
 
+      const tripCountPerServiceTimeBlock = (serviceTimeBlock) => {
+        if (serviceTimeBlock.frequencyValue === null) return 0
+        // trips per hour = (60 / frequency) * 2 (for roundtrip)
+        const tripsPerHour = (60 / serviceTimeBlock.frequencyValue) * 2
+        // trip count = hours in service time range * trips per hour /// need to calculate trip count for each service time range
+        const tripCount = tripsPerHour * serviceTimeBlock.hours
+        return tripCount
+      }
 
-      // Total budget - annual capital (O&M) costs  = remaining budget
-      // remaining budget / annual o&m = years of operation funded
+      const getTripCountsArrayByTimeBlock = (serviceTimes) => {
+        if (Object.keys(serviceTimes).length < 1) return 0
+        const sumOfTrips = Object.values(serviceTimes).map((timeBlock) => {
+          return tripCountPerServiceTimeBlock(timeBlock)
+        })
 
-    // CAPACITY
-      // trips per hour = (60 / frequency) * 2 (for roundtrip)
-      // trip count = hours in service time range * trips per hour /// need to calculate trip count for each service time range
+        return sumOfTrips
+      }
+
+      const tripCountSum = (serviceTimes) => {
+        if (!serviceTimes) return 0
+        if (Object.keys(serviceTimes).length < 1) return 0
+        const tripCountsArray = getTripCountsArrayByTimeBlock(serviceTimes)
+        console.log('tripCounts By Servive Time', tripCountsArray)
+        return tripCountsArray.reduce((sum, value) => sum + value)
+      }
       // capacity per day = tripCount * capacityPerVehicle
-
-      // const capacity = tripCount * capacityPerVehicle
+      const capacityPerDay = tripCountSum(serviceTimes) * capacityPerVehicle
+      console.log('capacityPerDay', capacityPerDay)
+    // end
 
       console.log('END HERE ------------')
 
@@ -104,7 +133,9 @@ function calculations(state = [], action = {}) {
         guidewayCost,
         maintenanceCost,
         operatingCost,
-        totalCosts: vehicleCost + guidewayCost + maintenanceCost + operatingCost,
+        yearOfOperationFunded,
+        capacityPerDay,
+        totalCosts,
       }
 
       return Object.assign({}, state, newCalculations)

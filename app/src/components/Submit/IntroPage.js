@@ -17,6 +17,8 @@ const IntroPage = (props) => {
     guidewayCost,
     maintenanceCost,
     operatingCost,
+    capacityPerDay,
+    yearOfOperationFunded,
     totalCosts,
   } = props.calculations
   const { market, mode, guideway, serviceTimes } = props.choices
@@ -50,7 +52,7 @@ const IntroPage = (props) => {
         </p>
       </div>
 
-      <h3 className="Submit__title">Your project estimated cost:</h3>
+      <h3 className="Submit__title">Your Project Estimated Costs</h3>
       <div className="Submit__summary">
         <ul>
 
@@ -96,6 +98,34 @@ const IntroPage = (props) => {
           />
         </li>
       </ul>
+
+      <div>
+        <h3>Remaining Budget</h3>
+        <p className="center-text">How many years can you fund operations with you remaining budget?</p>
+        <h4 className="Submit__title">
+          <FormattedNumber
+            value={yearOfOperationFunded || 0}
+            style="decimal" //eslint-disable-line
+            minimumFractionDigits={0}
+            maximumFractionDigits={2}
+          />
+          &nbsp; years
+        </h4>
+      </div>
+
+      <div>
+        <h3>Ridership</h3>
+        <p className="center-text">How close were you to meeting the 10,000 daily ridership demand?</p>
+        <h4 className="Submit__title">
+          Your daily max capacity is estimated at &nbsp;
+          <FormattedNumber
+            value={capacityPerDay || 0}
+            style="decimal" //eslint-disable-line
+            minimumFractionDigits={0}
+            maximumFractionDigits={0}
+          />
+        </h4>
+      </div>
 
       </div>
       <h3 className="Submit__title">Total Estimated Cost</h3>
