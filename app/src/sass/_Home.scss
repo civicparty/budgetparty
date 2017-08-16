@@ -3,6 +3,7 @@
 
 .home {
   background: $skyblue;
+  height: 100%;
 }
 
 .logo {
@@ -76,4 +77,16 @@
     font-weight: bold;
     color: $darkbluish;
   }
+}
+
+.landingHeader {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  line-height: 2.5rem;
+}
+
+.partnerLogo {
+  max-width: 160px;
+  padding: 20px 7%;
 }

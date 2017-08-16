@@ -105,7 +105,8 @@ button::-moz-focus-inner {
   padding: 0; }
 
 .home {
-  background: #DFF7FE; }
+  background: #DFF7FE;
+  height: 100%; }
 
 .logo {
   padding: 30px;
@@ -206,6 +207,16 @@ button::-moz-focus-inner {
 .google-auth-button:hover {
   font-weight: bold;
   color: #006285; }
+
+.landingHeader {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  line-height: 2.5rem; }
+
+.partnerLogo {
+  max-width: 160px;
+  padding: 20px 7%; }
 
 .intro {
   display: flex;

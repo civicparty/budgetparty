@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 import Tabs from './Tabs'
 import AuthForm from './AuthForm'
 import GoogleAuth from './GoogleAuth'
-import logo from '../images/budget_party_logo.svg'
+import projectconnect from '../images/projectconnect.png'
+import capmetro from '../images/capmetro.png'
+import glasshouse from '../images/glasshousepolicy.png'
 
 import { auth, login, anonymous_auth } from '../helpers/auth'
 
@@ -66,12 +68,23 @@ export default class Home extends Component {
     { id: 1, text: 'Log in' },
   ]
 
-  render () {
+  render() {
     return (
       <div className="home">
-        <div className="center-text">
-          <img src={logo} alt="Budget Party" className="logo"/>
+        <div className="flexcontainer">
+          <div className="flex">
+            <img src={projectconnect} alt="Project Connect Logo" className="flex partnerLogo" />
+          </div>
+          <div className="flex">
+            <img src={capmetro} alt="Cap Metro Logo" className=" partnerLogo" />
+          </div>
+          <div className="flex">
+            <img src={glasshouse} alt="Glasshouse Policy Logo" className="flex partnerLogo" />
+          </div>
         </div>
+
+        <h1 className="landingHeader">Project Connect <br /> Budget Party</h1>
+
         <div className="auth-form-wrapper">
           <Tabs
             tabList={this.tabList}
