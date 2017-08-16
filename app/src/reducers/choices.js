@@ -22,6 +22,7 @@ function choices(state = [], action = {}) {
         id: serviceId,
         title: action.serviceTime.title,
         hours: action.serviceTime.operatingHoursPerWeek,
+        hoursPerWeekday: action.serviceTime.operatingHoursPerDay,
         frequencyId: action.frequencyChoice.id,
         frequencyValue: action.frequencyChoice.value,
       }

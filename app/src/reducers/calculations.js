@@ -97,10 +97,13 @@ function calculations(state = [], action = {}) {
 
       const tripCountPerServiceTimeBlock = (serviceTimeBlock) => {
         if (serviceTimeBlock.frequencyValue === null) return 0
+        // TODO: clarify how to count daily hour for capacity
+        if (serviceTimeBlock.frequencyValue === null) return 0
         // trips per hour = (60 / frequency) * 2 (for roundtrip)
         const tripsPerHour = (60 / serviceTimeBlock.frequencyValue) * 2
-        // trip count = hours in service time range * trips per hour /// need to calculate trip count for each service time range
-        const tripCount = tripsPerHour * serviceTimeBlock.hours
+        // trip count = hours operating per day in service time range * trips per hour /// need to calculate trip count for each service time range
+        const weekdayHours = serviceTimeBlock.hoursPerWeekday ? serviceTimeBlock.hoursPerWeekday : 0
+        const tripCount = tripsPerHour * weekdayHours
         return tripCount
       }
 

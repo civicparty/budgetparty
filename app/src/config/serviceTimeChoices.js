@@ -3,6 +3,7 @@ const serviceTimeChoices = [
     id: 1,
     title: 'Peak Hours',
     times: '6-9am & 4-7pm',
+    operatingHoursPerDay: 6,
     operatingHoursPerWeek: 30,
     desc: 'TODO: goes around and around',
     frequencyChoices: [
@@ -21,6 +22,7 @@ const serviceTimeChoices = [
     id: 2,
     title: 'Off Peak Hours',
     times: '9am-4pm & 7-10pm',
+    operatingHoursPerDay: 10,
     operatingHoursPerWeek: 50,
     desc: 'TODO: connect the dots',
     frequencyChoices: [
