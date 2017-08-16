@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 import Navigation from '../Navigation'
 import IntroPage from './IntroPage'
-import ReviewPage from './ReviewPage'
+import CostsPage from './CostsPage'
+import CustomersPage from './CustomersPage'
 import SavePage from './SavePage'
 
 class Submit extends Component {
@@ -20,8 +21,11 @@ class Submit extends Component {
             <Route path="/submit" className="intro" exact
               render={() => <IntroPage {...this.props} />}
             />
-            <Route path="/submit/review" exact
-              render={() => <ReviewPage />}
+            <Route path="/submit/costs" exact
+              render={() => <CostsPage {...this.props} />}
+            />
+            <Route path="/submit/customers" exact
+              render={() => <CustomersPage {...this.props} />}
             />
             <Route path="/submit/save" exact
               render={() => <SavePage {...this.props} />}

@@ -5,7 +5,6 @@ const serviceTimeChoices = [
     times: '6-9am & 4-7pm',
     operatingHoursPerDay: 6,
     operatingHoursPerWeek: 30,
-    desc: 'TODO: goes around and around',
     frequencyChoices: [
       {
         id: 0,

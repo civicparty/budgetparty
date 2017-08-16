@@ -8,8 +8,8 @@ import backArrow from '../../images/back_arrow.svg'
 import forwardArrow from '../../images/forward_arrow.svg'
 
 
-const ReviewPage = (props) => {
-  const { services } = props
+const CustomerPage = (props) => {
+  const { choices } = props
 
   return (
     <div>
@@ -17,16 +17,14 @@ const ReviewPage = (props) => {
         <img src="/images/levels/envelope_full.svg" alt="Envelope Icon" />
       </div>
       <div className="Submit__body">
-        <h3>Customer Narratives to go here</h3>
-        {/* <h4 className="Submit__review-subtitle">You opted to...</h4>
+        <h2>Pretty exciting, right? Now, let’s hear what the community says about your transit plan.</h2>
 
-        <p className="Submit__review-service-list">
-          overview of choices here
-        </p> */}
+        <blockquote>{choices.mode.quote}</blockquote>
 
-        {/* <Link to="/dashboard" className="Submit__revise-link">Revise Project</Link> */}
+        <blockquote>{choices.guideway.quote}</blockquote>
+
         <div className="Submit__review-buttons">
-          <Link to="/submit" className="Department__edit-button">
+          <Link to="/submit/costs" className="Department__edit-button">
             <div className="flexconatiner">
               <img src={backArrow} alt="Back Arrow" className="left" style={{ padding: '6px 0 0 10px' }} />
               <span className="right" style={{ paddingRight: '20px' }}>Prev</span>
@@ -38,16 +36,13 @@ const ReviewPage = (props) => {
             <img src={forwardArrow} alt="Back Arrow" className="right" style={{ padding: '6px 10px 0 0' }} />
           </Link>
         </div>
-        <ProgressBar x={2} y={3} />
+        <ProgressBar x={3} y={4} />
       </div>
     </div>
   )
 };
 
-ReviewPage.propTypes = {
-  services: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
+CustomerPage.propTypes = {
 };
 
-export default ReviewPage;
+export default CustomerPage;

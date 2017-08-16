@@ -55,13 +55,13 @@ class SavePage extends Component {
           onChange={this.handleChange} value={this.state.zipcode}
         />
 
-        <label htmlFor="comments">Comments</label>
+        <label htmlFor="comments">How often do you currently use public transit? What do you use it for?</label>
         <textarea type="textarea" name="comments" id="comments" placeholder="Comments"
           onChange={this.handleChange} value={this.state.comments}
         />
 
         <div className="Submit__review-buttons">
-          <Link to="/submit/review" className="Service__edit-button">
+          <Link to="/dashboard" className="Service__edit-button">
             Revise
           </Link>
           <Link to="/done" className="Service__done-button"
@@ -71,7 +71,7 @@ class SavePage extends Component {
           </Link>
         </div>
 
-        <ProgressBar x={3} y={3} />
+        <ProgressBar x={4} y={4} />
       </div>
     )
   }
