@@ -116,7 +116,7 @@ const modeChoices = [
     id: 5,
     title: 'Heavy Rail (HRT)',
     disabled: true,
-    desc: 'Heavy rail operates in very dense cities such as New York and London. Operating and capital costs are among the highest of the modes and currently Austin does not have the density or funds to pay for a system.',
+    desc: 'Heavy rail operates in very dense cities such as New York and Chicago. Operating and capital costs are among the highest of the modes and currently Austin does not have the density or funds to pay for a system.',
     image: 'modes/Heavy_Rail.jpg',
     capacityPerVehicle: 130,
     capitalCostPerVehicle: 7000000,

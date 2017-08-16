@@ -29,15 +29,22 @@ const IntroPage = (props) => {
       <div className="Submit__summary">
         <p>You built a <b>{market.title}</b> route using <b>{mode.title}s</b> on a <b>{guideway.title}</b>.</p>
         <p>
-          Your {mode.title}s run:
+          Your {mode.title}s run on this schedule:
           <ul>
             { serviceTimesArray.map((time) => {
-              if (time.frequencyValue === null) return false
-              return (
-                <li key={time.id}>
-                  Every <b>{time.frequencyValue} minutes</b> during <b>{time.title}</b>
-                </li>
-              )
+              if (time.frequencyValue === null) {
+                return (
+                  <li key={time.id}>
+                    <b>No service</b> during <b>{time.title}</b>
+                  </li>
+                )
+              } else {
+                return (
+                  <li key={time.id}>
+                    Every <b>{time.frequencyValue} minutes</b> during <b>{time.title}</b>
+                  </li>
+                )
+              }
             })}
           </ul>
         </p>
@@ -59,7 +66,7 @@ const IntroPage = (props) => {
           &nbsp; for {vehicleCount} {mode.title}s
         </li>
         <li>
-          Guideway Costs: &nbsp;
+          Construction Costs: &nbsp;
           <FormattedNumber
             value={guidewayCost || 0}
             style="currency" //eslint-disable-line
@@ -69,7 +76,7 @@ const IntroPage = (props) => {
           />
         </li>
         <li>
-          Maintenance Costs: &nbsp;
+          Maintenance Facility Costs: &nbsp;
           <FormattedNumber
             value={maintenanceCost || 0}
             style="currency" //eslint-disable-line
@@ -79,7 +86,7 @@ const IntroPage = (props) => {
           />
         </li>
         <li>
-          Operating Costs: &nbsp;
+          Annual Operation & Maintenance Costs: &nbsp;
           <FormattedNumber
             value={operatingCost || 0}
             style="currency" //eslint-disable-line
@@ -111,7 +118,6 @@ const IntroPage = (props) => {
           maximumFractionDigits={1}
         />
       </span>
-
       <h3>Pretty exciting, right? Now, let’s hear what the community says about your transit plan.</h3>
       <div className="Submit__review-buttons">
         <Link to="/submit/review" className="Department__done-button">

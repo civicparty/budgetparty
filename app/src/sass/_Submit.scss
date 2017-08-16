@@ -179,10 +179,9 @@
 .Service__next-button {
   @include button-flex;
   @include primary-button;
-&:hover{
-background-color: $darkbluish;
-}
-
+  &:hover{
+    background-color: $darkbluish;
+  }
 }
 
 .Service__review-buttons {

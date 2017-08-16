@@ -16,7 +16,11 @@ export default class ServiceTimeChoices extends Component {
       <div>
         <Header {...this.props} />
 
+
         <div className="Choices__body">
+          <h3 className="Choices__empty-text">
+            Choose your desired operating hours and arrival frequency.
+          </h3>
           {serviceTimeChoices.map((serviceTime, i) => {
             return (
               <div key={i}>
@@ -34,7 +38,7 @@ export default class ServiceTimeChoices extends Component {
                           checked={isChecked}
                         />
                         <label htmlFor={`${serviceTime.id}: ${frequencyChoice.id}`}>
-                          {frequencyChoice.title}
+                          {frequencyChoice.value === null ? frequencyChoice.title : `Every ${frequencyChoice.title}`}
                         </label>
                       </div>
                     )

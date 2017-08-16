@@ -33,7 +33,7 @@ function calculations(state = [], action = {}) {
         const roundTripTime = (routeDistance * 2) / averageSpeed
         const frequency = serviceTimes[serviceTimeId].frequencyValue
         const vehicleCount = Math.ceil(roundTripTime * (60 / (frequency)))
-        return vehicleCount
+        return vehicleCount * 2 // for north and southbound
       }
 
       // MAX NUMBER peak hour vehicles NEEDED (Capital Cost)
