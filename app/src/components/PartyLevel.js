@@ -69,8 +69,8 @@ const PartyLevel = (props) => {
 
   return (
     // TODO: lock after debugging
-    // isLocked ?
-    false ?
+    // false ?
+    isLocked ?
       <div className={partyLevelCssClass}>
         <img src={`../images/${image}`}
           alt={title}

@@ -3,7 +3,7 @@ import _ from 'underscore'
 
 import Navigation from '../Navigation'
 import RouteChoices from './RouteChoices'
-import DropdownChoices from './DropdownChoices'
+import GuidewayChoices from './GuidewayChoices'
 import TransitModeChoices from './TransitModeChoices'
 import ServiceTimeChoices from './ServiceTimeChoices'
 import partyLevels from '../../config/partyLevels'
@@ -100,7 +100,7 @@ export default class Choices extends Component {
 
           {
             (level.index === 3) &&
-              <DropdownChoices {...this.props}
+              <GuidewayChoices {...this.props}
                 level={level}
                 choices={choices}
                 activeChoiceId={activeChoiceId}
