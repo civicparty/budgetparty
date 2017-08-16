@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.5a3dcac1.css",
-  "main.css.map": "static/css/main.5a3dcac1.css.map",
-  "main.js": "static/js/main.15d4bcd0.js",
-  "main.js.map": "static/js/main.15d4bcd0.js.map",
+  "main.css": "static/css/main.31ef0912.css",
+  "main.css.map": "static/css/main.31ef0912.css.map",
+  "main.js": "static/js/main.6a7188c0.js",
+  "main.js.map": "static/js/main.6a7188c0.js.map",
   "static/media/0.svg": "static/media/0.be50f608.svg",
   "static/media/1.svg": "static/media/1.4509fddb.svg",
   "static/media/2.svg": "static/media/2.ed3a0d75.svg",
@@ -12,11 +12,13 @@
   "static/media/avatar.svg": "static/media/avatar.b6fb5f96.svg",
   "static/media/back.svg": "static/media/back.04b0ee67.svg",
   "static/media/back_arrow.svg": "static/media/back_arrow.499162a1.svg",
-  "static/media/budget_party_logo.svg": "static/media/budget_party_logo.dce074a7.svg",
+  "static/media/capmetro.png": "static/media/capmetro.56f6bbb5.png",
   "static/media/check.svg": "static/media/check.a9a2c062.svg",
   "static/media/close.svg": "static/media/close.3c05d8c1.svg",
   "static/media/forward_arrow.svg": "static/media/forward_arrow.c179c84f.svg",
+  "static/media/glasshousepolicy.png": "static/media/glasshousepolicy.7bb2ef55.png",
   "static/media/lock.svg": "static/media/lock.710b4e4e.svg",
   "static/media/money.svg": "static/media/money.416f450b.svg",
-  "static/media/pencil.svg": "static/media/pencil.4fface59.svg"
+  "static/media/pencil.svg": "static/media/pencil.4fface59.svg",
+  "static/media/projectconnect.png": "static/media/projectconnect.91894c68.png"
 }
