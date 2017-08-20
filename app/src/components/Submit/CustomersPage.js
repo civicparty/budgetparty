@@ -10,7 +10,7 @@ import forwardArrow from '../../images/forward_arrow.svg'
 
 const CustomerPage = (props) => {
   const { choices } = props
-
+  
   return (
     <div>
       <div className="Submit__review-header">
@@ -22,6 +22,12 @@ const CustomerPage = (props) => {
         <blockquote>{choices.mode.quote}</blockquote>
 
         <blockquote>{choices.guideway.quote}</blockquote>
+
+        {Object.values(choices.serviceTimes).map((time) => {
+          return (
+            <blockquote>{time.quote}</blockquote>
+          )
+        })}
 
         <div className="Submit__review-buttons">
           <Link to="/submit/costs" className="Department__edit-button">

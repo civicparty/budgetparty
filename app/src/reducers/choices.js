@@ -25,6 +25,7 @@ function choices(state = [], action = {}) {
         hoursPerWeekday: action.serviceTime.operatingHoursPerDay,
         frequencyId: action.frequencyChoice.id,
         frequencyValue: action.frequencyChoice.value,
+        quote: action.frequencyChoice.quote,
       }
 
       const newState = { serviceTimes: serviceTimesState };
