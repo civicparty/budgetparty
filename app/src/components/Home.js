@@ -7,17 +7,17 @@ import projectconnect from '../images/projectconnect.png'
 import capmetro from '../images/capmetro.png'
 import glasshouse from '../images/glasshousepolicy.png'
 
-import { auth, login, anonymous_auth } from '../helpers/auth'
+import { auth, login, anonymousAuth } from '../helpers/auth'
 
 function setErrorMsg(error) {
   return {
-    errorText: error.message
+    errorText: error.message,
   }
 }
 
 function setLoginErrorMsg(error) {
   return {
-    errorText: error
+    errorText: error,
   }
 }
 
@@ -28,6 +28,18 @@ export default class Home extends Component {
     errorText: null,
   }
 
+  getAuthForm = () => {
+    return this.state.activeTab === 0
+      ?
+        <AuthForm actionHandler={this.handleRegister}
+          buttonText={'Create Account'}
+          errorText={this.state.errorText} />
+      :
+        <AuthForm actionHandler={this.handleLogin}
+          buttonText={'Sign in'}
+          errorText={this.state.errorText} />
+  }
+
   changeTab = (tab) => {
     this.setState({
       activeTab: tab.id,
@@ -35,9 +47,10 @@ export default class Home extends Component {
   }
 
   skipLogin = (e) => {
-    anonymous_auth()
+    anonymousAuth()
       .catch((error) => {
         this.setState(setLoginErrorMsg('Skip login is not supported as of now.'))
+        console.log(error)
       })
   }
 
@@ -49,18 +62,9 @@ export default class Home extends Component {
   handleLogin = (email, pwd) => {
     login(email, pwd)
       .catch((error) => {
-          this.setState(setLoginErrorMsg('Invalid username/password.'))
-        })
-  }
-
-  getAuthForm = () => {
-    return this.state.activeTab === 0
-            ? <AuthForm actionHandler={this.handleRegister}
-                buttonText={"Create Account"}
-                errorText={this.state.errorText} />
-            : <AuthForm actionHandler={this.handleLogin}
-                buttonText={"Sign in"}
-                errorText={this.state.errorText} />
+        this.setState(setLoginErrorMsg('Invalid username/password.'))
+        console.log(error)
+      })
   }
 
   tabList = [
