@@ -11,7 +11,7 @@ export default class GuidewayChoices extends Component {
       <div>
         <p>{ activeChoice.desc }</p>
         <p>Average speed: {activeChoice.averageSpeed} mph</p>
-        <p>Construction Cost per Mile: &nbsp;
+        <p>Construction cost per mile: &nbsp;
           <FormattedNumber
             value={activeChoice.capitalCostPerMile || 0}
             style="currency" //eslint-disable-line

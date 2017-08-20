@@ -18,7 +18,7 @@ export default class ServiceTimeChoices extends Component {
 
         <div className="Choices__body">
           <h3 className="Choices__empty-text">
-            Choose your desired operating hours and arrival frequency.
+            Choose your desired operating hours and arrival frequency. (Select one option per category.)
           </h3>
           {serviceTimeChoices.map((serviceTime, i) => {
             return (

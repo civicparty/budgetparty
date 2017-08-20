@@ -13,7 +13,7 @@ const partyLevels = [
     index: 3,
     title: 'Infrastructure & Guideway',
     image: 'levels/bus_stop.svg',
-    desc: "Investing in new transit doesn't stop at buying the vehicles. Planners must also budget for infrastructure items like stops, rail track, or other guideway costs. \n \n To play, choose the type of transit service you’d like to run on your route. \n \n To play, choose an appropriate guideway for the mode you’ve selected. \n \n TIP: Your choice of guideway will determine construction costs and whether traffic will affect travel time.",
+    desc: "Investing in new transit doesn't stop at buying the vehicles. Planners must also budget for infrastructure items like stops, rail track or other guideway costs. \n \n To play, choose an appropriate guideway for the mode you’ve selected. \n \n TIP: Your choice of guideway will determine construction costs and whether traffic will affect travel time.",
   }, {
     index: 4,
     title: 'Operating Hours',
