@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
-import introImg0 from '../images/intro-images/0.svg';
-import introImg1 from '../images/intro-images/1.svg';
-import introImg2 from '../images/intro-images/2.svg';
-import introImg3 from '../images/intro-images/3.svg';
+
+import introImg0 from '../images/intro-images/transit.svg';
+import introImg1 from '../images/intro-images/multi_modal.svg';
+import introImg2 from '../images/intro-images/operations.svg';
+import introImg3 from '../images/intro-images/money_bag.svg';
 import introImg4 from '../images/intro-images/4.svg';
-import introConfetti0 from '../images/intro-confetti/0.svg';
-import introConfetti1 from '../images/intro-confetti/1.svg';
+
+import introConfetti0 from '../images/intro-confetti/2.svg';
+import introConfetti1 from '../images/intro-confetti/4.svg';
 import introConfetti2 from '../images/intro-confetti/2.svg';
 import introConfetti3 from '../images/intro-confetti/3.svg';
 import introConfetti4 from '../images/intro-confetti/4.svg'

@@ -32,20 +32,23 @@
 
 .intro__img-0 {
   @include intro__img;
-  left: 27%;
-  top: 19%;
+  left: 20%;
+  top: 16%;
+  width: 200px;
 }
 
 .intro__img-1 {
   @include intro__img;
-  left: 27%;
-  top: 20%;
+  left: 26%;
+  top: 18%;
+  width: 145px;
 }
 
 .intro__img-2 {
   @include intro__img;
-  left: 17%;
+  left: 21%;
   top: 23%;
+  width: 190px;
 }
 
 .intro__img-3 {

@@ -101,7 +101,7 @@ export default class Home extends Component {
           </div>
 
         </div>
-        <Link onClick={this.skipLogin} to="/dashboard" className="auth-form__skip">Skip Login</Link>
+        <Link onClick={this.skipLogin} to="/intro/1" className="auth-form__skip">Skip Login</Link>
       </div>
     )
   }
