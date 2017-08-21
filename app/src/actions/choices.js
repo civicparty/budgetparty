@@ -26,3 +26,9 @@ export function selectServiceTimes(serviceTime, frequencyChoice) {
     frequencyChoice,
   };
 }
+
+export function confirmServiceTimes() {
+  return {
+    type: 'CONFIRM_SERVICE_TIMES',
+  };
+}

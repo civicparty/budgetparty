@@ -6,6 +6,7 @@ import {
   selectModeType,
   selectGuidewayType,
   selectServiceTimes,
+  confirmServiceTimes,
 } from '../actions/choices'
 
 import {
@@ -31,6 +32,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onSelectTimes: (serviceTime, frequencyChoice) => {
       dispatch(selectServiceTimes(serviceTime, frequencyChoice))
+    },
+    onConfirmSelectTimes: () => {
+      dispatch(confirmServiceTimes())
     },
     onUpdateAmounts: (choices) => {
       dispatch(updateBudgetAmount(choices))

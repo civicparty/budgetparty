@@ -10,6 +10,7 @@ export default class ServiceTimeChoices extends Component {
       activeChoice,
       serviceTimeChoices,
       handleChange,
+      toogleDefaults,
     } = this.props
 
     return (
@@ -48,7 +49,7 @@ export default class ServiceTimeChoices extends Component {
             )
           })}
           { activeChoice &&
-            <Link to="/dashboard/" className="Choices__button">
+            <Link to="/dashboard/" className="Choices__button" onClick={() => toogleDefaults()}>
               Select & Continue
             </Link>
           }

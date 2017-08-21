@@ -28,8 +28,13 @@ function choices(state = [], action = {}) {
         quote: action.frequencyChoice.quote,
       }
 
+      serviceTimesState.hasDefaultValues = false
+
       const newState = { serviceTimes: serviceTimesState };
       return Object.assign({}, state, newState)
+    case 'CONFIRM_SERVICE_TIMES':
+      state.serviceTimes.hasDefaultValues = false
+      return state
     default:
       return state;
   }

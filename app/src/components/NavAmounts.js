@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 const NavAmounts = (props) => {
   const { amount, header } = props
 
+  const numberStyle = props.numStyle ? props.numStyle : 'currency'
+
   const parsedAmount = (amount) => {
     if (amount < 1000000) {
       return [amount, '']
@@ -23,7 +25,7 @@ const NavAmounts = (props) => {
       <h4 className="TotalFundsAvailable__dollars">
         <FormattedNumber
           value={parsedAmount(amount)[0]}
-          style="currency" //eslint-disable-line
+          style={numberStyle} //eslint-disable-line
           currency="USD"
           minimumFractionDigits={0}
           maximumFractionDigits={2}
@@ -38,4 +40,6 @@ export default NavAmounts
 
 NavAmounts.propTypes = {
   amount: PropTypes.number.isRequired,
+  numStyle: PropTypes.string,
+  header: PropTypes.string,
 };

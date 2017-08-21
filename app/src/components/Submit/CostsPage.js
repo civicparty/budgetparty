@@ -28,26 +28,42 @@ const CostsPage = (props) => {
     <div className="Submit__intro-body">
       <img src={'/images/levels/envelope_full.svg'} className="Submit__img" alt="Envelope Icon" />
 
-      <h2 className="Submit__title">Total Estimated Cost</h2>
-      <span className="Submit__desc">
-        <FormattedNumber
-          value={totalCosts || 0}
-          style="currency" //eslint-disable-line
-          currency="USD"
-          minimumFractionDigits={0}
-          maximumFractionDigits={0}
-        />
-      </span>
-      <span className="Submit__smallcaps">
-        <span>original budget: </span>
-        <FormattedNumber
-          value={budgetAmount || 0}
-          style="currency" //eslint-disable-line
-          currency="USD"
-          minimumFractionDigits={0}
-          maximumFractionDigits={1}
-        />
-      </span>
+      <div className="margin-bottom">
+        <h2 className="Submit__title">Total Estimated Cost</h2>
+        <div className="Submit__desc">
+          <FormattedNumber
+            value={totalCosts || 0}
+            style="currency" //eslint-disable-line
+            currency="USD"
+            minimumFractionDigits={0}
+            maximumFractionDigits={0}
+          />
+        </div>
+        <span className="Submit__smallcaps">
+          <span>original budget: </span>
+          <FormattedNumber
+            value={budgetAmount || 0}
+            style="currency" //eslint-disable-line
+            currency="USD"
+            minimumFractionDigits={0}
+            maximumFractionDigits={1}
+          />
+        </span>
+      </div>
+
+      <div className="margin-bottom">
+        <h2 className="Submit__title">Daily Ridership Capacity</h2>
+        <div className="Submit__desc">
+          <FormattedNumber
+            value={capacityPerDay || 0}
+            style="decimal" //eslint-disable-line
+            currency="USD"
+            minimumFractionDigits={0}
+            maximumFractionDigits={0}
+          />
+        </div>
+        <span className="Submit__smallcaps">Weekday Estimate</span>
+      </div>
 
       <h3>Your Project Estimated Costs</h3>
       <div className="Submit__summary">

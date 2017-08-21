@@ -30,7 +30,8 @@ export default class Dashboard extends Component {
             const routeSelected = level.index === 1 && market && market.id;
             const modeSelected = level.index === 2 && mode && mode.id;
             const guidewaySelected = level.index === 3 && guideway && guideway.id;
-            const servicesSelected = level.index === 4 && serviceTimes > 0;
+            const servicesSelected = level.index === 4 && serviceTimes.hasDefaultValues === false &&
+                                     Object.keys(serviceTimes).length > 0;
             const skipIntroPage = routeSelected || modeSelected ||
                                   guidewaySelected || servicesSelected;
             const submitPage = level.index === 5

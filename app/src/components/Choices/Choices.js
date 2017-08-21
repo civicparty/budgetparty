@@ -19,6 +19,10 @@ export default class Choices extends Component {
     this.handleServiceTimeChange = this.handleServiceTimeChange.bind(this);
   }
 
+  componentWillMount() {
+    this.props.onUpdateAmounts(this.props.choices);
+  }
+
   componentWillReceiveProps(nextProps) {
     const { choices, onUpdateAmounts } = nextProps
 
@@ -32,6 +36,7 @@ export default class Choices extends Component {
       onSelectMarket,
       onSelectMode,
       onSelectGuideway,
+      onConfirmSelectTimes,
       choices,
     } = this.props
 
@@ -113,6 +118,7 @@ export default class Choices extends Component {
             (level.index === 4) &&
               <ServiceTimeChoices
                 handleChange={this.handleServiceTimeChange}
+                toogleDefaults = {this.props.onConfirmSelectTimes}
                 serviceTimeChoices={choices}
                 level={level}
                 activeChoice={activeChoice}
