@@ -150,7 +150,7 @@ const modeChoices = [
     id: 6,
     title: 'Commuter Rail (DMU)',
     desc: 'A train operated in its own right of way to carry riders from the downtown core to stops throughout the region.',
-    image: 'modes/Commuter_Rail.png',
+    image: 'modes/Commuter_Rail.jpg',
     capacityPerVehicle: 120,
     capitalCostPerVehicle: 3000000,
     Frequency: '15 – 60 minutes',
