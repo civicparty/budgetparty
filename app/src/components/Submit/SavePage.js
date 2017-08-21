@@ -12,7 +12,8 @@ class SavePage extends Component {
       name: (props.user && props.user.displayName) || '',
       email: (props.user && props.user.email) || '',
       zipcode: '',
-      comments: '',
+      transitUse: '',
+      placement: '',
     }
   }
 
@@ -28,12 +29,13 @@ class SavePage extends Component {
     const { user } = this.props;
 
     const userData = {
-      comments: this.state.comments,
+      transitUse: this.state.transitUse,
       name: this.state.name,
       email: this.state.email,
       student: this.state.student,
       schoolName: this.state.schoolName,
       zipcode: this.state.zipcode,
+      placement: this.state.placement,
     }
 
     return (
@@ -55,9 +57,14 @@ class SavePage extends Component {
           onChange={this.handleChange} value={this.state.zipcode}
         />
 
-        <label htmlFor="comments">How often do you currently use public transit? What do you use it for?</label>
-        <textarea type="textarea" name="comments" id="comments" placeholder="Comments"
-          onChange={this.handleChange} value={this.state.comments}
+        <label htmlFor="placement">Where would you choose to place the route you just designed?</label>
+        <textarea type="textarea" name="placement" id="placement" placeholder="Add your comments here"
+          onChange={this.handleChange} value={this.state.placement}
+        />
+
+        <label htmlFor="transitUse">How often do you currently use public transit? What do you use it for?</label>
+        <textarea type="textarea" name="transitUse" id="transitUse" placeholder="Add your comments here"
+          onChange={this.handleChange} value={this.state.transitUse}
         />
 
         <div className="Submit__review-buttons">
