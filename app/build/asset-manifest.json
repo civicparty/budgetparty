@@ -1,12 +1,10 @@
 {
-  "main.css": "static/css/main.31ef0912.css",
-  "main.css.map": "static/css/main.31ef0912.css.map",
-  "main.js": "static/js/main.6a7188c0.js",
-  "main.js.map": "static/js/main.6a7188c0.js.map",
-  "static/media/0.svg": "static/media/0.be50f608.svg",
-  "static/media/1.svg": "static/media/1.4509fddb.svg",
-  "static/media/2.svg": "static/media/2.ed3a0d75.svg",
-  "static/media/3.svg": "static/media/3.d57bf17b.svg",
+  "main.css": "static/css/main.98a04130.css",
+  "main.css.map": "static/css/main.98a04130.css.map",
+  "main.js": "static/js/main.28128d19.js",
+  "main.js.map": "static/js/main.28128d19.js.map",
+  "static/media/2.svg": "static/media/2.fc54c155.svg",
+  "static/media/3.svg": "static/media/3.ac54751c.svg",
   "static/media/4.svg": "static/media/4.79509ce1.svg",
   "static/media/auth_service_google.svg": "static/media/auth_service_google.70f0d980.svg",
   "static/media/avatar.svg": "static/media/avatar.b6fb5f96.svg",
@@ -19,6 +17,10 @@
   "static/media/glasshousepolicy.png": "static/media/glasshousepolicy.7bb2ef55.png",
   "static/media/lock.svg": "static/media/lock.710b4e4e.svg",
   "static/media/money.svg": "static/media/money.416f450b.svg",
+  "static/media/money_bag.svg": "static/media/money_bag.4509fddb.svg",
+  "static/media/multi_modal.svg": "static/media/multi_modal.cbfbb6c1.svg",
+  "static/media/operations.svg": "static/media/operations.9a0f171f.svg",
   "static/media/pencil.svg": "static/media/pencil.4fface59.svg",
-  "static/media/projectconnect.png": "static/media/projectconnect.91894c68.png"
+  "static/media/projectconnect.png": "static/media/projectconnect.91894c68.png",
+  "static/media/transit.svg": "static/media/transit.5d2156b6.svg"
 }
