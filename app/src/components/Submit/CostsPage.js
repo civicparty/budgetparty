@@ -18,7 +18,7 @@ const CostsPage = (props) => {
     maintenanceCost,
     operatingCost,
     capacityPerDay,
-    yearOfOperationFunded,
+    yearsOfOperationFunded,
     totalCosts,
     operatingCostPerRiderYearly,
     peakDailyCapacity,
@@ -118,7 +118,7 @@ const CostsPage = (props) => {
           <p>How many years can you fund operations with you remaining budget?</p>
           <strong className="Submit__title">
             <FormattedNumber
-              value={yearOfOperationFunded || 0}
+              value={yearsOfOperationFunded || 0}
               style="decimal" //eslint-disable-line
               minimumFractionDigits={0}
               maximumFractionDigits={2}
