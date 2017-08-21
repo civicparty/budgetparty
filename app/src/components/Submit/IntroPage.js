@@ -34,6 +34,7 @@ const IntroPage = (props) => {
           Your {mode.title}s run on this schedule:
           <ul>
             { serviceTimesArray.map((time) => {
+              if (typeof (time) === 'boolean') return false
               if (time.frequencyValue === null) {
                 return (
                   <li key={time.id}>
@@ -58,7 +59,7 @@ const IntroPage = (props) => {
           <img src={forwardArrow} alt="Back Arrow" className="right" style={{ padding: '6px 10px 0 0' }} />
         </Link>
       </div>
-      
+
       <ProgressBar x={1} y={4} />
     </div>
   )

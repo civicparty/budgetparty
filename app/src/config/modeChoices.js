@@ -107,7 +107,7 @@ const modeChoices = [
     guidewayChoices: [{
       id: 1,
       title: 'Fully Dedicated Fixed Railway',
-      desc: 'This guideway requires building new track in the road. Because cars can still drive in the same lane as the train, the train is only as fast as the rest of traffic.',
+      desc: 'This guideway requires building new track in the road. The train can travel without traffic however, the train will still need to yield to traffic signals along the route.',
       image: 'guideways/Fully_Dedicated_Fixed_Railway.jpg',
       quote: '“The train zips through some of the most congested roads. It took forever to build, though, and now local shop owners nearby complain that the tracks are cutting their customers off.”',
       costPerRevHour: 250,
