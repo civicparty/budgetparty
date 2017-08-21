@@ -100,7 +100,7 @@ const modeChoices = [
     routeDistance: '5 – 15 miles',
     distanceBetweenStops: '1/2 – 2 miles',
     capitalCostPerVehicle: 5000000,
-    minCapitalCostPerMile: 25000000,
+    minCapitalCostPerMile: 80000000,
     minMaintenanceCosts: 20000000,
     minAverageSpeed: 30,
     quote: '“I love how many people can ride and how modern – some might say, ‘sexy’ -- it looks, but it took forever to build the thing and cost way too much.”',
@@ -112,7 +112,7 @@ const modeChoices = [
       quote: '“The train zips through some of the most congested roads. It took forever to build, though, and now local shop owners nearby complain that the tracks are cutting their customers off.”',
       costPerRevHour: 250,
       averageSpeed: 30,
-      capitalCostPerMile: 25000000,
+      capitalCostPerMile: 80000000,
       maintenanceCosts: 20000000,
     }, {
       id: 2,
@@ -122,7 +122,7 @@ const modeChoices = [
       quote: '“I love how we don’t get stopped by traffic signals or stuck in traffic! Flying in the sky is fun and seems to be in keeping with Austin’s ‘weird’ vibe. Yet the neighbors are upset now that they have this ugly monstrosity looming over their homes and infringing on their privacy. You can forget sunbathing in your back yard!”',
       costPerRevHour: 250,
       averageSpeed: 40,
-      capitalCostPerMile: 45000000,
+      capitalCostPerMile: 120000000,
       maintenanceCosts: 20000000,
     }],
   }, {
