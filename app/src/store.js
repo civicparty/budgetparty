@@ -7,12 +7,14 @@ const serviceTimeDefaultState = {
     1: {
       id: 1,
       frequencyId: 0,
+      hours: 30,
       hoursPerWeekday: 6,
       frequencyValue: 15,
     },
     2: {
       id: 2,
       frequencyId: 0,
+      hours: 50,
       hoursPerWeekday: 10,
       frequencyValue: null,
     },

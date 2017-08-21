@@ -9,6 +9,7 @@ const modeChoices = [
     minCapitalCostPerMile: 700000,
     minMaintenanceCosts: 2500000,
     capacityPerVehicle: 50,
+    minAverageSpeed: 15,
     // guidewayChoices: [{
     //   id: 1,
     //   title: 'Mixed with Normal Traffic',
@@ -31,6 +32,7 @@ const modeChoices = [
     capitalCostPerVehicle: 700000,
     minCapitalCostPerMile: 2500000,
     minMaintenanceCosts: 2500000,
+    minAverageSpeed: 15,
     quote: '"I’m glad it didn’t take very long to build. It would have been better if it was a train though. People ride trains, not buses."',
     guidewayChoices: [{
       id: 1,
@@ -65,6 +67,7 @@ const modeChoices = [
     distanceBetweenStops: '1/8 mile – 1/2 mile',
     minCapitalCostPerMile: 15000000,
     minMaintenanceCosts: 25000000,
+    minAverageSpeed: 15,
     quote: '“There lots of cool restaurants and shops that have popped up nearby but it’s so slow -- I can walk faster than this thing! I can definitely bike faster than this!"',
     guidewayChoices: [{
       id: 1,
@@ -99,6 +102,7 @@ const modeChoices = [
     capitalCostPerVehicle: 5000000,
     minCapitalCostPerMile: 25000000,
     minMaintenanceCosts: 20000000,
+    minAverageSpeed: 30,
     quote: '“I love how many people can ride and how modern – some might say, ‘sexy’ -- it looks, but it took forever to build the thing and cost way too much.”',
     guidewayChoices: [{
       id: 1,
@@ -131,6 +135,7 @@ const modeChoices = [
     capitalCostPerVehicle: 7000000,
     minCapitalCostPerMile: 95000000,
     minMaintenanceCosts: 30000000,
+    minAverageSpeed: 40,
     // guidewayChoices: [{
     //   id: 1,
     //   title: 'Fully Dedicated Fixed Railway',
@@ -153,6 +158,7 @@ const modeChoices = [
     distanceBetweenStops: '1 – 5 miles',
     minCapitalCostPerMile: 20000000,
     minMaintenanceCosts: 10000000,
+    minAverageSpeed: 35,
     quote: '“I really enjoy the cushy seats and being able to get work done but there aren’t enough stops. Plus, it seems like it’s just serving people living in the ‘burbs instead of Austinites. And it should serve city residents since we’re paying for it.”',
     guidewayChoices: [{
       id: 1,
@@ -175,6 +181,7 @@ const modeChoices = [
     capitalCostPerVehicle: 5000000,
     minCapitalCostPerMile: 55000000,
     minMaintenanceCosts: 20000000,
+    minAverageSpeed: 8,
     // guidewayChoices: [{
     //   id: 1,
     //   title: 'Aerial Cable',

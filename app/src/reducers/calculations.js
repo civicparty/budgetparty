@@ -8,6 +8,7 @@ function calculations(state = [], action = {}) {
       return Object.assign({}, state, { budgetAmount: amount })
     case 'UPDATE_COSTS_AMOUNT':
       const { market, mode, guideway, serviceTimes } = action.choices
+      delete serviceTimes.hasDefaultValues
 
     // GUIDEWAY COSTS = routeDistance * capitalCostPerMile
       const routeDistance = (market && market.distance) || 1
@@ -29,7 +30,7 @@ function calculations(state = [], action = {}) {
         if (!serviceTimes || !serviceTimes[serviceTimeId]) return 0;
         if (serviceTimes[serviceTimeId].frequencyValue === null) return 0;
 
-        const averageSpeed = guideway && guideway.averageSpeed
+        const averageSpeed = guideway ? guideway.averageSpeed : (mode && mode.minAverageSpeed) || 15
         const roundTripTime = (routeDistance * 2) / averageSpeed
         const frequency = serviceTimes[serviceTimeId].frequencyValue
         const vehicleCount = Math.ceil(roundTripTime * (60 / (frequency)))
@@ -38,6 +39,7 @@ function calculations(state = [], action = {}) {
 
       // MAX NUMBER peak hour vehicles NEEDED (Capital Cost)
       const vehicleCounts = _.mapObject(serviceTimes, (item) => {
+        // if (typeof (item) === 'boolean') return 0
         return getVehicleCountByServiceTime(item.id)
       })
 
@@ -77,7 +79,7 @@ function calculations(state = [], action = {}) {
       const revenueHours = weeklyOperatingHours(serviceTimes, vehicleCounts) * 52
       console.log('revenueHours', revenueHours)
       const costPerRevHour = (guideway && guideway.costPerRevHour) || 1
-      const operatingCost = serviceTimes ? revenueHours * costPerRevHour : 0
+      const operatingCost = mode && serviceTimes ? revenueHours * costPerRevHour : 0
       console.log('operatingCost', operatingCost)
     // end
 
