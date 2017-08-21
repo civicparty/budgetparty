@@ -20,6 +20,8 @@ const CostsPage = (props) => {
     capacityPerDay,
     yearOfOperationFunded,
     totalCosts,
+    operatingCostPerRiderYearly,
+    peakDailyCapacity,
   } = props.calculations
   const { market, mode, guideway, serviceTimes } = props.choices
   const serviceTimesArray = Object.values(serviceTimes)
@@ -52,10 +54,10 @@ const CostsPage = (props) => {
       </div>
 
       <div className="margin-bottom">
-        <h2 className="Submit__title">Daily Ridership Capacity</h2>
+        <h2 className="Submit__title">Peak Ridership Capacity</h2>
         <div className="Submit__desc">
           <FormattedNumber
-            value={capacityPerDay || 0}
+            value={peakDailyCapacity || 0}
             style="decimal" //eslint-disable-line
             currency="USD"
             minimumFractionDigits={0}
@@ -126,19 +128,32 @@ const CostsPage = (props) => {
         </div>
 
         <div>
-          <h3 className="center-text">Ridership</h3>
-          <p>How close were you to meeting the 10,000 daily ridership demand?</p>
+          <div className="margin-bottom">
+            <h3 className="center-text"> Daily Ridership Capacity</h3>
+            <p>How close were you to meeting the 10,000 daily ridership demand?</p>
+            <strong className="Submit__title">
+              Your daily max capacity is estimated at &nbsp;
+              <FormattedNumber
+                value={capacityPerDay || 0}
+                style="decimal" //eslint-disable-line
+                minimumFractionDigits={0}
+                maximumFractionDigits={0}
+              />
+            </strong>
+          </div>
+
+          <p>What is the yearly cost of the route per rider?</p>
           <strong className="Submit__title">
-            Your daily max capacity is estimated at &nbsp;
+            Your yearly operating costs per rider is &nbsp;
             <FormattedNumber
-              value={capacityPerDay || 0}
-              style="decimal" //eslint-disable-line
-              minimumFractionDigits={0}
-              maximumFractionDigits={0}
+              value={operatingCostPerRiderYearly || 0}
+              style="currency" //eslint-disable-line
+              currency="USD"
+              minimumFractionDigits={2}
+              maximumFractionDigits={2}
             />
           </strong>
         </div>
-
       </div>
 
       <div className="Submit__review-buttons">
