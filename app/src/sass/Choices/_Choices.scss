@@ -46,6 +46,12 @@ $cover-height: 280px;
   display: block;
 }
 
+.Choices__button--nuetral {
+  @include nuetral-button;
+  margin-top: 20px;
+  display: block;
+}
+
 @mixin RadioChoices {
   list-style-type:none;
   margin:25px 0 0 0;

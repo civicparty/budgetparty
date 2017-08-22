@@ -47,6 +47,9 @@ a {
 p {
   white-space: pre-line; }
 
+.strong {
+  font-weight: bold; }
+
 .left {
   float: left; }
 
@@ -64,6 +67,9 @@ p {
 
 .Submit__summary ul {
   margin-top: 0; }
+
+.error-text {
+  color: #D0011B; }
 
 .form-group {
   margin-bottom: 15px; }
@@ -689,6 +695,29 @@ button::-moz-focus-inner {
   color: #ffffff;
   text-decoration: none; }
 
+.Choices__button--nuetral {
+  display: block;
+  width: 180px;
+  background-color: #ffffff;
+  border-color: #4D4D4D;
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+  min-width: 150px;
+  font-size: 18px;
+  border-radius: 25px;
+  margin: auto;
+  padding: 12px;
+  cursor: pointer;
+  background-color: #9B9B9B;
+  border-color: #9B9B9B;
+  margin-top: 20px;
+  display: block; }
+
+.Choices__button--nuetral:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
 .RouteChoices {
   list-style-type: none;
   margin: 25px 0 0 0;
@@ -807,6 +836,29 @@ button::-moz-focus-inner {
   position: relative; }
 
 .TransitModeChoices__button:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(50, 79, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08); }
+
+.TransitModeChoices__button--deemphasize {
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(50, 79, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.3);
+  background: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  text-decoration: none;
+  transition: all .15s ease;
+  margin: 5px;
+  flex: 1;
+  min-width: 25%;
+  max-width: 48%;
+  position: relative;
+  background: #F8F8F8; }
+
+.TransitModeChoices__button--deemphasize:hover {
   color: #ffffff;
   transform: translateY(-1px);
   box-shadow: 0 7px 14px rgba(50, 79, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08); }

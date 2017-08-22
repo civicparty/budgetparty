@@ -10,6 +10,7 @@ const modeChoices = [
     minMaintenanceCosts: 2500000,
     capacityPerVehicle: 50,
     minAverageSpeed: 15,
+    routeType: [null],
     // guidewayChoices: [{
     //   id: 1,
     //   title: 'Mixed with Normal Traffic',
@@ -34,6 +35,7 @@ const modeChoices = [
     minMaintenanceCosts: 2500000,
     minAverageSpeed: 15,
     quote: '"I’m glad it didn’t take very long to build. It would have been better if it was a train though. People ride trains, not buses."',
+    routeType: ['Commuter', 'Connector', 'Circulator'],
     guidewayChoices: [{
       id: 1,
       title: 'Mixed with Normal Traffic',
@@ -69,6 +71,7 @@ const modeChoices = [
     minMaintenanceCosts: 25000000,
     minAverageSpeed: 15,
     quote: '“There lots of cool restaurants and shops that have popped up nearby but it’s so slow -- I can walk faster than this thing! I can definitely bike faster than this!"',
+    routeType: ['Connector', 'Circulator'],
     guidewayChoices: [{
       id: 1,
       title: 'Fixed Rail with Mixed Traffic',
@@ -104,6 +107,7 @@ const modeChoices = [
     minMaintenanceCosts: 20000000,
     minAverageSpeed: 30,
     quote: '“I love how many people can ride and how modern – some might say, ‘sexy’ -- it looks, but it took forever to build the thing and cost way too much.”',
+    routeType: ['Commuter', 'Connector'],
     guidewayChoices: [{
       id: 1,
       title: 'Fully Dedicated Fixed Railway',
@@ -124,6 +128,16 @@ const modeChoices = [
       averageSpeed: 40,
       capitalCostPerMile: 120000000,
       maintenanceCosts: 20000000,
+    }, {
+      id: 3,
+      title: 'Underground',
+      desc: 'This guideway requires tunneling and building new track below the street. The train will only stop at stations and can travel as fast as the track allows.',
+      // image: 'guideways/Aerial_Guideway.jpg',
+      // quote: '“I love how we don’t get stopped by traffic signals or stuck in traffic! Flying in the sky is fun and seems to be in keeping with Austin’s ‘weird’ vibe. Yet the neighbors are upset now that they have this ugly monstrosity looming over their homes and infringing on their privacy. You can forget sunbathing in your back yard!”',
+      costPerRevHour: 250,
+      averageSpeed: 30,
+      capitalCostPerMile: 400000000,
+      maintenanceCosts: 20000000,
     }],
   }, {
     id: 5,
@@ -136,6 +150,7 @@ const modeChoices = [
     minCapitalCostPerMile: 95000000,
     minMaintenanceCosts: 30000000,
     minAverageSpeed: 40,
+    routeType: [null],
     // guidewayChoices: [{
     //   id: 1,
     //   title: 'Fully Dedicated Fixed Railway',
@@ -160,11 +175,12 @@ const modeChoices = [
     minMaintenanceCosts: 10000000,
     minAverageSpeed: 35,
     quote: '“I really enjoy the cushy seats and being able to get work done but there aren’t enough stops. Plus, it seems like it’s just serving people living in the ‘burbs instead of Austinites. And it should serve city residents since we’re paying for it.”',
+    routeType: ['Commuter'],
     guidewayChoices: [{
       id: 1,
       title: 'Fully Dedicated Fixed Railway',
       desc: 'This guideway requires building new track in the road. The train can travel without traffic however, the train will still need to yield to traffic signals along the route.',
-      image: 'guideways/heavy_rail_fixed_dedicated_guideway.jpg',
+      image: 'guideways/commuter_fixed_rail_guideway.jpg',
       quote: '“The train zips through some of the most congested roads. It took forever to build, though, and now local shop owners nearby complain that the tracks are cutting their customers off.”',
       costPerRevHour: 120,
       averageSpeed: 35,
@@ -182,6 +198,7 @@ const modeChoices = [
     minCapitalCostPerMile: 55000000,
     minMaintenanceCosts: 20000000,
     minAverageSpeed: 8,
+    routeType: [null],
     // guidewayChoices: [{
     //   id: 1,
     //   title: 'Aerial Cable',

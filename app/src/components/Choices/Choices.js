@@ -99,6 +99,7 @@ export default class Choices extends Component {
                 choices={choices}
                 activeChoiceId={activeChoiceId}
                 activeChoice={activeChoice}
+                activeRouteType={market}
                 handleChange={this.handleChange}
               />
           }

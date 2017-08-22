@@ -37,6 +37,16 @@
   position: relative;
 }
 
+.TransitModeChoices__button--deemphasize {
+  @include choices-buttons;
+  margin: 5px;
+  flex: 1;
+  min-width: 25%;
+  max-width: 48%;
+  position: relative;
+  background: $grey2;
+}
+
 .TransitModeChoices__input {
   @include hide-radio-input;
   opacity:0.011;

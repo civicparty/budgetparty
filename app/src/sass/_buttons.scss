@@ -72,6 +72,12 @@ button::-moz-focus-inner {
   border-color: $red;
 }
 
+@mixin nuetral-button {
+  @include button;
+  background-color: $anothergrey;
+  border-color: $anothergrey;
+}
+
 @mixin button-flex-container {
   display: flex;
   justify-content: center;

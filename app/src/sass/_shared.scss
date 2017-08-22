@@ -19,6 +19,10 @@ p {
   white-space: pre-line;
 }
 
+.strong {
+  font-weight: bold;
+}
+
 @mixin body {
   padding: 25px 40px;
 }
@@ -64,6 +68,10 @@ p {
 
 .Submit__summary ul {
   margin-top: 0;
+}
+
+.error-text {
+  color: $red;
 }
 
 // ---

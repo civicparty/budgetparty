@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import _ from 'underscore'
 
 import Header from './Header'
 
 export default class TransitModeChoices extends Component {
 
-  renderDescription(activeChoice, level) {
+  renderDescription(activeChoice, level, activeRouteTitle) {
     return (
       <div>
         <p>{ activeChoice.desc }</p>
@@ -14,6 +15,12 @@ export default class TransitModeChoices extends Component {
             <p>Passenger capacity: {activeChoice.capacityPerVehicle} (seated)</p>
             <p>Optimal route distance: {activeChoice.routeDistance}</p>
             <p>Distance between rail stops: {activeChoice.distanceBetweenStops}</p>
+          </div>
+        }
+        { !activeChoice.disabled && !_.contains(activeChoice.routeType, activeRouteTitle) &&
+          <div className="error-text strong">
+            <p>The {activeChoice.title} Mode Option is incompatible with the {activeRouteTitle} Route Type you chose in the previous level.</p>
+            <p>Go back and select a different Route Type if you would like to use {activeChoice.title}.</p>
           </div>
         }
       </div>
@@ -27,6 +34,7 @@ export default class TransitModeChoices extends Component {
       handleChange,
       activeChoice,
       activeChoiceId,
+      activeRouteType,
     } = this.props;
 
     const imageStyle = {
@@ -34,6 +42,8 @@ export default class TransitModeChoices extends Component {
       backgroundSize: 'cover',
       paddingTop: '65px',
     }
+
+    const activeRouteTitle = activeRouteType && activeRouteType.title
 
     return (
       <div>
@@ -53,15 +63,19 @@ export default class TransitModeChoices extends Component {
             <ul className="TransitModeChoices">
               {
                 choices.map((item) => {
+                  const isDeemphasized = !_.contains(item.routeType, activeRouteTitle)
+                  const buttonClass = `TransitModeChoices__button${isDeemphasized ? '--deemphasize' : ''}`
+                  const labelClass = `TransitModeChoices__labelText${isDeemphasized ? '--invalid' : ''}`
+
                   return (
-                    <li key={item.id} className="TransitModeChoices__button">
+                    <li key={item.id} className={buttonClass}>
                       <input type="radio" value={item.id}
                         className="TransitModeChoices__input"
                         id={`route_choice_${item.id}`}
                         checked={activeChoiceId === item.id}
                       />
                       <label htmlFor={`route_choice_${item.id}`}
-                        className={`TransitModeChoices__labelText${activeChoice.disabled ? '--invalid' : ''}`}>
+                        className={labelClass}>
                         {item.title}
                       </label>
                     </li>
@@ -75,16 +89,24 @@ export default class TransitModeChoices extends Component {
             <div>
               <h2>{ activeChoice.title }</h2>
               <div className="Choices__description">
-                { this.renderDescription(activeChoice, level) }
+                { this.renderDescription(activeChoice, level, activeRouteTitle) }
               </div>
             </div>
           }
 
-          { activeChoice && !activeChoice.disabled ?
-            <Link to="/dashboard/" className="Choices__button">
-              Select & Continue
-            </Link>
-            : activeChoice.disabled ?
+          {
+            activeChoiceId && !_.contains(activeChoice.routeType, activeRouteTitle) && !activeChoice.disabled
+            ?
+              <Link to="/level/1/choices" className="Choices__button--nuetral">
+                Go Back to Routes
+              </Link>
+            :
+            activeChoice && !activeChoice.disabled ?
+              <Link to="/dashboard/" className="Choices__button">
+                Select & Continue
+              </Link>
+            :
+            activeChoice.disabled ?
               <div className="Choices__button--invalid">Invalid Option</div>
             : ''
           }
