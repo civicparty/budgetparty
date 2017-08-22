@@ -132,7 +132,7 @@ const modeChoices = [
       id: 3,
       title: 'Underground',
       desc: 'This guideway requires tunneling and building new track below the street. The train will only stop at stations and can travel as fast as the track allows.',
-      // image: 'guideways/Aerial_Guideway.jpg',
+      image: 'guideways/Underground.jpg',
       // quote: '“I love how we don’t get stopped by traffic signals or stuck in traffic! Flying in the sky is fun and seems to be in keeping with Austin’s ‘weird’ vibe. Yet the neighbors are upset now that they have this ugly monstrosity looming over their homes and infringing on their privacy. You can forget sunbathing in your back yard!”',
       costPerRevHour: 250,
       averageSpeed: 30,
