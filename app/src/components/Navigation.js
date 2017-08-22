@@ -23,7 +23,7 @@ const Navigation = (props) => {
 
   const totalBudget = amounts && amounts.budgetAmount
   const totalCosts = amounts && amounts.totalCosts
-  const capacityPerDay = amounts && amounts.capacityPerDay
+  const peakDailyCapacity = amounts && amounts.peakDailyCapacity
 
   return (
     <nav className="Navigation">
@@ -46,7 +46,7 @@ const Navigation = (props) => {
             <p className="Navigation__welcome-message">{(user && user.displayName) || (user && user.email)}</p>
           </div>
       }
-      { capacityPerDay > 0 && <NavAmounts header="Daily Ridership" amount={capacityPerDay} numStyle="decimal" /> }
+      { peakDailyCapacity > 0 && <NavAmounts header="Peak Hours Capacity" amount={peakDailyCapacity} numStyle="decimal" /> }
       { totalCosts > 0 && <NavAmounts header="Total Costs" amount={totalCosts} /> }
       { totalBudget && <NavAmounts header="Total Budget" amount={totalBudget} /> }
       {
