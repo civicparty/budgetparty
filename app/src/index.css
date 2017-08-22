@@ -739,11 +739,13 @@ button::-moz-focus-inner {
 .RouteChoices input[type="radio"]:checked + label {
   background: #00A3DE;
   color: #ffffff;
-  border-radius: 4px; }
+  border-radius: 4px;
+  overflow-wrap: break-word; }
 
 .RouteChoices label {
   cursor: pointer;
-  z-index: 90; }
+  z-index: 90;
+  overflow-wrap: break-word; }
 
 .RouteChoices label:hover {
   background: #9B9B9B;
@@ -754,9 +756,10 @@ button::-moz-focus-inner {
   text-align: center; }
 
 .RouteChoices__img {
-  max-width: 100px;
   margin: auto;
-  display: block; }
+  display: block;
+  width: 95%;
+  max-width: 100px; }
 
 .RouteChoices__button {
   display: inline-block;
@@ -777,7 +780,8 @@ button::-moz-focus-inner {
 
 .RouteChoices__labelText {
   margin-top: 10px;
-  display: block; }
+  display: block;
+  overflow-wrap: break-word; }
 
 .RouteChoices__label {
   position: absolute;
@@ -785,7 +789,8 @@ button::-moz-focus-inner {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 10px; }
+  padding: 10px;
+  overflow-wrap: break-word; }
 
 .TransitModeChoices {
   padding: 0;
@@ -876,7 +881,8 @@ button::-moz-focus-inner {
 .TransitModeChoices__labelText--invalid {
   padding: 10px;
   display: block;
-  height: 100%; }
+  height: 100%;
+  overflow-wrap: break-word; }
 
 .ChangeByPercentButtons__adjustButtons {
   display: flex;

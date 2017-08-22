@@ -73,10 +73,12 @@ $cover-height: 280px;
     background: $brightblue;
     color: $white;
     border-radius: 4px;
+    overflow-wrap: break-word;
   }
   label {
     cursor: pointer;
     z-index: 90;
+    overflow-wrap: break-word;
     &:hover {
       background: $anothergrey;
       border-radius: 4px;
