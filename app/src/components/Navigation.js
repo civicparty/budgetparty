@@ -43,7 +43,6 @@ const Navigation = (props) => {
             <Link to="/user">
               <img src={(user && user.photoURL) || avatar} alt="User Account" className="Navigation__icon--left" />
             </Link>
-            <p className="Navigation__welcome-message">{(user && user.displayName) || (user && user.email)}</p>
           </div>
       }
       { peakDailyCapacity > 0 && <NavAmounts header="Peak Hours Capacity" amount={peakDailyCapacity} numStyle="decimal" /> }
