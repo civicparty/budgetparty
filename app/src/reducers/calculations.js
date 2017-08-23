@@ -28,7 +28,7 @@ function calculations(state = [], action = {}) {
     // VEHICLES COST & COUNT:
       const getVehicleCountByServiceTime = (serviceTimeId) => {
         if (!serviceTimes || !serviceTimes[serviceTimeId]) return 0;
-        if (serviceTimes[serviceTimeId].frequencyValue === null) return 0;
+        if (serviceTimes[serviceTimeId].frequencyValue === 0) return 0;
         console.log('calculating trip time', serviceTimes[serviceTimeId].title)
         const averageSpeed = guideway ? guideway.averageSpeed : (mode && mode.minAverageSpeed) || 15
         const tripTime = (routeDistance / averageSpeed) * 2
@@ -65,7 +65,7 @@ function calculations(state = [], action = {}) {
       const weeklyOperatingHours = (times, vehicleCounts) => {
         if (!times) return 0
         const hoursObj = _.mapObject(times, (item) => {
-          if (item.frequencyValue !== null) {
+          if (item.frequencyValue !== 0) {
             return item.hours
           } else {
             return 0
@@ -110,7 +110,7 @@ function calculations(state = [], action = {}) {
       console.log('capacityPerVehicle', capacityPerVehicle)
 
       const tripCountPerServiceTimeBlock = (serviceTimeBlock) => {
-        if (serviceTimeBlock.frequencyValue === null) return 0
+        if (serviceTimeBlock.frequencyValue === 0) return 0
         // TODO: clarify how to count daily hour for capacity
         if (typeof (serviceTimeBlock) === 'boolean') return 0
 

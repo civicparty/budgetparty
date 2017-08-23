@@ -35,7 +35,7 @@ const IntroPage = (props) => {
           <ul>
             { serviceTimesArray.map((time) => {
               if (typeof (time) === 'boolean') return false
-              if (time.frequencyValue === null) {
+              if (time.frequencyValue === 0) {
                 return (
                   <li key={time.id}>
                     <b>No service</b> during <b>{time.title}</b>
