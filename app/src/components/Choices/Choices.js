@@ -20,14 +20,14 @@ export default class Choices extends Component {
   }
 
   componentWillMount() {
-    this.props.onUpdateAmounts(this.props.choices);
+    // this.props.onUpdateAmounts(this.props.choices);
   }
 
   componentWillReceiveProps(nextProps) {
     const { choices, onUpdateAmounts } = nextProps
 
     if (choices !== this.props.choices) {
-      onUpdateAmounts(choices);
+      onUpdateAmounts(choices, this.props.user.uid);
     }
   }
 

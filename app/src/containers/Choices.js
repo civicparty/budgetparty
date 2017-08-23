@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import Choices from '../components/Choices/Choices'
+import { database } from '../config/constants'
 
 import {
   selectMarketType,
@@ -14,10 +15,27 @@ import {
   updateCostsAmount,
 } from '../actions/calculations'
 
+const persistToFirebase = (userId, choices) => {
+  const { market, serviceTimes, mode, guideway } = choices
+  debugger
+  if (!userId) return false
+
+  const leChoices = {
+    market: market || {},
+    mode: mode || {},
+    guideway: guideway || {},
+    serviceTimes: serviceTimes || {},
+  }
+
+  console.log('persisting ' + userId + ' to db: ', leChoices)
+  return database.app.database()
+          .ref(`users/${userId}`)
+          .update({ choices: leChoices })
+}
+
 const mapStateToProps = (state) => {
   return state
 }
-
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -36,9 +54,10 @@ const mapDispatchToProps = (dispatch) => {
     onConfirmSelectTimes: () => {
       dispatch(confirmServiceTimes())
     },
-    onUpdateAmounts: (choices) => {
+    onUpdateAmounts: (choices, userId) => {
       dispatch(updateBudgetAmount(choices))
       dispatch(updateCostsAmount(choices))
+      persistToFirebase(userId, choices)
     },
   }
 }

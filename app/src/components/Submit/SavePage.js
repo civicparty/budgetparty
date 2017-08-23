@@ -32,8 +32,6 @@ class SavePage extends Component {
       transitUse: this.state.transitUse,
       name: this.state.name,
       email: this.state.email,
-      student: this.state.student,
-      schoolName: this.state.schoolName,
       zipcode: this.state.zipcode,
       placement: this.state.placement,
     }
@@ -72,7 +70,7 @@ class SavePage extends Component {
             Revise
           </Link>
           <Link to="/done" className="Service__done-button"
-            // onClick={this.handleSubmit.bind(this, user.uid, userData)}
+            onClick={this.handleSubmit.bind(this, user.uid, userData)}
           >
             Submit
           </Link>

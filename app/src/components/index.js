@@ -12,7 +12,7 @@ import SubmitContainer from '../containers/Submit'
 import User from './User'
 import Done from './Done'
 import { firebaseAuth } from '../config/constants'
-import { logout } from '../helpers/auth'
+import { saveUser, logout } from '../helpers/auth'
 
 // Google Analytics
 ReactGA.initialize('')
@@ -43,6 +43,7 @@ export default class App extends Component {
 
   updateAuthState(user) {
     if (user) {
+      saveUser(user)
       this.setState({
         authed: true,
         loading: false,
@@ -70,17 +71,16 @@ export default class App extends Component {
         <div className="container">
           <div className="row">
             <Switch>
-              <Route path='/' exact render={() => {
+              <Route path="/" exact render={() => {
                 return this.state.authed
                 ? <Redirect to="/intro/1" />
                 : <Home />
               }} />
-              <Route path='/login' isAuthed={this.state.authed} render={() => {
+              <Route path="/login" user={this.state.user} render={(props) => {
                 return this.state.authed
                 ? <Redirect to="/intro/1" />
-                : <Home />
-                }}
-              />
+                : <Home {...props} />
+              }} />
               <Route path='/intro/:id' render={ props => {
                 return <Intro {...props} authed={this.state.authed}
                   handleLogout={this.handleLogout.bind(this)}
@@ -96,21 +96,29 @@ export default class App extends Component {
                   handleLogout={this.handleLogout.bind(this)}
                 />
               }} />
-              <Route path='/level/:level_id/choices' render={ props => {
-                return <ChoicesContainer {...props} isAuthed={this.state.authed}
-                  handleLogout={this.handleLogout.bind(this)}
-                />
+              <Route path="/level/:level_id/choices" render={(props) => {
+                return (
+                  <ChoicesContainer {...props} user={this.state.user}
+                    isAuthed={this.state.authed}
+                    handleLogout={this.handleLogout.bind(this)}
+                  />
+                )
               }} />
               <Route path="/submit" render={(props) => {
-                return (<SubmitContainer {...props} isAuthed={this.state.authed}
-                  handleLogout={this.handleLogout.bind(this)}
-                />)
+                return (
+                  <SubmitContainer user={this.state.user} {...props}
+                    isAuthed={this.state.authed}
+                    handleLogout={this.handleLogout.bind(this)}
+                  />
+                )
               }} />
-              <Route path='/user' render={ props => {
-                return <User isAuthed={this.state.authed}
-                  handleLogout={this.handleLogout.bind(this)}
-                />
-              }}/>
+              <Route path="/user" render={(props) => {
+                return (
+                  <User user={this.state.user} isAuthed={this.state.authed}
+                    handleLogout={this.handleLogout.bind(this)}
+                  />
+                )
+              }} />
               <Route path="/done" render={(props) => {
                 return <Done {...props} />
               }} />
