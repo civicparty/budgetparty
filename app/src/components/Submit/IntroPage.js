@@ -29,7 +29,7 @@ const IntroPage = (props) => {
       <img src={'/images/levels/envelope_full.svg'} className="Submit__img" alt="Envelope Icon" />
       <h2>Congratulations! You did it!</h2>
       <div className="Submit__summary">
-        <p>You built a <b>{market.title}</b> route using <b>{mode.title}s</b> on a <b>{guideway.title}</b>.</p>
+        <p>You built a <b>{market.title}</b> route using <b>{mode.title}</b> vehicles on a <b>{guideway.title}</b>.</p>
         <p>
           Your {mode.title}s run on this schedule:
           <ul>

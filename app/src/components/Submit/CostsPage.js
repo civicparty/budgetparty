@@ -54,7 +54,7 @@ const CostsPage = (props) => {
       </div>
 
       <div className="margin-bottom">
-        <h2 className="Submit__title">Peak Ridership Capacity</h2>
+        <h2 className="Submit__title">AM & PM Peak Capacity</h2>
         <div className="Submit__desc">
           <FormattedNumber
             value={peakDailyCapacity || 0}
@@ -64,10 +64,10 @@ const CostsPage = (props) => {
             maximumFractionDigits={0}
           />
         </div>
-        <span className="Submit__smallcaps">Weekday Estimate</span>
+        <span className="Submit__smallcaps">Target Ridership: 6,000 Riders</span>
       </div>
 
-      <h3>Your Project Estimated Costs</h3>
+      <h3>Your Estimated Project Costs</h3>
       <div className="Submit__summary">
         <ul>
           <li>
@@ -79,7 +79,7 @@ const CostsPage = (props) => {
               minimumFractionDigits={0}
               maximumFractionDigits={0}
             />
-            &nbsp; for {vehicleCount} {mode.title}s
+            &nbsp; for {vehicleCount} {mode.title} vehicles
           </li>
           <li>
             Construction Costs: &nbsp;
@@ -115,7 +115,7 @@ const CostsPage = (props) => {
 
         <div>
           <h3 className="center-text">Remaining Budget</h3>
-          <p>How many years can you fund operations with you remaining budget?</p>
+          <p>How many years can you fund operations with your remaining budget?</p>
           <strong className="Submit__title">
             <FormattedNumber
               value={yearsOfOperationFunded || 0}

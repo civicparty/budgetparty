@@ -106,7 +106,7 @@ const modeChoices = [
     minCapitalCostPerMile: 80000000,
     minMaintenanceCosts: 25000000,
     minAverageSpeed: 30,
-    quote: '“I love how many people can ride and how modern – some might say, ‘sexy’ -- it looks, but it took forever to build the thing and cost way too much.”',
+    quote: '“I love how many people can ride and how modern –- some might say, ‘sexy’ -- it looks, but it took forever to build the thing and cost way too much.”',
     routeType: ['Commuter', 'Connector', 'Circulator'],
     guidewayChoices: [{
       id: 1,

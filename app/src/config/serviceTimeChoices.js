@@ -16,7 +16,7 @@ const serviceTimeChoices = [
         id: 1,
         title: '10 min',
         value: 10,
-        quote: '“I can get to and from work easily. I can walk out my door and hardly wait at all! But it costs so much to run. Transit should be cheaper"',
+        quote: '“I can get to and from work easily. I can walk out my door and hardly wait at all! But it costs so much to run. Transit should be cheaper."',
       },
     ],
   }, {
@@ -62,7 +62,7 @@ const serviceTimeChoices = [
         id: 1,
         title: '30 min',
         value: 30,
-        quote: '"I love riding to the park or to catch a concert on the weekend. And it runs late enough that I can still get home after the show. It just doesn’t seem like anyone else is riding … like Austin doesn’t know they have transit here."',
+        quote: '"I love riding to the park or to catch a concert on the weekend. And it runs late enough that I can still get home after the show. It just doesn’t seem like anyone else is riding - like Austin doesn’t know they have transit here."',
       }, {
         id: 2,
         title: '15 min',
@@ -92,7 +92,7 @@ const serviceTimeChoices = [
         id: 2,
         title: '20 min',
         value: 20,
-        quote: '"My friends and I like to go with the flow and it’s easy to jump out the door and get to a show or bar in no time. The later the night though the rowdier the crowd gets and I’ve already spent enough of the evening having to fend off mosh pits that I don’t need another one while I’m trying to ride home."',
+        quote: '"My friends and I like to go with the flow and it’s easy to hop off and get to a show or club in no time. The later the night though the rowdier the crowd gets and I’ve already spent enough of the evening having to fend off "moshers" that I don’t need another one while I’m trying to ride home."',
       },
     ],
   },

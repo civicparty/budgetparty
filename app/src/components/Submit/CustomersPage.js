@@ -10,14 +10,14 @@ import forwardArrow from '../../images/forward_arrow.svg'
 
 const CustomerPage = (props) => {
   const { choices } = props
-  
+
   return (
     <div>
       <div className="Submit__review-header">
         <img src="/images/levels/envelope_full.svg" alt="Envelope Icon" />
       </div>
       <div className="Submit__body">
-        <h2>Pretty exciting, right? Now, let’s hear what the community says about your transit plan.</h2>
+        <h2>Now, let’s hear what the community says about your transit plan.</h2>
 
         <blockquote>{choices.mode.quote}</blockquote>
 
