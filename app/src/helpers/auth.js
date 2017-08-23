@@ -1,11 +1,12 @@
 import { database, firebaseAuth } from '../config/constants'
 
 export function saveUser(user) {
+  const date = new Date()
   return database.ref(`users/${user.uid}/info`)
-    .set({
+    .update({
       email: user.email,
       uid: user.uid,
-      // created_at: new Date(),
+      lastLogin: date,
     })
     .then(() => user)
 }
@@ -21,6 +22,7 @@ export function logout() {
 
 export function login(email, pw) {
   return firebaseAuth().signInWithEmailAndPassword(email, pw)
+    .then(user => saveUser(user))
 }
 
 export function resetPassword(email) {

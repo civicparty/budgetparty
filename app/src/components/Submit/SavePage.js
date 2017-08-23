@@ -17,8 +17,8 @@ class SavePage extends Component {
     }
   }
 
-  handleSubmit = (userId, data) => {
-    this.props.onSubmit(userId, data)
+  handleSubmit = (userId, data, gameId) => {
+    this.props.onSubmit(userId, data, gameId)
   }
 
   handleChange = (e) => {
@@ -26,7 +26,7 @@ class SavePage extends Component {
   }
 
   render() {
-    const { user } = this.props;
+    const { user, gameId } = this.props;
 
     const userData = {
       transitUse: this.state.transitUse,
@@ -70,7 +70,7 @@ class SavePage extends Component {
             Revise
           </Link>
           <Link to="/done" className="Service__done-button"
-            onClick={this.handleSubmit.bind(this, user.uid, userData)}
+            onClick={this.handleSubmit.bind(this, user.uid, userData, gameId)}
           >
             Submit
           </Link>

@@ -11,7 +11,7 @@ import ChoicesContainer from '../containers/Choices'
 import SubmitContainer from '../containers/Submit'
 import User from './User'
 import Done from './Done'
-import { firebaseAuth } from '../config/constants'
+import { firebaseAuth, database } from '../config/constants'
 import { saveUser, logout } from '../helpers/auth'
 
 // Google Analytics
@@ -30,6 +30,7 @@ export default class App extends Component {
       authed: false,
       loading: true,
       user: {},
+      gameSession: 1,
     }
   }
 
@@ -41,9 +42,27 @@ export default class App extends Component {
     this.removeListener()
   }
 
+  getGameId(user) {
+    const db = database.app.database()
+    const ref = db.ref(`users/${user.uid}/games`)
+    let numberOfGames
+
+    ref.once('value')
+      .then((snapshot) => {
+        numberOfGames = Number(snapshot.numChildren())
+        console.log('gameId', numberOfGames + 1)
+
+        this.setState({
+          gameSession: numberOfGames + 1,
+        })
+      })
+  }
+
   updateAuthState(user) {
     if (user) {
       saveUser(user)
+      this.getGameId(user)
+
       this.setState({
         authed: true,
         loading: false,
@@ -100,6 +119,7 @@ export default class App extends Component {
                 return (
                   <ChoicesContainer {...props} user={this.state.user}
                     isAuthed={this.state.authed}
+                    gameId={this.state.gameSession}
                     handleLogout={this.handleLogout.bind(this)}
                   />
                 )
@@ -107,6 +127,7 @@ export default class App extends Component {
               <Route path="/submit" render={(props) => {
                 return (
                   <SubmitContainer user={this.state.user} {...props}
+                    gameId={this.state.gameSession}
                     isAuthed={this.state.authed}
                     handleLogout={this.handleLogout.bind(this)}
                   />

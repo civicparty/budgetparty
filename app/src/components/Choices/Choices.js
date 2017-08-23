@@ -25,9 +25,10 @@ export default class Choices extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { choices, onUpdateAmounts } = nextProps
+    const { user, gameId } = this.props
 
     if (choices !== this.props.choices) {
-      onUpdateAmounts(choices, this.props.user.uid);
+      onUpdateAmounts(choices, user.uid, gameId);
     }
   }
 

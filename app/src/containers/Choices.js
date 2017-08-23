@@ -15,9 +15,9 @@ import {
   updateCostsAmount,
 } from '../actions/calculations'
 
-const persistToFirebase = (userId, choices) => {
+const persistToFirebase = (userId, choices, gameId) => {
   const { market, serviceTimes, mode, guideway } = choices
-  debugger
+
   if (!userId) return false
 
   const leChoices = {
@@ -25,11 +25,12 @@ const persistToFirebase = (userId, choices) => {
     mode: mode || {},
     guideway: guideway || {},
     serviceTimes: serviceTimes || {},
+    lastUpdated: new Date(),
   }
 
-  console.log('persisting ' + userId + ' to db: ', leChoices)
+  console.log(`persisting user: ${userId} game: ${gameId} to db: `, leChoices)
   return database.app.database()
-          .ref(`users/${userId}`)
+          .ref(`users/${userId}/games/${gameId}`)
           .update({ choices: leChoices })
 }
 
@@ -54,10 +55,10 @@ const mapDispatchToProps = (dispatch) => {
     onConfirmSelectTimes: () => {
       dispatch(confirmServiceTimes())
     },
-    onUpdateAmounts: (choices, userId) => {
+    onUpdateAmounts: (choices, userId, gameId) => {
       dispatch(updateBudgetAmount(choices))
       dispatch(updateCostsAmount(choices))
-      persistToFirebase(userId, choices)
+      persistToFirebase(userId, choices, gameId)
     },
   }
 }

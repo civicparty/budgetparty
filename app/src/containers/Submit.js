@@ -10,10 +10,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSubmit: (userId, data) => {
+    onSubmit: (userId, data, gameId) => {
       if (userId) {
         return database.app.database()
-                .ref(`users/${userId}/choices`)
+                .ref(`users/${userId}/games/${gameId}`)
                 .update({ comments: data })
       } else {
         return database.app.database()
