@@ -30,7 +30,7 @@ const serviceTimeChoices = [
       {
         id: 0,
         title: 'No service',
-        value: null,
+        value: 0,
         selected: true,
         quote: '"I wish the bus ran throughout the day so it better fits my schedule. Not everyone has a 9-5."',
       }, {
@@ -56,7 +56,7 @@ const serviceTimeChoices = [
       {
         id: 0,
         title: 'No service',
-        value: null,
+        value: 0,
         selected: true,
         quote: '"I wish the bus ran on the weekends so I could use it to get to Barton Springs."',
       }, {
@@ -82,7 +82,7 @@ const serviceTimeChoices = [
       {
         id: 0,
         title: 'No service',
-        value: null,
+        value: 0,
         selected: true,
         quote: '"I wish it ran later at night so I could go to live shows without taking an Uber or having to assign a designated driver."',
       }, {

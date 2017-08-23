@@ -38,7 +38,7 @@ export default class ServiceTimeChoices extends Component {
                           checked={isChecked}
                         />
                         <label htmlFor={`${serviceTime.id}: ${frequencyChoice.id}`}>
-                          {frequencyChoice.value === null ? frequencyChoice.title : `Every ${frequencyChoice.title}`}
+                          {frequencyChoice.value === 0 ? frequencyChoice.title : `Every ${frequencyChoice.title}`}
                         </label>
                       </div>
                     )
