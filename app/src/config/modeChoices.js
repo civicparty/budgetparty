@@ -130,7 +130,7 @@ const modeChoices = [
       maintenanceCosts: 25000000,
     }, {
       id: 3,
-      title: 'Underground',
+      title: 'Under Ground',
       desc: 'This guideway requires tunneling and building new track below the street. The train will only stop at stations and can travel as fast as the track allows.',
       image: 'guideways/Underground.jpg',
       quote: '“I like how the neighborhoods keep their character and I can still get to downtown quickly yet I can’t believe how long it took to build and there’s no money left for anything else.”',
