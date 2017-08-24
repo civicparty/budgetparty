@@ -142,7 +142,7 @@ const CostsPage = (props) => {
             </strong>
           </div>
 
-          <p>What is the yearly cost of the route per rider?</p>
+          {/* <p>What is the yearly cost of the route per rider?</p>
           <strong className="Submit__title">
             Your yearly operating costs per rider is &nbsp;
             <FormattedNumber
@@ -152,7 +152,7 @@ const CostsPage = (props) => {
               minimumFractionDigits={2}
               maximumFractionDigits={2}
             />
-          </strong>
+          </strong> */}
         </div>
       </div>
 
