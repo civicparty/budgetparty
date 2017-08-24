@@ -5,6 +5,7 @@ import AuthForm from './AuthForm'
 import GoogleAuth from './GoogleAuth'
 import projectconnect from '../images/projectconnect.png'
 import capmetro from '../images/capmetro.png'
+import austinmonitor from '../images/austinmonitor.png'
 import glasshouse from '../images/glasshousepolicy.png'
 
 import { auth, login, anonymousAuth } from '../helpers/auth'
@@ -80,11 +81,15 @@ export default class Home extends Component {
             <img src={projectconnect} alt="Project Connect Logo" className="flex partnerLogo" />
           </div>
           <div className="flex">
-            <img src={capmetro} alt="Cap Metro Logo" className=" partnerLogo" />
+            <img src={austinmonitor} alt="Austin Monitor Logo" className="flex partnerLogo" />
           </div>
           <div className="flex">
             <img src={glasshouse} alt="Glasshouse Policy Logo" className="flex partnerLogo" />
           </div>
+        </div>
+
+        <div className="flex center-text">
+          <img src={capmetro} alt="Cap Metro Logo" style={{ width: '40%' }} />
         </div>
 
         <h1 className="landingHeader">Project Connect <br /> Budget Party</h1>

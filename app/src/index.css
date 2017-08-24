@@ -172,7 +172,8 @@ button::-moz-focus-inner {
   border-color: #00A3DE;
   margin: 30px auto 10px;
   display: block;
-  width: 45%; }
+  width: 45%;
+  font-size: 16px; }
 
 .auth-form__button:hover {
   color: #ffffff;
@@ -227,8 +228,8 @@ button::-moz-focus-inner {
   line-height: 2.5rem; }
 
 .partnerLogo {
-  max-width: 160px;
-  padding: 20px 7%; }
+  max-width: 100%;
+  padding: 20px 15%; }
 
 .intro {
   display: flex;

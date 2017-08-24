@@ -77,6 +77,14 @@ class SavePage extends Component {
         </div>
 
         <ProgressBar x={4} y={4} />
+
+        <p style={{ margin: '20px 0' }} className="center-text">
+          <a href="https://github.com/civicparty/capmetro/wiki/Terms-of-Service" target="_blank">
+            Terms of Service
+          </a>
+        </p>
+
+
       </div>
     )
   }
