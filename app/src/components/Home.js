@@ -102,6 +102,12 @@ export default class Home extends Component {
 
         </div>
         <Link onClick={this.skipLogin} to="/intro/1" className="auth-form__skip">Skip Login</Link>
+
+        <div className="center-text" style={{ marginTop: '30px' }}>
+          <a href="https://civicparty.github.io/" target="_blank">
+            Made with ♥ in ATX by Civic Party Software
+          </a>
+        </div>
       </div>
     )
   }
