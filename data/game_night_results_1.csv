@@ -1,0 +1,56 @@
+user_number,timestamp,email,name,placement,tranist_use,zipcode,market_type_selected,mode_type_selected,guideway_type_selected,peak_hour_frequency,off_peak_hour_frequency,weekend_frequency,late_night_frequency
+0,2017-08-24 19:16:18-05:00,akikjudoka@yahoo.co.in,Akik Patel,East Austin to Manor,6 days a week,78756,Commuter,Commuter Rail (DMU),Dedicated Lane,15,15,0,30
+0,2017-08-24 19:17:39-05:00,akikjudoka@yahoo.co.in,"","","","",Commuter,Commuter Rail (DMU),Fully Dedicated Fixed Railway,15,15,30,30
+2,2017-08-25 10:30:01-05:00,"","","","","",Commuter,Bus Rapid Transit,Under Ground,10,10,15,20
+2,2017-08-25 10:31:54-05:00,"","","","","",Connector,Bus Rapid Transit,Mixed with Normal Traffic,15,0,0,0
+3,2017-08-24 18:42:40-05:00,layspmb@hotmail.com,"","","","",Connector,Modern Streetcar,Fixed Rail with Mixed Traffic,10,15,30,30
+3,2017-08-24 18:57:29-05:00,layspmb@hotmail.com,"","","","",Commuter,Commuter Rail (DMU),Fully Dedicated Fixed Railway,10,15,15,20
+4,2017-08-24 18:16:47-05:00,"","","","","",Circulator,Bus Rapid Transit,Dedicated Lane,15,15,30,30
+4,2017-08-27 12:29:15-05:00,"","","","","",Connector,Gondola,"",15,0,0,0
+6,2017-08-24 19:10:23-05:00,agedwhitecheddar@gmail.com,"","","","",Commuter,Commuter Rail (DMU),Aerial Railway,10,15,30,0
+6,2017-08-24 19:11:53-05:00,agedwhitecheddar@gmail.com,"","","","",Connector,Light Rail (LRT),Aerial Railway,10,15,30,0
+14,2017-08-25 10:15:18-05:00,"","","","","",Commuter,Light Rail (LRT),Under Ground,15,15,30,30
+17,2017-08-26 12:10:46-05:00,"","","","","",Connector,Light Rail (LRT),Fixed Rail with Mixed Traffic,10,15,30,0
+18,2017-08-24 19:08:26-05:00,"","","","","",Commuter,Light Rail (LRT),Fully Dedicated Fixed Railway,15,0,0,0
+18,2017-08-24 19:12:11-05:00,"","","","","",Commuter,Bus Rapid Transit,Dedicated Lane,10,15,30,0
+19,2017-08-24 19:18:19-05:00,"","","","","",Circulator,Bus Rapid Transit,"",15,0,0,0
+20,2017-08-24 14:41:32-05:00,"","","","","",Connector,Light Rail (LRT),Fully Dedicated Fixed Railway,10,15,30,30
+20,2017-08-24 14:43:56-05:00,"","","","","",Commuter,Light Rail (LRT),Fully Dedicated Fixed Railway,10,15,15,30
+20,2017-08-24 14:46:45-05:00,"","","","","",Commuter,Light Rail (LRT),Aerial Railway,10,15,30,30
+21,2017-08-28 16:05:06-05:00,"","","","","",Circulator,Modern Streetcar,Fixed Rail with Mixed Traffic,10,15,15,0
+25,2017-08-24 18:57:03-05:00,james.mccuen1@gmail.com,James McCuen,"","","",Commuter,Light Rail (LRT),Mixed with Normal Traffic,10,15,30,30
+25,2017-08-24 18:57:19-05:00,james.mccuen1@gmail.com,"","","","",Commuter,Commuter Rail (DMU),Fully Dedicated Fixed Railway,15,0,0,0
+25,2017-08-24 18:59:24-05:00,james.mccuen1@gmail.com,James McCuen,"","",78704,Commuter,Modern Streetcar,Fixed Rail with Mixed Traffic,10,15,30,30
+26,2017-08-28 10:37:59-05:00,"","","","","",Connector,Light Rail (LRT),Fully Dedicated Fixed Railway,10,15,30,0
+26,2017-08-28 11:29:44-05:00,"","","","","",Circulator,Light Rail (LRT),Fully Dedicated Fixed Railway,10,15,30,0
+26,2017-08-28 14:30:04-05:00,"","","","","",Commuter,Bus Rapid Transit,Mixed with Normal Traffic,10,15,30,0
+26,2017-08-28 14:34:07-05:00,"","","","","",Circulator,Modern Streetcar,Fixed Rail with Mixed Traffic,15,10,30,0
+31,2017-08-24 18:16:36-05:00,"","","","","",Connector,"","",15,0,0,0
+31,2017-08-24 18:32:35-05:00,"","","","","",Commuter,"","",15,0,0,0
+33,2017-08-24 19:06:36-05:00,info@christophvel.com,Chris Vela,"","","",Commuter,Bus Rapid Transit,Fully Dedicated Fixed Railway,15,0,0,0
+37,2017-08-24 18:41:43-05:00,linrui.li@utexas.edu,Lin Rui Li,all over austin,everyday for everything,78705,Commuter,Bus Rapid Transit,Dedicated Lane,10,15,15,30
+37,2017-08-24 19:00:19-05:00,loualcorn@utexas.edu,Louis Alcorn,East-west downtown along proposed 804 alignment from Shady Ln. to east of Mopac on 7th Street. (Force the city to convert 7th street to two-way downtown with LRT lanes),UT campus access and circulation,78705,Circulator,Light Rail (LRT),Dedicated Lane,10,10,15,20
+38,2017-08-24 18:54:36-05:00,pgoetz@mail.utexas.edu,"","","","",Commuter,Bus Rapid Transit,Aerial Railway,15,15,30,30
+38,2017-08-24 18:55:44-05:00,pgoetz@mail.utexas.edu,"","","","",Commuter,Bus Rapid Transit,Dedicated Lane,15,15,30,30
+38,2017-08-24 18:56:31-05:00,pgoetz@mail.utexas.edu,"","","","",Commuter,Rapid Bus,"",15,0,0,0
+38,2017-08-24 18:57:12-05:00,pgoetz@mail.utexas.edu,"","","","",Commuter,Commuter Rail (DMU),Fully Dedicated Fixed Railway,15,15,30,30
+38,2017-08-24 18:59:30-05:00,pgoetz@mail.utexas.edu,"","","","",Commuter,Light Rail (LRT),Fully Dedicated Fixed Railway,10,15,30,30
+38,2017-08-24 19:00:55-05:00,pgoetz@mail.utexas.edu,"","","","",Commuter,Bus Rapid Transit,Dedicated Lane,10,15,30,30
+39,2017-08-24 18:40:33-05:00,"","","","","",Commuter,Rapid Bus,Fully Dedicated Fixed Railway,10,15,30,30
+41,2017-08-24 18:57:57-05:00,coleen.elaine@gmail.com,Team 6,Congress Ave,Every day,78751,Circulator,Modern Streetcar,Fully Dedicated Fixed Railway,10,15,15,20
+41,2017-08-24 19:08:49-05:00,"","","","","",Connector,Bus Rapid Transit,Dedicated Lane,10,10,15,30
+41,2017-08-24 19:12:35-05:00,"","","","","",Commuter,Commuter Rail (DMU),Fully Dedicated Fixed Railway,10,15,15,30
+41,2017-08-24 19:22:40-05:00,"","","","","",Connector,Light Rail (LRT),Fully Dedicated Fixed Railway,10,10,15,20
+41,2017-08-24 19:26:43-05:00,"","","","","",Circulator,Gondola,Dedicated Lane,10,10,15,20
+43,2017-08-24 19:04:13-05:00,"","","","","",Commuter,Commuter Rail (DMU),Fully Dedicated Fixed Railway,10,15,30,30
+44,2017-08-24 19:10:17-05:00,graham.a.bates@gmail.com,Graham Bates,from the airport to plaza saltillo or the convention center,1-2 times a week to downtown,78751,Commuter,Commuter Rail (DMU),Mixed with Normal Traffic,10,10,15,30
+44,2017-08-24 19:38:57-05:00,graham.a.bates@gmail.com,"","","","",Commuter,Commuter Rail (DMU),Mixed with Normal Traffic,15,0,0,0
+45,2017-08-24 19:01:18-05:00,j-cardenas@tti.tamu.edu,James,Downtown,1-2 month,"",Commuter,Bus Rapid Transit,Mixed with Normal Traffic,15,15,15,20
+45,2017-08-25 07:58:34-05:00,j-cardenas@tti.tamu.edu,"","","","",Commuter,Bus Rapid Transit,Dedicated Lane,15,15,15,20
+49,2017-08-24 19:08:02-05:00,jlacroix@jlacroix.net,"","","","",Connector,Bus Rapid Transit,Mixed with Normal Traffic,15,10,15,20
+50,2017-08-24 10:19:35-05:00,stephaniektrinh@gmail.com,"","","","",Connector,Light Rail (LRT),Fully Dedicated Fixed Railway,10,15,15,30
+53,2017-08-24 19:04:10-05:00,gail@thewhitfieldco.com,"","","","",Commuter,Commuter Rail (DMU),Aerial Railway,10,15,15,30
+53,2017-08-24 19:13:16-05:00,gail@thewhitfieldco.com,"","","","",Circulator,Bus Rapid Transit,Fully Dedicated Fixed Railway,10,10,15,30
+53,2017-08-24 19:16:38-05:00,gail@thewhitfieldco.com,gail whitfield,"","",78746,Connector,Light Rail (LRT),Fully Dedicated Fixed Railway,10,15,30,30
+56,2017-08-24 09:22:18-05:00,yssy3@hotmail.com,Alyssa,On the west side of town on 360 from 183 to MoPac South. ,None. There is none out west to my work (360 & Bee Caves Rd) and on the weekend I stay near my house. ,78758,Commuter,Commuter Rail (DMU),Fully Dedicated Fixed Railway,10,15,30,30
+57,2017-08-24 18:06:09-05:00,"","","","","",Commuter,Light Rail (LRT),"",15,0,0,0
