@@ -15,3 +15,8 @@ export function selectVehicleQuantity(quantity) {
     quantity
   }
 }
+
+export function userRestart() {
+  console.log('resetting state');
+  return { type: 'USER_RESTART' }
+}

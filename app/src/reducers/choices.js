@@ -1,4 +1,5 @@
 import _ from 'underscore'
+import { rootReducer } from './index'
 
 function choices(state = [], action = {}) {
   switch (action.type) {
@@ -35,6 +36,9 @@ function choices(state = [], action = {}) {
     case 'CONFIRM_SERVICE_TIMES':
       state.serviceTimes.hasDefaultValues = false
       return state
+    case 'USER_RESTART':
+      state = undefined;
+      return rootReducer(state, action)
     default:
       return state;
   }

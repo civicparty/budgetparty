@@ -7,4 +7,13 @@ const rootReducer = combineReducers({
   calculations,
 });
 
-export default rootReducer;
+
+const resetReducer = (state, action) => {
+  if (action.type === 'USER_RESTART') {
+    state = undefined;
+  }
+
+  return rootReducer(state, action);
+}
+
+export { rootReducer, resetReducer };

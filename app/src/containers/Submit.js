@@ -2,6 +2,8 @@ import { connect } from 'react-redux'
 import Submit from '../components/Submit/Index.js'
 import { database } from '../config/constants'
 
+import { userRestart } from '../actions/index'
+
 // import any actions
 
 const mapStateToProps = (state) => {
@@ -12,14 +14,16 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onSubmit: (userId, data, gameId) => {
       if (userId) {
-        return database.app.database()
+        database.app.database()
                 .ref(`users/${userId}/games/${gameId}`)
                 .update({ comments: data })
       } else {
-        return database.app.database()
+        database.app.database()
                 .ref('userResults')
                 .push(data)
       }
+
+      dispatch(userRestart());
     },
   }
 }

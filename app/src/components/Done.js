@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import moneyImg from '../images/money.svg'
-// import PropTypes from 'prop-types';
-
 
 export default class Done extends Component {
   render() {
@@ -12,7 +10,7 @@ export default class Done extends Component {
         <p className="intro__text">
           Thank You! <br />
         </p>
-        <Link to="/dashboard" className="Submit__next-button">Go Home</Link>
+        <Link to="/dashboard" className="Submit__next-button">Play Again</Link>
         <Link to="https://capmetro.org/projectconnect/" className="center-text">
           Learn More about Project Connect
         </Link>
@@ -20,7 +18,3 @@ export default class Done extends Component {
     )
   }
 }
-
-// Done.propTypes = {
-//
-// };
